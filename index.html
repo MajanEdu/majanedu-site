@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مكتب ماجان للتدريب والتعليم</title>
-  <meta name="description" content="مكتب ماجان للتدريب والتعليم - نقدم خدمات القبول الجامعي، معاهد اللغة، والاستشارات التعليمية في بريطانيا." />
+  <meta name="description" content="مكتب ماجان للتدريب والتعليم - استشارات تعليمية، قبولات جامعية، معاهد لغة، وشراكات تعليمية موثوقة." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,9 +19,9 @@
 
     body {
       font-family: 'Cairo', sans-serif;
-      background: #f5f7fb;
+      background: #f6f8fc;
       color: #0b2345;
-      line-height: 1.8;
+      line-height: 1.9;
       overflow-x: hidden;
     }
 
@@ -37,13 +37,13 @@
 
     .container {
       width: 90%;
-      max-width: 1300px;
+      max-width: 1320px;
       margin: auto;
     }
 
-    /* HEADER */
     header {
-      background: #ffffff;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
@@ -54,33 +54,35 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
       padding: 18px 0;
-      gap: 20px;
     }
 
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 14px;
     }
 
     .logo-area img {
-      width: 75px;
-      height: auto;
+      width: 72px;
+      height: 72px;
       object-fit: contain;
+      border-radius: 12px;
+      background: #fff;
     }
 
     .brand-text h1 {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 900;
       color: #0b2345;
       margin-bottom: 2px;
     }
 
     .brand-text p {
-      font-size: 12px;
       color: #c49a2c;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 800;
     }
 
     nav ul {
@@ -101,44 +103,59 @@
       color: #c49a2c;
     }
 
-    /* HERO */
     .hero {
       background:
-        linear-gradient(135deg, rgba(11,35,69,0.92), rgba(5,27,63,0.95)),
-        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        linear-gradient(135deg, rgba(8,31,63,0.93), rgba(13,43,86,0.92)),
+        url('LOGO.jpg') center/contain no-repeat,
+        linear-gradient(135deg, #0b2345, #102f59);
       color: white;
-      padding: 110px 0 120px;
       text-align: center;
+      padding: 110px 0 120px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero .hero-logo {
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(196,154,44,0.18), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06), transparent 25%);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-logo {
       width: 130px;
       margin: 0 auto 25px;
-      padding: 18px;
+      padding: 16px;
+      border-radius: 24px;
       background: rgba(255,255,255,0.08);
-      border-radius: 28px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     }
 
     .hero h2 {
-      font-size: 68px;
+      font-size: clamp(2.4rem, 6vw, 5rem);
       font-weight: 900;
-      margin-bottom: 18px;
-      line-height: 1.3;
+      margin-bottom: 16px;
+      line-height: 1.35;
     }
 
     .hero p {
-      font-size: 20px;
       max-width: 950px;
       margin: auto;
-      color: #f0f2f7;
+      font-size: 1.3rem;
+      color: #edf2f7;
     }
 
     .hero-buttons {
-      margin-top: 35px;
+      margin-top: 34px;
       display: flex;
       justify-content: center;
       gap: 18px;
@@ -146,75 +163,73 @@
     }
 
     .btn {
+      display: inline-block;
       padding: 16px 34px;
       border-radius: 18px;
-      font-size: 20px;
+      font-size: 1.1rem;
       font-weight: 800;
       transition: 0.3s ease;
-      display: inline-block;
     }
 
     .btn-gold {
       background: #c49a2c;
       color: white;
-      box-shadow: 0 10px 25px rgba(196,154,44,0.35);
+      box-shadow: 0 10px 28px rgba(196,154,44,0.35);
     }
 
     .btn-gold:hover {
-      background: #b48921;
+      background: #b48a22;
       transform: translateY(-3px);
     }
 
     .btn-outline {
       background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
       color: white;
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(6px);
     }
 
     .btn-outline:hover {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.18);
       transform: translateY(-3px);
     }
 
-    /* SECTIONS */
     section {
-      padding: 90px 0;
+      padding: 95px 0;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .section-title h3 {
-      font-size: 52px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       color: #0b2345;
       font-weight: 900;
       margin-bottom: 10px;
     }
 
     .section-title p {
-      color: #7d8799;
-      font-size: 18px;
-      max-width: 800px;
+      color: #7a8597;
+      font-size: 1.1rem;
+      max-width: 850px;
       margin: auto;
     }
 
-    /* ABOUT */
     .about-box {
       background: white;
       border-radius: 28px;
-      padding: 45px;
-      box-shadow: 0 12px 35px rgba(11,35,69,0.07);
+      padding: 48px;
+      box-shadow: 0 15px 40px rgba(11,35,69,0.07);
       text-align: center;
-      max-width: 1000px;
+      max-width: 1050px;
       margin: auto;
-      font-size: 22px;
-      color: #33415c;
-      line-height: 2;
+      font-size: 1.2rem;
+      color: #374151;
+      line-height: 2.1;
     }
 
-    /* SERVICES */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -225,29 +240,35 @@
     .card {
       background: white;
       border-radius: 26px;
-      padding: 35px 28px;
+      padding: 34px 28px;
       text-align: center;
-      box-shadow: 0 12px 35px rgba(11,35,69,0.07);
+      box-shadow: 0 14px 38px rgba(11,35,69,0.06);
       transition: 0.3s ease;
+      border: 1px solid #eef2f7;
     }
 
     .card:hover {
       transform: translateY(-8px);
+      box-shadow: 0 18px 44px rgba(11,35,69,0.1);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
     }
 
     .card h4 {
-      font-size: 28px;
-      margin-bottom: 15px;
+      font-size: 1.55rem;
+      margin-bottom: 10px;
       color: #0b2345;
       font-weight: 900;
     }
 
     .card p {
       color: #6f7b8f;
-      font-size: 18px;
+      font-size: 1rem;
     }
 
-    /* LOGO GRIDS */
     .logo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -259,12 +280,13 @@
     .logo-card {
       background: white;
       border-radius: 24px;
-      padding: 30px 20px;
+      padding: 28px 22px;
+      min-height: 160px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 160px;
-      box-shadow: 0 12px 35px rgba(11,35,69,0.06);
+      box-shadow: 0 12px 34px rgba(11,35,69,0.06);
+      border: 1px solid #eef2f7;
       transition: 0.3s ease;
     }
 
@@ -278,7 +300,62 @@
       object-fit: contain;
     }
 
-    /* CONTACT */
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 45px;
+    }
+
+    .review-card {
+      background: white;
+      border-radius: 26px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 34px rgba(11,35,69,0.06);
+      border: 1px solid #eef2f7;
+    }
+
+    .stars {
+      color: #c49a2c;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .review-card p {
+      color: #556070;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .review-card h5 {
+      color: #0b2345;
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #0b2345, #12325d);
+      color: white;
+      text-align: center;
+      border-radius: 32px;
+      padding: 70px 30px;
+      box-shadow: 0 18px 46px rgba(11,35,69,0.14);
+    }
+
+    .cta-box h3 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 14px;
+      font-weight: 900;
+    }
+
+    .cta-box p {
+      max-width: 850px;
+      margin: auto;
+      color: #e5e7eb;
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+    }
+
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -289,54 +366,54 @@
     .contact-card {
       background: white;
       border-radius: 26px;
-      padding: 35px 25px;
+      padding: 34px 24px;
       text-align: center;
-      box-shadow: 0 12px 35px rgba(11,35,69,0.06);
+      box-shadow: 0 12px 34px rgba(11,35,69,0.06);
+      border: 1px solid #eef2f7;
     }
 
     .contact-card h4 {
-      font-size: 28px;
-      margin-bottom: 12px;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
       color: #0b2345;
       font-weight: 900;
     }
 
-    .contact-card p, .contact-card a {
-      font-size: 20px;
-      color: #7b8495;
+    .contact-card p,
+    .contact-card a {
+      font-size: 1.08rem;
+      color: #6f7b8f;
       direction: ltr;
       display: inline-block;
+      word-break: break-word;
     }
 
-    /* FOOTER */
     footer {
       background: #041c42;
       color: white;
       text-align: center;
       padding: 28px 15px;
-      font-size: 18px;
-      margin-top: 30px;
+      font-size: 1rem;
+      margin-top: 35px;
     }
 
-    /* WHATSAPP FLOAT */
     .whatsapp-float {
       position: fixed;
       bottom: 22px;
       left: 22px;
       background: #25D366;
       color: white;
-      width: 62px;
-      height: 62px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 30px;
-      box-shadow: 0 12px 28px rgba(37,211,102,0.35);
+      box-shadow: 0 12px 30px rgba(37,211,102,0.35);
       z-index: 999;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 992px) {
       .nav {
         flex-direction: column;
@@ -349,25 +426,25 @@
       }
 
       .hero h2 {
-        font-size: 44px;
+        font-size: 3rem;
       }
 
       .section-title h3 {
-        font-size: 38px;
+        font-size: 2.4rem;
       }
     }
 
     @media (max-width: 768px) {
       .hero {
-        padding: 80px 0 90px;
+        padding: 85px 0 95px;
       }
 
       .hero h2 {
-        font-size: 34px;
+        font-size: 2.2rem;
       }
 
       .hero p {
-        font-size: 18px;
+        font-size: 1rem;
       }
 
       .btn {
@@ -375,19 +452,23 @@
         max-width: 320px;
       }
 
+      .logo-area img {
+        width: 58px;
+      }
+
       .brand-text h1 {
         font-size: 18px;
       }
 
-      .logo-area img {
-        width: 60px;
+      .about-box {
+        padding: 30px 22px;
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="container nav">
       <div class="logo-area">
@@ -405,114 +486,167 @@
           <li><a href="#services">خدماتنا</a></li>
           <li><a href="#universities">الجامعات</a></li>
           <li><a href="#partners">شركاؤنا</a></li>
+          <li><a href="#reviews">الآراء</a></li>
           <li><a href="#contact">تواصل معنا</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero" id="home">
     <div class="container">
       <img src="LOGO.jpg" alt="Majan Logo" class="hero-logo">
       <h2>ابدأ رحلتك التعليمية بثقة مع ماجان</h2>
       <p>
         نساعدك في الوصول إلى أفضل الجامعات والمعاهد وبرامج اللغة في بريطانيا،
-        مع دعم كامل في التقديم، القبول، الاستشارات الأكاديمية، واختيار المسار الأنسب لك.
+        مع دعم كامل في التقديم، القبول، والاستشارات الأكاديمية واختيار المسار الأنسب لك.
       </p>
 
       <div class="hero-buttons">
-        <a href="#services" class="btn btn-outline">استكشف خدماتنا</a>
         <a href="https://wa.me/447774198870" target="_blank" class="btn btn-gold">تواصل عبر الواتساب</a>
+        <a href="#services" class="btn btn-outline">استكشف خدماتنا</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <div class="section-title">
         <h3>من نحن</h3>
-        <p>نحن نؤمن أن التعليم هو بداية الفرص الكبيرة.</p>
+        <p>خبرة، وضوح، ومتابعة حقيقية في كل خطوة من رحلتك التعليمية.</p>
       </div>
 
       <div class="about-box">
-        مكتب ماجان للتدريب والتعليم هو جهة متخصصة في الاستشارات التعليمية
-        والتقديم على الجامعات والمعاهد وبرامج اللغة في المملكة المتحدة.
-        نعمل على تسهيل رحلتك التعليمية من البداية حتى القبول، مع تقديم دعم
-        موثوق ومتابعة دقيقة لكل خطوة.
+        مكتب ماجان للتدريب والتعليم جهة متخصصة في الاستشارات التعليمية والتقديم على
+        الجامعات والمعاهد وبرامج اللغة في المملكة المتحدة. نحرص على تقديم تجربة
+        احترافية واضحة للطلاب والطالبات، من أول استشارة وحتى القبول النهائي،
+        مع اهتمام خاص بالجودة، الموثوقية، وسهولة التواصل.
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services">
     <div class="container">
       <div class="section-title">
         <h3>خدماتنا</h3>
-        <p>نقدم مجموعة من الخدمات التعليمية المصممة لتناسب احتياجك.</p>
+        <p>خدمات تعليمية متكاملة تساعدك على اختيار الطريق الصحيح والوصول إليه بثقة.</p>
       </div>
 
       <div class="cards">
         <div class="card">
+          <div class="icon">🎓</div>
           <h4>القبول الجامعي</h4>
-          <p>مساعدتك في اختيار الجامعة المناسبة والتقديم عليها بشكل احترافي.</p>
+          <p>مساعدتك في اختيار الجامعة المناسبة والتقديم على برامج البكالوريوس، الماجستير، والدكتوراه.</p>
         </div>
 
         <div class="card">
-          <h4>معاهد اللغة</h4>
-          <p>التسجيل في أفضل معاهد اللغة الإنجليزية في بريطانيا بمزايا تنافسية.</p>
+          <div class="icon">📘</div>
+          <h4>برامج اللغة</h4>
+          <p>التسجيل في أفضل معاهد اللغة الإنجليزية في بريطانيا مع خيارات تناسب أهدافك وميزانيتك.</p>
         </div>
 
         <div class="card">
-          <h4>الاستشارات التعليمية</h4>
-          <p>توجيه أكاديمي شامل لمساعدتك في اتخاذ القرار الصحيح لمسارك الدراسي.</p>
+          <div class="icon">📝</div>
+          <h4>الاستشارات الأكاديمية</h4>
+          <p>توجيه أكاديمي واضح يساعدك في اختيار التخصص والمسار الدراسي المناسب لمستقبلك.</p>
         </div>
 
         <div class="card">
-          <h4>الدعم في التقديم</h4>
-          <p>متابعة جميع خطوات القبول والتواصل مع الجهات التعليمية حتى اكتمال الملف.</p>
+          <div class="icon">🏠</div>
+          <h4>مساعدة في السكن</h4>
+          <p>دعم في معرفة خيارات السكن المناسبة للطلاب حسب المدينة والميزانية.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✈️</div>
+          <h4>التجهيز قبل السفر</h4>
+          <p>إرشاد عملي ونصائح مهمة لما قبل السفر وبداية الحياة الدراسية في بريطانيا.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🤝</div>
+          <h4>متابعة مستمرة</h4>
+          <p>نرافقك خلال رحلتك التعليمية ونبقى على تواصل معك لتقديم الدعم عند الحاجة.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- UNIVERSITIES -->
   <section id="universities">
     <div class="container">
       <div class="section-title">
         <h3>بعض الجامعات التي نهتم بها</h3>
-        <p>نعمل على توجيه الطلاب نحو أفضل الخيارات التعليمية في بريطانيا.</p>
+        <p>نماذج من الجامعات البريطانية التي يسأل عنها كثير من طلابنا.</p>
       </div>
 
       <div class="logo-grid">
         <div class="logo-card"><img src="65646dbd542e223348a87c3f_UCL_logo.png" alt="UCL"></div>
-        <div class="logo-card"><img src="195-1957960_imperial-college-london-logo-vector.png.jpeg" alt="Imperial College London"></div>
+        <div class="logo-card"><img src="195-1957960_imperial-college-london-logo-vector.png.jpeg" alt="Imperial"></div>
         <div class="logo-card"><img src="London_school_of_economics_logo_with_name.svg.png" alt="LSE"></div>
-        <div class="logo-card"><img src="oxford-university-logo.jpg" alt="Oxford University"></div>
+        <div class="logo-card"><img src="oxford-university-logo.jpg" alt="Oxford"></div>
         <div class="logo-card"><img src="the-university-of-warwick-logo-2015.jpg" alt="Warwick"></div>
         <div class="logo-card"><img src="20241011144033_file_KKCC.png" alt="King's College"></div>
       </div>
     </div>
   </section>
 
-  <!-- PARTNERS -->
   <section id="partners">
     <div class="container">
       <div class="section-title">
         <h3>شركاؤنا</h3>
-        <p>نفخر بالتعاون مع مؤسسات ومعاهد تعليمية موثوقة.</p>
+        <p>نتعامل مع جهات تعليمية ومعاهد لغة موثوقة لتقديم خيارات مناسبة للطلاب.</p>
       </div>
 
       <div class="logo-grid">
         <div class="logo-card"><img src="Anglo-Continental-logo-RGB.png" alt="Anglo Continental"></div>
         <div class="logo-card"><img src="cardiff-academy.png" alt="Cardiff Academy"></div>
-        <div class="logo-card"><img src="the-essential-english-centre-logo.png" alt="The Essential English Centre"></div>
+        <div class="logo-card"><img src="the-essential-english-centre-logo.png" alt="Essential English Centre"></div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-title">
+        <h3>آراء وتجارب</h3>
+        <p>نماذج لعبارات يمكن استبدالها لاحقاً بآراء حقيقية من الطلاب والعملاء.</p>
+      </div>
+
+      <div class="reviews">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“تعامل احترافي وسرعة في الرد، وتم توضيح الخيارات الدراسية بطريقة سهلة وواضحة جداً.”</p>
+          <h5>طالب - استشارة تعليمية</h5>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“المتابعة كانت ممتازة، والمكتب ساعدني في فهم الفرق بين المعاهد والجامعات واختيار الأنسب.”</p>
+          <h5>طالبة - برنامج لغة</h5>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“أفضل شيء هو الوضوح والتنظيم في الخطوات، والتواصل كان سريعاً ومريحاً طوال الوقت.”</p>
+          <h5>ولي أمر</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-box">
+        <h3>هل تبحث عن قبول أو برنامج لغة أو استشارة تعليمية؟</h3>
+        <p>
+          تواصل معنا الآن وسنساعدك في فهم الخيارات المتاحة واختيار المسار المناسب لك
+          بطريقة واضحة ومهنية.
+        </p>
+        <a href="https://wa.me/447774198870" target="_blank" class="btn btn-gold">ابدأ معنا عبر الواتساب</a>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="container">
       <div class="section-title">
@@ -539,15 +673,11 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © 2026 مكتب ماجان للتدريب والتعليم - جميع الحقوق محفوظة
   </footer>
 
-  <!-- WHATSAPP FLOAT -->
-  <a class="whatsapp-float" href="https://wa.me/447774198870" target="_blank" aria-label="WhatsApp">
-    ☎
-  </a>
+  <a class="whatsapp-float" href="https://wa.me/447774198870" target="_blank" aria-label="WhatsApp">☎</a>
 
 </body>
 </html>
