@@ -4,918 +4,611 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مكتب ماجان للتدريب والتعليم</title>
-  <meta name="description" content="مكتب ماجان للتدريب والتعليم - شراكات تعليمية وفرص دراسة اللغة الإنجليزية والقبولات والدعم الأكاديمي." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --navy:#0f2f56;
-      --navy-2:#173d6d;
-      --gold:#d6a84f;
-      --gold-2:#f0d7a0;
-      --light:#f7f9fc;
-      --white:#ffffff;
-      --text:#1f2937;
-      --muted:#64748b;
-      --border:#e5e7eb;
-      --shadow:0 12px 32px rgba(15,47,86,.10);
-      --radius:20px;
-      --radius-sm:14px;
-      --max:1180px;
-      --green:#25D366;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Tahoma","Arial",sans-serif;
-      background:var(--light);
-      color:var(--text);
-      line-height:1.8;
-    }
-
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:auto;
-    }
-
-    .topbar{
-      background:#0b2340;
-      color:#e3edf8;
-      font-size:14px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    .topbar-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      padding:10px 0;
-      flex-wrap:wrap;
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: #f8f9fb;
+      color: #111827;
+      line-height: 1.8;
     }
-
-    .topbar-links{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-    }
 
-    .topbar-links a:hover{color:#fff}
-
-    .navbar{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid var(--border);
-    }
-
-    .nav-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:18px;
-      padding:16px 0;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      min-width:0;
+    a {
+      text-decoration: none;
     }
-
-    .brand-logo{
-      width:58px;
-      height:58px;
-      border-radius:16px;
-      background:linear-gradient(135deg,var(--navy),var(--navy-2));
-      color:#fff;
-      display:grid;
-      place-items:center;
-      font-size:24px;
-      font-weight:800;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      flex-shrink:0;
-    }
-
-    .brand-logo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .brand-text h1{
-      margin:0;
-      font-size:21px;
-      line-height:1.2;
-      color:var(--navy);
-    }
-
-    .brand-text p{
-      margin:4px 0 0;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .nav-links a{
-      font-weight:700;
-      color:#334155;
-      font-size:15px;
-    }
-
-    .nav-links a:hover{color:var(--navy)}
 
-    .nav-cta{
-      padding:12px 18px;
-      border-radius:12px;
-      background:var(--navy);
-      color:#fff !important;
-      box-shadow:var(--shadow);
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .hero{
-      background:
-        radial-gradient(circle at top right, rgba(214,168,79,.18), transparent 28%),
-        linear-gradient(135deg,#0d284a 0%,#12345d 45%,#1b497d 100%);
-      color:#fff;
-      overflow:hidden;
+    .container {
+      width: 90%;
+      max-width: 1250px;
+      margin: auto;
     }
 
-    .hero-inner{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:34px;
-      align-items:center;
-      padding:82px 0;
+    /* NAVBAR */
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
-    .hero-badge{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.18);
-      color:#f4e6c3;
-      font-size:14px;
-      margin-bottom:18px;
-      font-weight:700;
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
     }
 
-    .hero h2{
-      margin:0 0 18px;
-      font-size:clamp(32px,5vw,56px);
-      line-height:1.2;
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
-    .hero p{
-      margin:0;
-      color:#e7eef8;
-      font-size:18px;
-      max-width:700px;
+    .logo-wrap img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:28px;
+    .logo-text h1 {
+      font-size: 1.45rem;
+      color: #0f2747;
+      margin-bottom: 2px;
+      font-weight: 900;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:14px 22px;
-      border-radius:14px;
-      font-weight:800;
-      transition:.2s ease;
-      border:none;
-      cursor:pointer;
+    .logo-text p {
+      color: #b9912f;
+      font-size: 0.95rem;
+      font-weight: 700;
     }
 
-    .btn:hover{transform:translateY(-1px)}
-
-    .btn-primary{
-      background:var(--gold);
-      color:#172033;
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      border:1px solid rgba(255,255,255,.22);
-    }
-
-    .btn-whatsapp{
-      background:var(--green);
-      color:#fff;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
-    .hero-card{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.16);
-      border-radius:24px;
-      padding:24px;
-      box-shadow:0 20px 50px rgba(0,0,0,.18);
+    nav ul li a {
+      color: #0f2747;
+      font-weight: 700;
+      transition: 0.3s;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
+    nav ul li a:hover {
+      color: #c8a03a;
     }
 
-    .mini-card{
-      background:rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:18px;
-      min-height:120px;
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(10, 28, 52, 0.78), rgba(10, 28, 52, 0.82)),
+                  url('LOGO.jpg') center/contain no-repeat,
+                  linear-gradient(135deg, #0f2747, #102f59);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
     }
 
-    .mini-card strong{
-      display:block;
-      font-size:17px;
-      margin-bottom:8px;
-      color:#fff;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(200,160,58,0.18), transparent 35%),
+                  radial-gradient(circle at bottom right, rgba(255,255,255,0.06), transparent 30%);
     }
 
-    .mini-card span{
-      color:#e2ebf7;
-      font-size:14px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 40px 0;
     }
 
-    section{padding:76px 0}
-
-    .section-head{
-      text-align:center;
-      margin-bottom:34px;
-    }
-
-    .section-head .eyebrow{
-      color:var(--gold);
-      font-size:14px;
-      font-weight:800;
-      margin-bottom:8px;
+    .hero-logo {
+      width: 135px;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.22));
+      background: rgba(255,255,255,0.06);
+      padding: 14px;
+      border-radius: 24px;
+      backdrop-filter: blur(5px);
     }
 
-    .section-head h3{
-      margin:0 0 10px;
-      font-size:clamp(28px,4vw,40px);
-      color:var(--navy);
+    .hero h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 16px;
+      font-weight: 900;
+      line-height: 1.4;
     }
 
-    .section-head p{
-      max-width:760px;
-      margin:0 auto;
-      color:var(--muted);
-      font-size:17px;
+    .hero p {
+      max-width: 900px;
+      margin: auto;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: #f3f4f6;
+      margin-bottom: 34px;
     }
 
-    .split{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      align-items:start;
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 14px;
+      font-weight: 800;
+      transition: 0.3s ease;
+      font-size: 1rem;
     }
 
-    .card,.panel,.contact-item,.stat,.logo-box{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
+    .btn-primary {
+      background: #c8a03a;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(200,160,58,0.25);
     }
 
-    .card,.panel,.contact-item{padding:24px}
-
-    .card-icon{
-      width:54px;
-      height:54px;
-      border-radius:14px;
-      background:#edf4ff;
-      display:grid;
-      place-items:center;
-      font-size:24px;
-      margin-bottom:16px;
+    .btn-primary:hover {
+      background: #b18a2e;
+      transform: translateY(-2px);
     }
 
-    .card h4,.panel h4{
-      margin:0 0 10px;
-      color:var(--navy);
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(5px);
     }
 
-    .card h4{font-size:22px}
-    .panel h4{font-size:26px}
-    .card p,.panel p,.contact-item p,.contact-item a{
-      margin:0;
-      color:#475569;
-      font-size:15px;
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
     }
 
-    .checklist{
-      display:grid;
-      gap:12px;
-      margin-top:16px;
+    /* GENERAL SECTION */
+    section {
+      padding: 90px 0;
     }
 
-    .check{
-      background:#f8fafc;
-      border:1px solid #e9eef5;
-      border-radius:14px;
-      padding:14px 16px;
-      font-weight:600;
-      color:#334155;
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+      color: #0f2747;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 900;
     }
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-      margin-top:28px;
+    .section-subtitle {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 55px;
+      color: #6b7280;
+      font-size: 1.08rem;
     }
 
-    .stat{
-      padding:24px 18px;
-      text-align:center;
+    /* ABOUT */
+    .about-box {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 50px;
+      box-shadow: 0 15px 45px rgba(15,39,71,0.07);
+      text-align: center;
+      max-width: 1050px;
+      margin: auto;
     }
 
-    .stat strong{
-      display:block;
-      font-size:30px;
-      color:var(--navy);
-      margin-bottom:6px;
+    .about-box p {
+      font-size: 1.14rem;
+      color: #374151;
+      line-height: 2.1;
     }
 
-    .stat span{
-      color:var(--muted);
-      font-size:14px;
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
 
-    .logo-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-      margin-top:28px;
+    .service-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: 0 14px 40px rgba(15,39,71,0.06);
+      transition: 0.3s ease;
+      border: 1px solid #eef2f7;
     }
 
-    .logo-box{
-      padding:20px;
-      min-height:120px;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      color:#475569;
-      font-weight:700;
-      background:linear-gradient(180deg,#fff,#fbfcfe);
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 48px rgba(15,39,71,0.12);
     }
 
-    .logo-box img{
-      max-height:54px;
-      width:auto;
-      margin:auto;
-      object-fit:contain;
+    .service-card .icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
     }
 
-    .logo-note{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:10px;
-      text-align:center;
+    .service-card h3 {
+      color: #0f2747;
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+      font-weight: 800;
     }
 
-    .cta{
-      background:linear-gradient(135deg,var(--navy),var(--navy-2));
-      color:#fff;
-      border-radius:28px;
-      padding:38px;
-      box-shadow:var(--shadow);
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:24px;
-      align-items:center;
+    .service-card p {
+      color: #6b7280;
+      font-size: 1rem;
+      line-height: 1.9;
     }
 
-    .cta h3{
-      margin:0 0 10px;
-      font-size:clamp(28px,4vw,38px);
+    /* LOGO SECTION */
+    .logo-section {
+      background: #ffffff;
     }
 
-    .cta p{
-      margin:0;
-      color:#e8eff8;
-      font-size:17px;
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      align-items: center;
     }
 
-    .cta-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+    .logo-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 28px;
+      min-height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 28px rgba(15,39,71,0.05);
+      border: 1px solid #eef2f7;
+      transition: 0.3s ease;
     }
 
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-      margin-top:28px;
+    .logo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 38px rgba(15,39,71,0.1);
     }
 
-    .contact-item h5{
-      margin:0 0 10px;
-      color:var(--navy);
-      font-size:20px;
+    .logo-card img {
+      max-height: 72px;
+      width: auto;
+      object-fit: contain;
     }
 
-    .socials{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:16px;
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #0f2747, #14365f);
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      padding: 70px 30px;
+      box-shadow: 0 18px 48px rgba(15,39,71,0.15);
     }
 
-    .social-link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:46px;
-      height:46px;
-      padding:0 14px;
-      border-radius:12px;
-      background:#eef3f9;
-      color:var(--navy);
-      font-weight:700;
-      border:1px solid #dde6f1;
+    .cta h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 16px;
+      font-weight: 900;
     }
 
-    .social-link:hover{
-      background:#e5edf8;
+    .cta p {
+      max-width: 800px;
+      margin: auto;
+      color: #e5e7eb;
+      margin-bottom: 30px;
+      font-size: 1.08rem;
     }
 
-    .lang-switch{
-      display:inline-flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:14px;
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
     }
 
-    .lang-pill{
-      padding:8px 12px;
-      border:1px solid #dbe3ee;
-      background:#f8fafc;
-      border-radius:999px;
-      font-size:13px;
-      color:#475569;
-      font-weight:700;
+    .contact-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 12px 32px rgba(15,39,71,0.06);
+      text-align: center;
+      border: 1px solid #eef2f7;
     }
 
-    .whatsapp-float{
-      position:fixed;
-      left:18px;
-      bottom:18px;
-      z-index:1000;
-      width:58px;
-      height:58px;
-      border-radius:50%;
-      background:var(--green);
-      color:#fff;
-      display:grid;
-      place-items:center;
-      box-shadow:0 18px 40px rgba(37,211,102,.35);
-      font-size:28px;
+    .contact-card h3 {
+      color: #0f2747;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      font-weight: 800;
     }
 
-    footer{
-      background:#0c2039;
-      color:#dbe7f4;
-      margin-top:70px;
+    .contact-card p,
+    .contact-card a {
+      color: #6b7280;
+      font-size: 1rem;
+      line-height: 1.9;
+      word-break: break-word;
     }
 
-    .footer-inner{
-      padding:28px 0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
+    .contact-card a:hover {
+      color: #c8a03a;
     }
 
-    .footer-links{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
+    /* FOOTER */
+    footer {
+      background: #0b1d35;
+      color: #d1d5db;
+      text-align: center;
+      padding: 28px 15px;
+      margin-top: 70px;
+      font-size: 0.98rem;
     }
-
-    .footer-links a:hover{color:#fff}
 
-    @media (max-width:1024px){
-      .hero-inner,.split,.cta,.contact-grid{
-        grid-template-columns:1fr;
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .navbar {
+        flex-direction: column;
+        text-align: center;
       }
 
-      .cards{
-        grid-template-columns:repeat(2,1fr);
+      nav ul {
+        justify-content: center;
       }
 
-      .stats,.logo-grid{
-        grid-template-columns:repeat(2,1fr);
+      .logo-wrap {
+        flex-direction: column;
+      }
+
+      .about-box {
+        padding: 35px 24px;
       }
     }
 
-    @media (max-width:760px){
-      .nav-inner{
-        flex-direction:column;
-        align-items:stretch;
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 88vh;
       }
 
-      .nav-links{
-        justify-content:center;
+      .hero-logo {
+        width: 110px;
       }
 
-      .hero{
-        text-align:center;
+      .btn {
+        width: 100%;
+        max-width: 320px;
       }
 
-      .hero-actions,.cta-actions,.socials{
-        justify-content:center;
-      }
-
-      .hero-grid,.cards,.stats,.logo-grid{
-        grid-template-columns:1fr;
-      }
-
-      .footer-inner{
-        flex-direction:column;
-        text-align:center;
-      }
-
-      .brand{
-        justify-content:center;
+      .service-card,
+      .contact-card,
+      .logo-card {
+        border-radius: 18px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <div>مكتب ماجان للتدريب والتعليم</div>
-      <div class="topbar-links">
-        <a href="#services">خدماتنا</a>
-        <a href="#partners">الشراكات</a>
-        <a href="#contact">تواصل معنا</a>
-      </div>
-    </div>
-  </div>
-
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <div class="brand">
-        <div class="brand-logo">
-          م
-        </div>
-        <div class="brand-text">
+  <!-- HEADER -->
+  <header>
+    <div class="container navbar">
+      <div class="logo-wrap">
+        <img src="LOGO.jpg" alt="Majan Logo">
+        <div class="logo-text">
           <h1>مكتب ماجان للتدريب والتعليم</h1>
-          <p>شراكات تعليمية وفرص دراسية موثوقة</p>
+          <p>Majan Training & Education</p>
         </div>
       </div>
 
-      <div class="nav-links">
-        <a href="#about">من نحن</a>
-        <a href="#services">خدماتنا</a>
-        <a href="#partners">الشراكات</a>
-        <a href="#why-us">لماذا نحن</a>
-        <a href="#contact" class="nav-cta">ابدأ معنا</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero">
-    <div class="container hero-inner">
-      <div>
-        <div class="hero-badge">حلول تعليمية احترافية وشراكات دولية</div>
-        <h2>نربط الطلاب بالمؤسسات التعليمية الموثوقة بثقة ووضوح</h2>
-        <p>
-          نقدم دعماً تعليمياً احترافياً ونبني شراكات نوعية مع معاهد ومؤسسات تعليمية
-          لمساعدة الطلاب على الوصول إلى فرص مناسبة في بيئة أكاديمية موثوقة.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">تواصل معنا الآن</a>
-          <a class="btn btn-secondary" href="#services">استكشف خدماتنا</a>
-          <a class="btn btn-whatsapp" href="https://wa.me/447774198870" target="_blank">راسلنا عبر واتساب</a>
-        </div>
-
-        <div class="lang-switch">
-          <span class="lang-pill">العربية</span>
-          <span class="lang-pill">English قريباً</span>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <div class="hero-grid">
-          <div class="mini-card">
-            <strong>شراكات تعليمية</strong>
-            <span>تعاون مع معاهد ومؤسسات تعليمية داخل المملكة وخارجها.</span>
-          </div>
-          <div class="mini-card">
-            <strong>دراسة اللغة</strong>
-            <span>خيارات متنوعة لبرامج اللغة الإنجليزية والمسارات الأكاديمية.</span>
-          </div>
-          <div class="mini-card">
-            <strong>إرشاد واضح</strong>
-            <span>توجيه عملي يساعد الطالب على اختيار المسار الأنسب له.</span>
-          </div>
-          <div class="mini-card">
-            <strong>تواصل مباشر</strong>
-            <span>سهولة في التواصل ومتابعة الطلبات والاستفسارات.</span>
-          </div>
-        </div>
-      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#universities">الجامعات</a></li>
+          <li><a href="#partners">شركاؤنا</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <img src="LOGO.jpg" alt="Majan Logo" class="hero-logo">
+
+      <h2>ابدأ رحلتك التعليمية بثقة مع ماجان</h2>
+      <p>
+        نساعدك في الوصول إلى أفضل الجامعات والمعاهد وبرامج اللغة في بريطانيا،
+        مع دعم كامل في التقديم، القبول، الاستشارات الأكاديمية، واختيار المسار الأنسب لك.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://wa.me/447774198870" target="_blank" class="btn btn-primary">تواصل عبر الواتساب</a>
+        <a href="#services" class="btn btn-secondary">استكشف خدماتنا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">من نحن</div>
-        <h3>نبذة عن مكتب ماجان للتدريب والتعليم</h3>
+      <h2 class="section-title">من نحن</h2>
+      <p class="section-subtitle">
+        مكتب ماجان للتدريب والتعليم هو جهة متخصصة في الإرشاد الأكاديمي والتقديم للجامعات والمعاهد
+        وبرامج اللغة في المملكة المتحدة.
+      </p>
+
+      <div class="about-box">
         <p>
-          نعمل على دعم الطلاب وبناء علاقات مهنية مع المؤسسات التعليمية من خلال
-          خدمات تعليمية واضحة، احترافية، وموجهة نحو الجودة والثقة.
+          نؤمن أن كل طالب يستحق فرصة تعليمية مناسبة لطموحه ومستقبله.
+          لذلك نعمل على تقديم استشارات احترافية ومتابعة دقيقة للطلاب والطالبات الراغبين في الدراسة بالخارج،
+          مع التركيز على الجودة، الموثوقية، وسهولة الإجراءات.
+          <br><br>
+          نساعدك من أول خطوة حتى القبول النهائي، سواء كنت تبحث عن دراسة لغة إنجليزية،
+          بكالوريوس، ماجستير، دكتوراه، أو برامج تدريبية متخصصة.
         </p>
-      </div>
-
-      <div class="split">
-        <div class="panel">
-          <h4>رؤيتنا</h4>
-          <p>
-            أن نكون جهة موثوقة في بناء الشراكات التعليمية وتسهيل الوصول إلى فرص
-            تعليمية نوعية تلبي احتياجات الطلاب والمؤسسات.
-          </p>
-          <div class="checklist">
-            <div class="check">تقديم حلول تعليمية عملية وواضحة</div>
-            <div class="check">التركيز على الثقة والمصداقية في التعامل</div>
-            <div class="check">دعم الطلاب في اختيار المسار المناسب</div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h4>رسالتنا</h4>
-          <p>
-            نعمل على ربط الطلاب بفرص تعليمية مناسبة، وتطوير شراكات قوية مع
-            الجهات التعليمية بما يخدم جودة التجربة التعليمية ويعزز فرص النجاح.
-          </p>
-          <div class="checklist">
-            <div class="check">شراكات مهنية مع جهات تعليمية موثوقة</div>
-            <div class="check">خدمة سريعة وواضحة في التواصل والمتابعة</div>
-            <div class="check">تجربة احترافية مبنية على التنظيم والوضوح</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="stats">
-        <div class="stat">
-          <strong>+100</strong>
-          <span>استفسار وفرصة تعليمية</span>
-        </div>
-        <div class="stat">
-          <strong>+20</strong>
-          <span>شراكة وارتباط مهني</span>
-        </div>
-        <div class="stat">
-          <strong>24/7</strong>
-          <span>إمكانية استقبال الاستفسارات</span>
-        </div>
-        <div class="stat">
-          <strong>ثقة</strong>
-          <span>وضوح ومتابعة مهنية</span>
-        </div>
       </div>
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section id="services">
     <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">خدماتنا</div>
-        <h3>ما الذي نقدمه؟</h3>
-        <p>
-          نقدم مجموعة من الخدمات التي تساعد الطلاب والجهات التعليمية على بناء
-          مسار واضح وفعّال في بيئة احترافية.
-        </p>
-      </div>
+      <h2 class="section-title">خدماتنا</h2>
+      <p class="section-subtitle">
+        نقدم لك مجموعة متكاملة من الخدمات التعليمية والاستشارية لتسهيل رحلتك الدراسية.
+      </p>
 
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">🎓</div>
-          <h4>استشارات تعليمية</h4>
-          <p>مساعدة الطلاب في فهم الخيارات التعليمية المتاحة واختيار المسار الأنسب حسب الاحتياج والهدف.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">🎓</div>
+          <h3>التقديم للجامعات</h3>
+          <p>مساعدتك في اختيار الجامعة المناسبة والتقديم على برامج البكالوريوس، الماجستير، والدكتوراه.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h4>بناء شراكات</h4>
-          <p>التعاون مع معاهد ومؤسسات تعليمية لتطوير فرص نوعية وشراكات مستدامة تخدم الطرفين.</p>
+        <div class="service-card">
+          <div class="icon">📘</div>
+          <h3>برامج اللغة الإنجليزية</h3>
+          <p>التسجيل في أفضل معاهد اللغة في بريطانيا مع خيارات متعددة تناسب أهدافك وميزانيتك.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">📘</div>
-          <h4>برامج اللغة الإنجليزية</h4>
-          <p>توجيه ودعم للراغبين في دراسة اللغة الإنجليزية ضمن بيئات تعليمية مناسبة ومعاهد موثوقة.</p>
+        <div class="service-card">
+          <div class="icon">📝</div>
+          <h3>الاستشارات الأكاديمية</h3>
+          <p>توجيه أكاديمي واضح يساعدك على اختيار التخصص والمسار الدراسي المناسب لمستقبلك.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🧭</div>
-          <h4>إرشاد وتوجيه</h4>
-          <p>دعم واضح في خطوات الاستفسار والتقديم والمتابعة بما يحقق تجربة أكثر سهولة وتنظيماً.</p>
+        <div class="service-card">
+          <div class="icon">🏠</div>
+          <h3>السكن والاستقبال</h3>
+          <p>مساعدة في ترتيب السكن العائلي أو الطلابي وبعض الترتيبات الأساسية قبل السفر.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🌍</div>
-          <h4>فرص تعليمية دولية</h4>
-          <p>فتح أبواب التواصل مع جهات وبرامج تعليمية متنوعة بما يتناسب مع تطلعات الطلاب والمؤسسات.</p>
+        <div class="service-card">
+          <div class="icon">✈️</div>
+          <h3>التجهيز قبل السفر</h3>
+          <p>إرشاد كامل لما تحتاجه قبل السفر من تجهيزات، نصائح، وترتيبات أولية للدراسة في الخارج.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">📩</div>
-          <h4>تواصل احترافي</h4>
-          <p>سرعة في الرد، ووضوح في المعلومات، وتنظيم في تقديم الخدمات ومتابعة الاستفسارات.</p>
+        <div class="service-card">
+          <div class="icon">🤝</div>
+          <h3>متابعة مستمرة</h3>
+          <p>نرافقك خلال رحلتك التعليمية ونوفر لك الدعم والاستشارة عند الحاجة.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="partners">
+  <!-- UNIVERSITIES -->
+  <section class="logo-section" id="universities">
     <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">الشراكات</div>
-        <h3>شراكات تعليمية مبنية على الثقة</h3>
-        <p>
-          نطمح إلى التعاون مع معاهد اللغة، المراكز التدريبية، والجهات التعليمية
-          التي تشاركنا الاهتمام بالجودة والوضوح وخدمة الطالب.
-        </p>
-      </div>
-
-      <div class="split">
-        <div class="panel">
-          <h4>للمؤسسات التعليمية</h4>
-          <p>
-            إذا كنتم تمثلون معهداً أو مؤسسة تعليمية وترغبون في بناء تعاون مهني،
-            فنحن نرحب بالتواصل لبحث فرص الشراكة وآليات العمل المناسبة.
-          </p>
-          <div class="checklist">
-            <div class="check">تعاون مهني منظم وواضح</div>
-            <div class="check">تواصل مباشر وسريع</div>
-            <div class="check">تركيز على الجودة وبناء الثقة</div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h4>للطلاب وأولياء الأمور</h4>
-          <p>
-            نسعى إلى تسهيل الوصول إلى خيارات تعليمية موثوقة مع تقديم المعلومات
-            الأساسية بطريقة مختصرة وواضحة تساعد على اتخاذ القرار المناسب.
-          </p>
-          <div class="checklist">
-            <div class="check">معلومات أوضح عن المسارات المتاحة</div>
-            <div class="check">مساعدة في اختيار الخيار المناسب</div>
-            <div class="check">متابعة أفضل في بداية الرحلة التعليمية</div>
-          </div>
-        </div>
-      </div>
+      <h2 class="section-title">جامعات نساعدك في التقديم لها</h2>
+      <p class="section-subtitle">
+        نماذج من الجامعات البريطانية التي يهتم بها الكثير من طلابنا.
+      </p>
 
       <div class="logo-grid">
-        <div class="logo-box">شعار شريك 1</div>
-        <div class="logo-box">شعار شريك 2</div>
-        <div class="logo-box">شعار شريك 3</div>
-        <div class="logo-box">شعار شريك 4</div>
+        <div class="logo-card"><img src="65646dbd542e223348a87c3f_UCL_logo.png" alt="UCL"></div>
+        <div class="logo-card"><img src="195-1957960_imperial-college-london-logo-vector.png.jpeg" alt="Imperial College London"></div>
+        <div class="logo-card"><img src="London_school_of_economics_logo_with_name.svg.png" alt="LSE"></div>
+        <div class="logo-card"><img src="oxford-university-logo.jpg" alt="Oxford University"></div>
+        <div class="logo-card"><img src="the-university-of-warwick-logo-2015.jpg" alt="University of Warwick"></div>
+        <div class="logo-card"><img src="20241011144033_file_KKCC.png" alt="King's College"></div>
       </div>
-      <div class="logo-note">يمكنك لاحقاً استبدال هذه المربعات بشعارات شركائك الفعلية.</div>
     </div>
   </section>
 
-  <section id="why-us">
+  <!-- PARTNERS -->
+  <section id="partners">
     <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">لماذا نحن</div>
-        <h3>لماذا يختارنا العملاء والشركاء؟</h3>
-        <p>
-          لأننا نركز على البساطة، الوضوح، المصداقية، وبناء تجربة مهنية محترمة
-          لكل من الطالب والجهة التعليمية.
-        </p>
-      </div>
+      <h2 class="section-title">شركاؤنا في معاهد اللغة</h2>
+      <p class="section-subtitle">
+        نتعامل مع معاهد موثوقة لتقديم برامج لغة إنجليزية عالية الجودة للطلاب.
+      </p>
 
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">✅</div>
-          <h4>وضوح في المعلومات</h4>
-          <p>نحرص على تقديم المعلومات بطريقة مفهومة ومباشرة بعيداً عن التعقيد.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">⚡</div>
-          <h4>سرعة في التواصل</h4>
-          <p>سهولة في الوصول إلينا ومتابعة الاستفسارات والردود باهتمام واحترافية.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🛡️</div>
-          <h4>ثقة ومهنية</h4>
-          <p>نهتم ببناء علاقة قائمة على المصداقية والاحترام والثقة طويلة المدى.</p>
-        </div>
+      <div class="logo-grid">
+        <div class="logo-card"><img src="Anglo-Continental-logo-RGB.png" alt="Anglo Continental"></div>
+        <div class="logo-card"><img src="cardiff-academy.png" alt="Cardiff Academy"></div>
+        <div class="logo-card"><img src="the-essential-english-centre-logo.png" alt="The Essential English Centre"></div>
       </div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section>
     <div class="container">
       <div class="cta">
-        <div>
-          <h3>هل تبحث عن تعاون أو فرصة تعليمية مناسبة؟</h3>
-          <p>
-            يسعدنا استقبال استفساراتكم والتواصل معكم لبحث فرص الشراكة أو الدعم
-            التعليمي المناسب.
-          </p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="#contact">تواصل معنا</a>
-          <a class="btn btn-whatsapp" href="https://wa.me/447774198870" target="_blank">واتساب</a>
-          <a class="btn btn-secondary" href="mailto:partnerships@majanedu.com">راسلنا عبر البريد</a>
-        </div>
+        <h2>جاهز تبدأ رحلتك الدراسية؟</h2>
+        <p>
+          تواصل معنا الآن وسنساعدك في اختيار أفضل خيار دراسي لك خطوة بخطوة.
+        </p>
+        <a href="https://wa.me/447774198870" target="_blank" class="btn btn-primary">راسلنا مباشرة عبر الواتساب</a>
       </div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">تواصل معنا</div>
-        <h3>نحن هنا لخدمتكم</h3>
-        <p>
-          يمكنكم التواصل معنا مباشرة للاستفسارات العامة أو فرص الشراكة التعليمية.
-        </p>
-      </div>
+      <h2 class="section-title">تواصل معنا</h2>
+      <p class="section-subtitle">
+        يسعدنا الرد على استفساراتك ومساعدتك في أي وقت.
+      </p>
 
       <div class="contact-grid">
-        <div class="contact-item">
-          <h5>البريد الإلكتروني</h5>
-          <a href="mailto:partnerships@majanedu.com">partnerships@majanedu.com</a>
-        </div>
-
-        <div class="contact-item">
-          <h5>واتساب</h5>
+        <div class="contact-card">
+          <h3>واتساب</h3>
           <a href="https://wa.me/447774198870" target="_blank">+44 7774 198870</a>
         </div>
 
-        <div class="contact-item">
-          <h5>نوع الاستفسارات</h5>
-          <p>الشراكات التعليمية، البرامج، التعاون، والاستفسارات العامة</p>
+        <div class="contact-card">
+          <h3>البريد الإلكتروني</h3>
+          <a href="mailto:partnerships@majanedu.com">partnerships@majanedu.com</a>
         </div>
 
-        <div class="contact-item">
-          <h5>أوقات التواصل</h5>
-          <p>يسعدنا استقبال رسائلكم على مدار الأسبوع</p>
+        <div class="contact-card">
+          <h3>الموقع الإلكتروني</h3>
+          <a href="https://majanedu.com" target="_blank">www.majanedu.com</a>
         </div>
-      </div>
-
-      <div class="socials">
-        <a class="social-link" href="#" target="_blank">Instagram</a>
-        <a class="social-link" href="#" target="_blank">TikTok</a>
-        <a class="social-link" href="#" target="_blank">Snapchat</a>
-        <a class="social-link" href="#" target="_blank">X</a>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container footer-inner">
-      <div>© 2026 مكتب ماجان للتدريب والتعليم. جميع الحقوق محفوظة.</div>
-      <div class="footer-links">
-        <a href="#about">من نحن</a>
-        <a href="#services">خدماتنا</a>
-        <a href="#partners">الشراكات</a>
-        <a href="#contact">تواصل معنا</a>
-      </div>
-    </div>
+    © 2026 مكتب ماجان للتدريب والتعليم - جميع الحقوق محفوظة
   </footer>
-
-  <a class="whatsapp-float" href="https://wa.me/447774198870" target="_blank" aria-label="واتساب">✆</a>
 
 </body>
 </html>
