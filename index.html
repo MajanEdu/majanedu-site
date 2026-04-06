@@ -865,6 +865,7 @@
         unicode-bidi: isolate;
         display: inline-block;
         font-variant-numeric: tabular-nums;
+        overflow-wrap: anywhere;
       }
 
       .contact-note {
@@ -1092,6 +1093,15 @@
           padding-top: 150px;
         }
 
+        .hero-copy,
+        .section-copy {
+          text-align: center;
+        }
+
+        .hero-actions {
+          justify-content: center;
+        }
+
         .hero-layout,
         .services-grid,
         .reviews-grid,
@@ -1106,6 +1116,12 @@
         .hero-title {
           max-width: none;
           min-height: 0;
+        }
+
+        .hero-stats-top,
+        .service-head {
+          flex-direction: column;
+          align-items: flex-start;
         }
 
         .section {
@@ -1135,6 +1151,58 @@
           --container: min(100% - 24px, 100%);
         }
 
+        .site-header {
+          position: static;
+          padding-top: 12px;
+        }
+
+        .nav-shell {
+          gap: 14px;
+          padding: 14px;
+        }
+
+        .brand {
+          justify-content: flex-start;
+        }
+
+        .brand-mark {
+          width: 46px;
+          height: 46px;
+          font-size: 1.35rem;
+        }
+
+        .brand-text strong {
+          font-size: 0.98rem;
+        }
+
+        .brand-text span {
+          font-size: 0.76rem;
+        }
+
+        .nav-links {
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          overflow-x: auto;
+          padding-bottom: 6px;
+          margin-inline: -2px;
+          scrollbar-width: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+          display: none;
+        }
+
+        .nav-links a {
+          flex: 0 0 auto;
+          white-space: nowrap;
+          padding: 9px 13px;
+          font-size: 0.92rem;
+        }
+
+        .hero {
+          padding-top: 56px;
+        }
+
         .hero-actions,
         .btn {
           width: 100%;
@@ -1148,8 +1216,100 @@
           font-size: clamp(2.25rem, 11vw, 3.7rem);
         }
 
+        .hero-text,
+        .section-copy,
+        .about-card p,
+        .review-card p,
+        .contact-note {
+          font-size: 0.98rem;
+          line-height: 1.9;
+        }
+
+        .hero-stats-title,
+        .contact-card h3 {
+          font-size: 1.16rem;
+          line-height: 1.45;
+        }
+
+        .section {
+          padding: 72px 0;
+        }
+
         .section-title {
           font-size: clamp(1.65rem, 8vw, 2.4rem);
+        }
+
+        .eyebrow,
+        .section-kicker {
+          font-size: 0.84rem;
+          padding: 8px 14px;
+        }
+
+        .about-card,
+        .cta-banner,
+        .hero-stats,
+        .service-card,
+        .review-card,
+        .contact-card,
+        .partner-card,
+        .logo-rail-card {
+          padding: 22px;
+        }
+
+        .service-index {
+          min-width: 52px;
+          height: 52px;
+          font-size: 0.92rem;
+        }
+
+        .service-card h3,
+        .university-showcase-copy h3 {
+          font-size: 1.2rem;
+        }
+
+        .service-tag {
+          font-size: 0.72rem;
+          letter-spacing: 0.12em;
+        }
+
+        .hero-media,
+        .university-photo,
+        .cta-visual {
+          border-radius: 20px;
+        }
+
+        .hero-media img,
+        .university-photo img,
+        .cta-visual img {
+          height: 190px;
+        }
+
+        .university-photo.logo-stage img {
+          height: 140px;
+        }
+
+        .logo-strip-wrap {
+          border-radius: 24px;
+        }
+
+        .logo-track {
+          gap: 12px;
+          padding: 16px;
+        }
+
+        .logo-chip {
+          min-width: 140px;
+          font-size: 0.95rem;
+          padding: 16px 18px;
+        }
+
+        .logo-rail-card img {
+          max-width: 140px;
+          max-height: 42px;
+        }
+
+        .cta-banner {
+          gap: 18px;
         }
 
         .floating-whatsapp {
@@ -1221,7 +1381,7 @@
             <article class="glass-card tilt-card hero-stats">
               <div class="hero-media">
                 <img
-                  src="assets/hero-consultation.png"
+                  src="hero-consultation.png"
                   alt="جلسة استشارية تعليمية بين مستشار وطالب"
                   loading="eager"
                   decoding="async"
@@ -1356,7 +1516,7 @@
             <article class="glass-card tilt-card university-showcase-card reveal delay-1">
               <div class="university-photo">
                 <img
-                  src="assets/uk-campus-modern.png"
+                  src="uk-campus-modern.png"
                   alt="مبنى جامعي حديث في المملكة المتحدة"
                   loading="lazy"
                   decoding="async"
@@ -1373,7 +1533,7 @@
             <article class="glass-card tilt-card university-showcase-card reveal delay-2">
               <div class="university-photo logo-stage">
                 <img
-                  src="assets/university-of-manchester.png"
+                  src="University%20of%20Manchester.png"
                   alt="University of Manchester"
                   loading="lazy"
                   decoding="async"
@@ -1485,7 +1645,7 @@
             </div>
             <div class="cta-visual">
               <img
-                src="assets/travel-documents.png"
+                src="travel-documents.png"
                 alt="مستندات وتجهيزات مرتبطة بالتخطيط للسفر والدراسة"
                 loading="lazy"
                 decoding="async"
@@ -1546,7 +1706,7 @@
         <div class="logo-rail-grid">
           <div class="glass-card logo-rail-card tilt-card reveal delay-1">
             <img
-              src="assets/saudi2030.png"
+              src="Saudi2030%20%281%29.png"
               alt="شعار رؤية السعودية 2030"
               loading="lazy"
               decoding="async"
@@ -1554,7 +1714,7 @@
           </div>
           <div class="glass-card logo-rail-card tilt-card reveal delay-2">
             <img
-              src="assets/moe-of-ksa.png"
+              src="MOE_of_KSA.png"
               alt="شعار وزارة التعليم السعودية"
               loading="lazy"
               decoding="async"
@@ -1562,7 +1722,7 @@
           </div>
           <div class="glass-card logo-rail-card tilt-card reveal delay-1">
             <img
-              src="assets/department-for-education.png"
+              src="Department_for_Education.svg%20%281%29.png"
               alt="Department for Education"
               loading="lazy"
               decoding="async"
@@ -1570,7 +1730,7 @@
           </div>
           <div class="glass-card logo-rail-card tilt-card reveal delay-2">
             <img
-              src="assets/ielts-logo.png"
+              src="IELTS_logo.svg.png"
               alt="IELTS"
               loading="lazy"
               decoding="async"
