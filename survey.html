@@ -18,11 +18,12 @@
       --text:#182437;
       --muted:#6b7280;
       --navy:#0b2345;
-      --navy-2:#163761;
+      --navy-2:#14345f;
+      --navy-3:#1a4375;
       --gold:#c49a2c;
-      --gold-2:#d6ad45;
+      --gold-2:#d8b04a;
       --required:#d93025;
-      --shadow:0 10px 28px rgba(0,0,0,.07);
+      --shadow:0 12px 30px rgba(0,0,0,.08);
       --radius:14px;
     }
 
@@ -42,6 +43,7 @@
       color:var(--text);
       line-height:1.85;
       padding:24px 12px 60px;
+      overflow-x:hidden;
     }
 
     a{
@@ -59,15 +61,74 @@
       margin:0 auto;
     }
 
-    /* HERO */
+    /* animations */
+    .fade-down{
+      opacity:0;
+      transform:translateY(-26px);
+      animation:fadeDown 0.9s ease forwards;
+    }
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(28px);
+      animation:fadeUp 0.9s ease forwards;
+    }
+
+    .fade{
+      opacity:0;
+      animation:fadeOnly 1s ease forwards;
+    }
+
+    .bounce-up{
+      opacity:0;
+      transform:translateY(40px) scale(.92);
+      animation:bounceUp 1.05s cubic-bezier(.22,1.25,.37,1) forwards;
+    }
+
+    .delay-1{ animation-delay:.12s; }
+    .delay-2{ animation-delay:.24s; }
+    .delay-3{ animation-delay:.36s; }
+    .delay-4{ animation-delay:.48s; }
+    .delay-5{ animation-delay:.60s; }
+
+    @keyframes fadeDown{
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes fadeUp{
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes fadeOnly{
+      to{ opacity:1; }
+    }
+
+    @keyframes bounceUp{
+      0%{ opacity:0; transform:translateY(42px) scale(.9); }
+      60%{ opacity:1; transform:translateY(-8px) scale(1.02); }
+      100%{ opacity:1; transform:translateY(0) scale(1); }
+    }
+
+    @keyframes floatY{
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(-8px); }
+    }
+
+    @keyframes shine{
+      0%{ transform:translateX(-120%) skewX(-18deg); }
+      100%{ transform:translateX(220%) skewX(-18deg); }
+    }
+
+    /* hero */
     .hero{
       position:relative;
       overflow:hidden;
       background:
-        linear-gradient(135deg, rgba(8,31,63,.95), rgba(17,53,97,.92)),
-        linear-gradient(135deg, #0b2345, #163761);
+        linear-gradient(135deg, rgba(8,31,63,.96), rgba(20,52,95,.93)),
+        linear-gradient(135deg, #0b2345, #15365f);
       border-radius:20px 20px 0 0;
       box-shadow:var(--shadow);
+      min-height:360px;
     }
 
     .hero::before{
@@ -75,64 +136,66 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 10% 20%, rgba(212,173,69,.18), transparent 25%),
-        radial-gradient(circle at 90% 80%, rgba(255,255,255,.06), transparent 22%);
+        radial-gradient(circle at 12% 22%, rgba(216,176,74,.18), transparent 22%),
+        radial-gradient(circle at 88% 18%, rgba(255,255,255,.07), transparent 18%),
+        radial-gradient(circle at 84% 84%, rgba(216,176,74,.10), transparent 22%);
       pointer-events:none;
     }
 
     .hero::after{
       content:"";
       position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:120px;
+      left:-10%;
+      right:-10%;
+      bottom:-6px;
+      height:128px;
       background:
-        linear-gradient(to top, rgba(0,0,0,.15), transparent),
-        repeating-linear-gradient(
-          90deg,
-          transparent 0 80px,
-          rgba(255,255,255,.025) 80px 81px
-        );
-      opacity:.9;
+        linear-gradient(to top, rgba(0,0,0,.18), transparent),
+        linear-gradient(90deg, transparent 0 6%, rgba(255,255,255,.03) 6% 7%, transparent 7% 15%, rgba(255,255,255,.03) 15% 16%, transparent 16% 100%);
+      clip-path: polygon(0 100%, 4% 78%, 8% 80%, 12% 55%, 16% 70%, 20% 44%, 24% 63%, 28% 38%, 32% 58%, 36% 34%, 40% 60%, 44% 46%, 48% 73%, 52% 41%, 56% 66%, 60% 36%, 64% 64%, 68% 40%, 72% 72%, 76% 52%, 80% 76%, 84% 47%, 88% 72%, 92% 57%, 96% 80%, 100% 100%);
+      opacity:.8;
       pointer-events:none;
     }
 
     .hero-inner{
       position:relative;
       z-index:2;
-      padding:28px 24px 32px;
+      padding:26px 24px 34px;
     }
 
     .top-logos{
-      display:flex;
-      justify-content:space-between;
+      display:grid;
+      grid-template-columns:120px 1fr 120px;
       align-items:center;
-      gap:12px;
+      gap:14px;
       margin-bottom:22px;
-      flex-wrap:wrap;
     }
 
     .logo-box{
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.08);
       border:1px solid rgba(255,255,255,.12);
-      backdrop-filter:blur(6px);
-      border-radius:14px;
-      padding:10px 12px;
-      min-height:72px;
+      backdrop-filter:blur(8px);
+      border-radius:16px;
+      padding:12px;
+      min-height:82px;
       display:flex;
       align-items:center;
       justify-content:center;
+      box-shadow:0 10px 24px rgba(0,0,0,.12);
     }
 
     .logo-box img{
-      max-height:52px;
+      max-height:54px;
       width:auto;
       object-fit:contain;
     }
 
-    .logo-box.vision img{
-      max-height:46px;
+    .logo-box.main-logo{
+      animation:floatY 4s ease-in-out infinite;
+    }
+
+    .logo-box.vision-logo{
+      animation:floatY 4.6s ease-in-out infinite;
     }
 
     .hero-center{
@@ -140,16 +203,25 @@
       color:#fff;
     }
 
+    .hero-kicker{
+      color:#f0d188;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:.3px;
+      margin-bottom:8px;
+    }
+
     .hero-center h1{
-      font-size:clamp(1.7rem, 4vw, 2.7rem);
+      font-size:clamp(1.8rem, 4vw, 2.9rem);
       font-weight:900;
       line-height:1.35;
       margin-bottom:10px;
+      text-shadow:0 2px 10px rgba(0,0,0,.18);
     }
 
     .hero-center p{
       font-size:1rem;
-      color:#e7edf8;
+      color:#e8eef9;
       max-width:620px;
       margin:0 auto 18px;
     }
@@ -159,21 +231,38 @@
       justify-content:center;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:10px;
+      margin-top:12px;
     }
 
     .landmark-chip{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.13);
       color:#fff;
       padding:8px 12px;
       border-radius:999px;
       font-size:13px;
       font-weight:700;
       backdrop-filter:blur(4px);
+      box-shadow:0 8px 16px rgba(0,0,0,.1);
     }
 
-    /* FORM HEADER CARD */
+    .floating-badge{
+      position:absolute;
+      bottom:92px;
+      left:28px;
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.14);
+      color:#fff;
+      border-radius:14px;
+      padding:10px 14px;
+      font-size:13px;
+      font-weight:700;
+      box-shadow:0 10px 22px rgba(0,0,0,.14);
+      backdrop-filter:blur(8px);
+      animation:floatY 4.2s ease-in-out infinite;
+    }
+
+    /* top card */
     .top-card{
       background:var(--card);
       border:1px solid #e7e7e7;
@@ -187,6 +276,17 @@
     .gold-strip{
       height:8px;
       background:linear-gradient(90deg, var(--gold), var(--gold-2));
+      position:relative;
+      overflow:hidden;
+    }
+
+    .gold-strip::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      width:28%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+      animation:shine 3.8s linear infinite;
     }
 
     .top-inner{
@@ -233,7 +333,7 @@
       font-size:14px;
     }
 
-    /* QUESTIONS */
+    /* questions */
     .q{
       background:var(--card);
       border:1px solid #e8e8e8;
@@ -241,6 +341,12 @@
       padding:20px;
       margin-bottom:14px;
       box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+
+    .q:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 32px rgba(0,0,0,.09);
     }
 
     .q.required{
@@ -296,7 +402,6 @@
       resize:vertical;
     }
 
-    /* PHONE WITH SAUDI FLAG */
     .phone-wrap{
       position:relative;
     }
@@ -316,6 +421,7 @@
       pointer-events:none;
       background:#fff;
       padding-right:4px;
+      z-index:2;
     }
 
     .phone-wrap .flag::after{
@@ -333,7 +439,6 @@
       text-align:left;
     }
 
-    /* SUBMIT */
     .submit-row{
       display:flex;
       justify-content:flex-start;
@@ -356,6 +461,7 @@
 
     button:hover{
       background:#0948ad;
+      transform:translateY(-1px);
     }
 
     .footer-note{
@@ -372,20 +478,23 @@
         padding:18px;
       }
 
+      .top-logos{
+        grid-template-columns:1fr;
+        justify-items:center;
+      }
+
+      .floating-badge{
+        position:static;
+        margin:18px auto 0;
+        display:inline-block;
+      }
+
       .title{
         font-size:24px;
       }
 
       .label{
         font-size:17px;
-      }
-
-      .top-logos{
-        justify-content:center;
-      }
-
-      .logo-box{
-        min-width:120px;
       }
     }
   </style>
@@ -397,18 +506,19 @@
     <section class="hero">
       <div class="hero-inner">
         <div class="top-logos">
-          <div class="logo-box">
+          <div class="logo-box main-logo fade-down delay-1">
             <img src="LOGO.jpg" alt="Majan Logo">
           </div>
 
-          <div class="hero-center" style="flex:1 1 220px;">
-            <h1>استمارة تحديد البرنامج المناسب</h1>
-            <p>
+          <div class="hero-center">
+            <div class="hero-kicker fade-down delay-1">Majan Training & Education</div>
+            <h1 class="fade-down delay-2">استمارة تحديد البرنامج المناسب</h1>
+            <p class="fade-up delay-3">
               صممنا هذه الصفحة بطريقة أوضح وأجمل لتسهيل تسجيل الطالب واختيار البرنامج المناسب،
               مع طابع احترافي يعكس هوية ماجان.
             </p>
 
-            <div class="landmarks">
+            <div class="landmarks fade-up delay-4">
               <span class="landmark-chip">🇬🇧 لندن</span>
               <span class="landmark-chip">🕰️ بيغ بن</span>
               <span class="landmark-chip">🎡 لندن آي</span>
@@ -418,14 +528,16 @@
             </div>
           </div>
 
-          <div class="logo-box vision">
+          <div class="logo-box vision-logo fade-down delay-1">
             <img src="Saudi2030 (1).png" alt="Saudi Vision 2030">
           </div>
         </div>
+
+        <div class="floating-badge bounce-up delay-5">واجهة أسرع وأكثر وضوحاً للطالب وولي الأمر</div>
       </div>
     </section>
 
-    <div class="top-card">
+    <div class="top-card fade-up delay-2">
       <div class="gold-strip"></div>
       <div class="top-inner">
         <h2 class="title">فضلاً أكمل البيانات المطلوبة</h2>
@@ -441,7 +553,7 @@
       </div>
     </div>
 
-    <form>
+    <form class="fade-up delay-3">
       <div class="q required">
         <label class="label">الاسم الكامل <span class="star">*</span></label>
         <input type="text" required>
@@ -536,8 +648,8 @@
       </div>
     </form>
 
-    <div class="footer-note">
-      تم تصميم هذه الصفحة بأسلوب أقرب إلى الصفحة المرجعية مع تحسين الهوية البصرية وإبراز هوية ماجان.
+    <div class="footer-note fade delay-5">
+      تم تصميم هذه الصفحة بأسلوب أقرب إلى الصفحة المرجعية مع تحسين الهوية البصرية والحركة.
     </div>
   </div>
 
