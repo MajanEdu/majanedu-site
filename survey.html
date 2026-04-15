@@ -4,129 +4,265 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>استمارة تحديد البرنامج المناسب | ماجان</title>
+  <meta name="description" content="استمارة ماجان لتحديد البرنامج المناسب للطالب" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#f3efe2;
       --card:#ffffff;
-      --field:#f7f7f7;
-      --border:#d7d7d7;
-      --text:#1f2937;
+      --field:#ffffff;
+      --border:#d9d9d9;
+      --text:#182437;
       --muted:#6b7280;
-      --accent:#c49a2c;
+      --navy:#0b2345;
+      --navy-2:#163761;
+      --gold:#c49a2c;
+      --gold-2:#d6ad45;
       --required:#d93025;
-      --shadow:0 6px 18px rgba(0,0,0,.06);
-      --radius:10px;
+      --shadow:0 10px 28px rgba(0,0,0,.07);
+      --radius:14px;
     }
 
     *{
       box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
-      margin:0;
       font-family:'Cairo', sans-serif;
       background:var(--bg);
       color:var(--text);
-      line-height:1.8;
-      padding:32px 12px 60px;
+      line-height:1.85;
+      padding:24px 12px 60px;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
     }
 
     .wrap{
-      max-width:760px;
+      max-width:780px;
       margin:0 auto;
     }
 
+    /* HERO */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(8,31,63,.95), rgba(17,53,97,.92)),
+        linear-gradient(135deg, #0b2345, #163761);
+      border-radius:20px 20px 0 0;
+      box-shadow:var(--shadow);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(212,173,69,.18), transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,.06), transparent 22%);
+      pointer-events:none;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:120px;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.15), transparent),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 80px,
+          rgba(255,255,255,.025) 80px 81px
+        );
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      padding:28px 24px 32px;
+    }
+
+    .top-logos{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:22px;
+      flex-wrap:wrap;
+    }
+
+    .logo-box{
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(6px);
+      border-radius:14px;
+      padding:10px 12px;
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .logo-box img{
+      max-height:52px;
+      width:auto;
+      object-fit:contain;
+    }
+
+    .logo-box.vision img{
+      max-height:46px;
+    }
+
+    .hero-center{
+      text-align:center;
+      color:#fff;
+    }
+
+    .hero-center h1{
+      font-size:clamp(1.7rem, 4vw, 2.7rem);
+      font-weight:900;
+      line-height:1.35;
+      margin-bottom:10px;
+    }
+
+    .hero-center p{
+      font-size:1rem;
+      color:#e7edf8;
+      max-width:620px;
+      margin:0 auto 18px;
+    }
+
+    .landmarks{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .landmark-chip{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      backdrop-filter:blur(4px);
+    }
+
+    /* FORM HEADER CARD */
     .top-card{
       background:var(--card);
-      border-radius:12px;
+      border:1px solid #e7e7e7;
+      border-top:none;
+      border-radius:0 0 18px 18px;
       box-shadow:var(--shadow);
       overflow:hidden;
       margin-bottom:18px;
-      border:1px solid #e8e8e8;
     }
 
-    .top-bar{
-      height:10px;
-      background:#c49a2c;
+    .gold-strip{
+      height:8px;
+      background:linear-gradient(90deg, var(--gold), var(--gold-2));
     }
 
     .top-inner{
-      padding:24px 24px 18px;
+      padding:22px 22px 18px;
     }
 
     .title{
-      font-size:30px;
-      font-weight:800;
-      margin:0 0 10px;
-      color:#0b2345;
+      font-size:28px;
+      font-weight:900;
+      color:var(--navy);
+      margin-bottom:8px;
     }
 
     .desc{
-      margin:0 0 12px;
+      font-size:16px;
       color:#374151;
-      font-size:17px;
+      margin-bottom:12px;
     }
 
     .email-line{
-      font-size:15px;
-      color:#374151;
-      margin:8px 0 2px;
       direction:ltr;
       text-align:left;
+      font-size:15px;
+      color:#374151;
+      margin-bottom:2px;
     }
 
     .switch{
+      direction:ltr;
+      text-align:left;
       font-size:14px;
       color:#0b57d0;
       margin-bottom:8px;
-      text-align:left;
-      direction:ltr;
     }
 
     .muted{
       color:var(--muted);
       font-size:14px;
-      margin-top:4px;
+      margin-bottom:10px;
     }
 
     .req-note{
       color:var(--required);
       font-size:14px;
-      margin-top:10px;
     }
 
+    /* QUESTIONS */
     .q{
       background:var(--card);
       border:1px solid #e8e8e8;
-      border-radius:12px;
-      padding:22px;
+      border-radius:14px;
+      padding:20px;
       margin-bottom:14px;
       box-shadow:var(--shadow);
     }
 
     .q.required{
-      border:1.5px solid #efb1ab;
+      border-color:#efc1bb;
     }
 
     .label{
       display:block;
-      font-size:20px;
-      font-weight:700;
+      font-size:19px;
+      font-weight:800;
       margin-bottom:8px;
       color:#111827;
     }
 
-    .label .star{
+    .star{
       color:var(--required);
       margin-right:6px;
     }
 
     .help{
       color:#4b5563;
-      font-size:15px;
+      font-size:14px;
       margin-bottom:12px;
     }
 
@@ -139,18 +275,19 @@
       width:100%;
       font-family:'Cairo', sans-serif;
       font-size:16px;
-      background:#fff;
+      background:var(--field);
       border:1px solid var(--border);
-      border-radius:8px;
-      padding:14px 14px;
+      border-radius:9px;
+      padding:13px 14px;
       outline:none;
       transition:.2s ease;
+      color:#111827;
     }
 
     input:focus,
     select:focus,
     textarea:focus{
-      border-color:#c49a2c;
+      border-color:var(--gold);
       box-shadow:0 0 0 3px rgba(196,154,44,.12);
     }
 
@@ -159,6 +296,44 @@
       resize:vertical;
     }
 
+    /* PHONE WITH SAUDI FLAG */
+    .phone-wrap{
+      position:relative;
+    }
+
+    .phone-wrap .flag{
+      position:absolute;
+      left:12px;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:#111827;
+      font-size:15px;
+      font-weight:700;
+      direction:ltr;
+      pointer-events:none;
+      background:#fff;
+      padding-right:4px;
+    }
+
+    .phone-wrap .flag::after{
+      content:"";
+      width:1px;
+      height:22px;
+      background:#d8d8d8;
+      display:block;
+      margin-right:2px;
+    }
+
+    .phone-wrap input{
+      padding-left:112px;
+      direction:ltr;
+      text-align:left;
+    }
+
+    /* SUBMIT */
     .submit-row{
       display:flex;
       justify-content:flex-start;
@@ -169,13 +344,14 @@
       background:#0b57d0;
       color:#fff;
       border:none;
-      border-radius:8px;
-      padding:13px 30px;
+      border-radius:9px;
+      padding:13px 32px;
       font-family:'Cairo', sans-serif;
       font-size:17px;
-      font-weight:700;
+      font-weight:800;
       cursor:pointer;
       transition:.2s ease;
+      box-shadow:0 8px 18px rgba(11,87,208,.18);
     }
 
     button:hover{
@@ -183,13 +359,14 @@
     }
 
     .footer-note{
-      margin-top:18px;
-      color:#6b7280;
-      font-size:13px;
       text-align:center;
+      color:#7a7f8b;
+      font-size:13px;
+      margin-top:14px;
     }
 
     @media (max-width:640px){
+      .hero-inner,
       .top-inner,
       .q{
         padding:18px;
@@ -200,7 +377,15 @@
       }
 
       .label{
-        font-size:18px;
+        font-size:17px;
+      }
+
+      .top-logos{
+        justify-content:center;
+      }
+
+      .logo-box{
+        min-width:120px;
       }
     }
   </style>
@@ -209,11 +394,45 @@
 
   <div class="wrap">
 
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="top-logos">
+          <div class="logo-box">
+            <img src="LOGO.jpg" alt="Majan Logo">
+          </div>
+
+          <div class="hero-center" style="flex:1 1 220px;">
+            <h1>استمارة تحديد البرنامج المناسب</h1>
+            <p>
+              صممنا هذه الصفحة بطريقة أوضح وأجمل لتسهيل تسجيل الطالب واختيار البرنامج المناسب،
+              مع طابع احترافي يعكس هوية ماجان.
+            </p>
+
+            <div class="landmarks">
+              <span class="landmark-chip">🇬🇧 لندن</span>
+              <span class="landmark-chip">🕰️ بيغ بن</span>
+              <span class="landmark-chip">🎡 لندن آي</span>
+              <span class="landmark-chip">🏛️ أكسفورد</span>
+              <span class="landmark-chip">🌆 مانشستر</span>
+              <span class="landmark-chip">🌊 بورنموث</span>
+            </div>
+          </div>
+
+          <div class="logo-box vision">
+            <img src="Saudi2030 (1).png" alt="Saudi Vision 2030">
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="top-card">
-      <div class="top-bar"></div>
+      <div class="gold-strip"></div>
       <div class="top-inner">
-        <h1 class="title">استمارة تحديد البرنامج المناسب</h1>
-        <p class="desc">فضلاً أكمل البيانات المطلوبة لتحديد البرنامج المناسب لك.<br>سنتواصل معك بعد استلام الطلب مباشرة.</p>
+        <h2 class="title">فضلاً أكمل البيانات المطلوبة</h2>
+        <p class="desc">
+          فضلاً أكمل البيانات المطلوبة لتحديد البرنامج المناسب لك.<br>
+          سنتواصل معك بعد استلام الطلب مباشرة.
+        </p>
 
         <div class="email-line">madboy221133@gmail.com</div>
         <div class="switch">Switch accounts</div>
@@ -230,7 +449,10 @@
 
       <div class="q required">
         <label class="label">رقم الهاتف (واتساب) <span class="star">*</span></label>
-        <input type="tel" required>
+        <div class="phone-wrap">
+          <span class="flag">🇸🇦 +966</span>
+          <input type="tel" required placeholder="5XXXXXXXX">
+        </div>
       </div>
 
       <div class="q">
@@ -314,7 +536,9 @@
       </div>
     </form>
 
-    <div class="footer-note">تم تصميم هذه الصفحة لتشبه نموذج التسجيل المرجعي في الشكل العام وتجربة الاستخدام.</div>
+    <div class="footer-note">
+      تم تصميم هذه الصفحة بأسلوب أقرب إلى الصفحة المرجعية مع تحسين الهوية البصرية وإبراز هوية ماجان.
+    </div>
   </div>
 
 </body>
