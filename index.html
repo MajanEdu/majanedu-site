@@ -1,252 +1,614 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>استمارة التسجيل | ماجان</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مكتب ماجان للتدريب والتعليم</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
-<style>
-body{
-  font-family:'Cairo',sans-serif;
-  background:#f3efe2;
-  margin:0;
-  padding:15px;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-.container{
-  max-width:700px;
-  margin:auto;
-}
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: #f8f9fb;
+      color: #111827;
+      line-height: 1.8;
+    }
 
-/* HERO */
-.hero{
-  background:linear-gradient(135deg,#0b2345,#173a67);
-  border-radius:18px 18px 0 0;
-  color:white;
-  text-align:center;
-  padding:25px 15px;
-}
+    a {
+      text-decoration: none;
+    }
 
-.logos{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-bottom:15px;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-.logos img{
-  height:55px;
-  background:rgba(255,255,255,0.1);
-  padding:8px;
-  border-radius:10px;
-}
+    .container {
+      width: 90%;
+      max-width: 1250px;
+      margin: auto;
+    }
 
-.hero h1{
-  font-size:28px;
-  margin:0;
-  font-weight:800;
-}
+    /* NAVBAR */
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
 
-/* INTRO */
-.intro{
-  background:white;
-  padding:20px;
-  border-radius:0 0 18px 18px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-  margin-bottom:15px;
-}
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+    }
 
-.intro h2{
-  margin:0 0 8px;
-  color:#0b2345;
-}
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-/* FORM */
-.box{
-  background:white;
-  padding:18px;
-  border-radius:12px;
-  margin-bottom:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
+    .logo-wrap img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
 
-label{
-  font-weight:700;
-  display:block;
-  margin-bottom:8px;
-}
+    .logo-text h1 {
+      font-size: 1.45rem;
+      color: #0f2747;
+      margin-bottom: 2px;
+      font-weight: 900;
+    }
 
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  font-family:'Cairo';
-  font-size:15px;
-}
+    .logo-text p {
+      color: #b9912f;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
 
-textarea{
-  min-height:100px;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
 
-/* PHONE */
-.phone{
-  position:relative;
-}
+    nav ul li a {
+      color: #0f2747;
+      font-weight: 700;
+      transition: 0.3s;
+    }
 
-.phone span{
-  position:absolute;
-  left:10px;
-  top:50%;
-  transform:translateY(-50%);
-  font-weight:700;
-}
+    nav ul li a:hover {
+      color: #c8a03a;
+    }
 
-.phone input{
-  padding-left:90px;
-  direction:ltr;
-}
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(10, 28, 52, 0.78), rgba(10, 28, 52, 0.82)),
+                  url('LOGO.jpg') center/contain no-repeat,
+                  linear-gradient(135deg, #0f2747, #102f59);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
 
-/* BUTTON */
-button{
-  background:#0b57d0;
-  color:white;
-  border:none;
-  padding:12px;
-  width:100%;
-  border-radius:8px;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(200,160,58,0.18), transparent 35%),
+                  radial-gradient(circle at bottom right, rgba(255,255,255,0.06), transparent 30%);
+    }
 
-button:hover{
-  background:#0948ad;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 40px 0;
+    }
 
-/* MOBILE */
-@media(max-width:600px){
-  .hero h1{
-    font-size:22px;
-  }
-}
-</style>
+    .hero-logo {
+      width: 135px;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.22));
+      background: rgba(255,255,255,0.06);
+      padding: 14px;
+      border-radius: 24px;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 16px;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      max-width: 900px;
+      margin: auto;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: #f3f4f6;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 14px;
+      font-weight: 800;
+      transition: 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: #c8a03a;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(200,160,58,0.25);
+    }
+
+    .btn-primary:hover {
+      background: #b18a2e;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(5px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    /* GENERAL SECTION */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+      color: #0f2747;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 900;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 55px;
+      color: #6b7280;
+      font-size: 1.08rem;
+    }
+
+    /* ABOUT */
+    .about-box {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 50px;
+      box-shadow: 0 15px 45px rgba(15,39,71,0.07);
+      text-align: center;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .about-box p {
+      font-size: 1.14rem;
+      color: #374151;
+      line-height: 2.1;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: 0 14px 40px rgba(15,39,71,0.06);
+      transition: 0.3s ease;
+      border: 1px solid #eef2f7;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 48px rgba(15,39,71,0.12);
+    }
+
+    .service-card .icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      color: #0f2747;
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .service-card p {
+      color: #6b7280;
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    /* LOGO SECTION */
+    .logo-section {
+      background: #ffffff;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      align-items: center;
+    }
+
+    .logo-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 28px;
+      min-height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 28px rgba(15,39,71,0.05);
+      border: 1px solid #eef2f7;
+      transition: 0.3s ease;
+    }
+
+    .logo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 38px rgba(15,39,71,0.1);
+    }
+
+    .logo-card img {
+      max-height: 72px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #0f2747, #14365f);
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      padding: 70px 30px;
+      box-shadow: 0 18px 48px rgba(15,39,71,0.15);
+    }
+
+    .cta h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 16px;
+      font-weight: 900;
+    }
+
+    .cta p {
+      max-width: 800px;
+      margin: auto;
+      color: #e5e7eb;
+      margin-bottom: 30px;
+      font-size: 1.08rem;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 12px 32px rgba(15,39,71,0.06);
+      text-align: center;
+      border: 1px solid #eef2f7;
+    }
+
+    .contact-card h3 {
+      color: #0f2747;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .contact-card p,
+    .contact-card a {
+      color: #6b7280;
+      font-size: 1rem;
+      line-height: 1.9;
+      word-break: break-word;
+    }
+
+    .contact-card a:hover {
+      color: #c8a03a;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b1d35;
+      color: #d1d5db;
+      text-align: center;
+      padding: 28px 15px;
+      margin-top: 70px;
+      font-size: 0.98rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+
+      .logo-wrap {
+        flex-direction: column;
+      }
+
+      .about-box {
+        padding: 35px 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 88vh;
+      }
+
+      .hero-logo {
+        width: 110px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .service-card,
+      .contact-card,
+      .logo-card {
+        border-radius: 18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <!-- HEADER -->
+  <header>
+    <div class="container navbar">
+      <div class="logo-wrap">
+        <img src="LOGO.jpg" alt="Majan Logo">
+        <div class="logo-text">
+          <h1>مكتب ماجان للتدريب والتعليم</h1>
+          <p>Majan Training & Education</p>
+        </div>
+      </div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="logos">
-    <img src="LOGO.jpg">
-    <img src="saudi2030.png">
-  </div>
-  <h1>استمارة تحديد البرنامج المناسب</h1>
-</div>
+      <nav>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#universities">الجامعات</a></li>
+          <li><a href="#partners">شركاؤنا</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<!-- INTRO -->
-<div class="intro">
-  <h2>فضلاً أكمل البيانات المطلوبة</h2>
-  <p>سنتواصل معك بعد استلام الطلب مباشرة.</p>
-</div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <img src="LOGO.jpg" alt="Majan Logo" class="hero-logo">
 
-<form>
+      <h2>ابدأ رحلتك التعليمية بثقة مع ماجان</h2>
+      <p>
+        نساعدك في الوصول إلى أفضل الجامعات والمعاهد وبرامج اللغة في بريطانيا،
+        مع دعم كامل في التقديم، القبول، الاستشارات الأكاديمية، واختيار المسار الأنسب لك.
+      </p>
 
-<div class="box">
-  <label>الاسم الكامل *</label>
-  <input type="text" required>
-</div>
+      <div class="hero-buttons">
+        <a href="https://wa.me/447774198870" target="_blank" class="btn btn-primary">تواصل عبر الواتساب</a>
+        <a href="#services" class="btn btn-secondary">استكشف خدماتنا</a>
+      </div>
+    </div>
+  </section>
 
-<div class="box">
-  <label>رقم الهاتف (واتساب) *</label>
-  <div class="phone">
-    <span>🇸🇦 +966</span>
-    <input type="tel" required>
-  </div>
-</div>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">من نحن</h2>
+      <p class="section-subtitle">
+        مكتب ماجان للتدريب والتعليم هو جهة متخصصة في الإرشاد الأكاديمي والتقديم للجامعات والمعاهد
+        وبرامج اللغة في المملكة المتحدة.
+      </p>
 
-<div class="box">
-  <label>البريد الإلكتروني (اختياري)</label>
-  <input type="email">
-</div>
+      <div class="about-box">
+        <p>
+          نؤمن أن كل طالب يستحق فرصة تعليمية مناسبة لطموحه ومستقبله.
+          لذلك نعمل على تقديم استشارات احترافية ومتابعة دقيقة للطلاب والطالبات الراغبين في الدراسة بالخارج،
+          مع التركيز على الجودة، الموثوقية، وسهولة الإجراءات.
+          <br><br>
+          نساعدك من أول خطوة حتى القبول النهائي، سواء كنت تبحث عن دراسة لغة إنجليزية،
+          بكالوريوس، ماجستير، دكتوراه، أو برامج تدريبية متخصصة.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<div class="box">
-  <label>⭐ العمر *</label>
-  <select required>
-    <option>اختر</option>
-    <option>14 سنة</option>
-    <option>15 سنة</option>
-    <option>16 سنة</option>
-    <option>17 سنة</option>
-    <option>18 سنة وما فوق</option>
-  </select>
-</div>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">خدماتنا</h2>
+      <p class="section-subtitle">
+        نقدم لك مجموعة متكاملة من الخدمات التعليمية والاستشارية لتسهيل رحلتك الدراسية.
+      </p>
 
-<div class="box">
-  <label>البرنامج المهتم به</label>
-  <select>
-    <option>اختر</option>
-    <option>البرامج الصيفية</option>
-    <option>القبول الجامعي</option>
-    <option>IELTS / لغة إنجليزية</option>
-    <option>طيران (ICAO)</option>
-  </select>
-</div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">🎓</div>
+          <h3>التقديم للجامعات</h3>
+          <p>مساعدتك في اختيار الجامعة المناسبة والتقديم على برامج البكالوريوس، الماجستير، والدكتوراه.</p>
+        </div>
 
-<div class="box">
-  <label>موعد السفر المتوقع</label>
-  <input type="date">
-</div>
+        <div class="service-card">
+          <div class="icon">📘</div>
+          <h3>برامج اللغة الإنجليزية</h3>
+          <p>التسجيل في أفضل معاهد اللغة في بريطانيا مع خيارات متعددة تناسب أهدافك وميزانيتك.</p>
+        </div>
 
-<div class="box">
-  <label>مدة الدراسة المطلوبة</label>
-  <select>
-    <option>اختر</option>
-    <option>أسبوعين</option>
-    <option>شهر</option>
-    <option>شهرين</option>
-    <option>3 أشهر</option>
-  </select>
-</div>
+        <div class="service-card">
+          <div class="icon">📝</div>
+          <h3>الاستشارات الأكاديمية</h3>
+          <p>توجيه أكاديمي واضح يساعدك على اختيار التخصص والمسار الدراسي المناسب لمستقبلك.</p>
+        </div>
 
-<div class="box">
-  <label>مدة أخرى</label>
-  <input type="text">
-</div>
+        <div class="service-card">
+          <div class="icon">🏠</div>
+          <h3>السكن والاستقبال</h3>
+          <p>مساعدة في ترتيب السكن العائلي أو الطلابي وبعض الترتيبات الأساسية قبل السفر.</p>
+        </div>
 
-<div class="box">
-  <label>المدينة المطلوبة *</label>
-  <select required>
-    <option>اختر</option>
-    <option>لندن</option>
-    <option>مانشستر</option>
-    <option>بورنموث</option>
-    <option>ليفربول</option>
-    <option>إدنبرة</option>
-    <option>أكسفورد</option>
-    <option>برايتون</option>
-  </select>
-</div>
+        <div class="service-card">
+          <div class="icon">✈️</div>
+          <h3>التجهيز قبل السفر</h3>
+          <p>إرشاد كامل لما تحتاجه قبل السفر من تجهيزات، نصائح، وترتيبات أولية للدراسة في الخارج.</p>
+        </div>
 
-<div class="box">
-  <label>مدينة أخرى</label>
-  <input type="text">
-</div>
+        <div class="service-card">
+          <div class="icon">🤝</div>
+          <h3>متابعة مستمرة</h3>
+          <p>نرافقك خلال رحلتك التعليمية ونوفر لك الدعم والاستشارة عند الحاجة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="box">
-  <label>ملاحظات (اختياري)</label>
-  <textarea></textarea>
-</div>
+  <!-- UNIVERSITIES -->
+  <section class="logo-section" id="universities">
+    <div class="container">
+      <h2 class="section-title">جامعات نساعدك في التقديم لها</h2>
+      <p class="section-subtitle">
+        نماذج من الجامعات البريطانية التي يهتم بها الكثير من طلابنا.
+      </p>
 
-<button type="submit">إرسال</button>
+      <div class="logo-grid">
+        <div class="logo-card"><img src="65646dbd542e223348a87c3f_UCL_logo.png" alt="UCL"></div>
+        <div class="logo-card"><img src="195-1957960_imperial-college-london-logo-vector.png.jpeg" alt="Imperial College London"></div>
+        <div class="logo-card"><img src="London_school_of_economics_logo_with_name.svg.png" alt="LSE"></div>
+        <div class="logo-card"><img src="oxford-university-logo.jpg" alt="Oxford University"></div>
+        <div class="logo-card"><img src="the-university-of-warwick-logo-2015.jpg" alt="University of Warwick"></div>
+        <div class="logo-card"><img src="20241011144033_file_KKCC.png" alt="King's College"></div>
+      </div>
+    </div>
+  </section>
 
-</form>
+  <!-- PARTNERS -->
+  <section id="partners">
+    <div class="container">
+      <h2 class="section-title">شركاؤنا في معاهد اللغة</h2>
+      <p class="section-subtitle">
+        نتعامل مع معاهد موثوقة لتقديم برامج لغة إنجليزية عالية الجودة للطلاب.
+      </p>
 
-</div>
+      <div class="logo-grid">
+        <div class="logo-card"><img src="Anglo-Continental-logo-RGB.png" alt="Anglo Continental"></div>
+        <div class="logo-card"><img src="cardiff-academy.png" alt="Cardiff Academy"></div>
+        <div class="logo-card"><img src="the-essential-english-centre-logo.png" alt="The Essential English Centre"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>جاهز تبدأ رحلتك الدراسية؟</h2>
+        <p>
+          تواصل معنا الآن وسنساعدك في اختيار أفضل خيار دراسي لك خطوة بخطوة.
+        </p>
+        <a href="https://wa.me/447774198870" target="_blank" class="btn btn-primary">راسلنا مباشرة عبر الواتساب</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">تواصل معنا</h2>
+      <p class="section-subtitle">
+        يسعدنا الرد على استفساراتك ومساعدتك في أي وقت.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>واتساب</h3>
+          <a href="https://wa.me/447774198870" target="_blank">+44 7774 198870</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>البريد الإلكتروني</h3>
+          <a href="mailto:partnerships@majanedu.com">partnerships@majanedu.com</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>الموقع الإلكتروني</h3>
+          <a href="https://majanedu.com" target="_blank">www.majanedu.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 مكتب ماجان للتدريب والتعليم - جميع الحقوق محفوظة
+  </footer>
 
 </body>
 </html>
