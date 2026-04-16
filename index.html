@@ -1,1950 +1,469 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>مكتب ماجان للتدريب والتعليم</title>
-    <meta
-      name="description"
-      content="مكتب ماجان للتدريب والتعليم يساعد الطلاب على التقديم للجامعات البريطانية ومعاهد اللغة بخطوات واضحة ودعم مستمر."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg: #f7fbff;
-        --bg-deep: #e7f1fb;
-        --surface: rgba(255, 255, 255, 0.78);
-        --surface-strong: rgba(255, 255, 255, 0.92);
-        --card-border: rgba(14, 72, 163, 0.12);
-        --card-glow: rgba(15, 120, 255, 0.12);
-        --primary: #0f78ff;
-        --primary-strong: #4da0ff;
-        --accent: #1098ff;
-        --white: #10284d;
-        --muted: #5f7494;
-        --shadow: 0 24px 60px rgba(22, 66, 140, 0.14);
-        --radius-lg: 28px;
-        --radius-md: 20px;
-        --container: min(1180px, calc(100% - 40px));
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Cairo", sans-serif;
-        color-scheme: light;
-        background:
-          radial-gradient(circle at 12% 0%, rgba(15, 120, 255, 0.14), transparent 22%),
-          radial-gradient(circle at 88% 14%, rgba(88, 132, 255, 0.12), transparent 24%),
-          linear-gradient(180deg, #f9fcff 0%, #eff6fd 45%, #f7fbff 100%);
-        color: var(--white);
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.18;
-        background-image:
-          linear-gradient(rgba(16, 40, 77, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(16, 40, 77, 0.03) 1px, transparent 1px);
-        background-size: 34px 34px;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      a:focus-visible {
-        outline: 3px solid rgba(15, 120, 255, 0.22);
-        outline-offset: 4px;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      .container {
-        width: var(--container);
-        margin-inline: auto;
-      }
-
-      .section {
-        position: relative;
-        padding: 110px 0;
-      }
-
-      .section-title {
-        font-size: clamp(1.9rem, 4vw, 3rem);
-        line-height: 1.2;
-        margin: 0 0 18px;
-        font-weight: 800;
-      }
-
-      .section-kicker {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px 16px;
-        border-radius: 999px;
-        background: rgba(15, 120, 255, 0.08);
-        border: 1px solid rgba(15, 120, 255, 0.14);
-        color: var(--primary);
-        font-size: 0.95rem;
-        margin-bottom: 18px;
-      }
-
-      .section-copy {
-        color: var(--muted);
-        font-size: 1.05rem;
-        line-height: 1.9;
-        margin: 0;
-      }
-
-      #services .container,
-      #universities .container,
-      #partners .container,
-      #reviews .container,
-      #contact .container {
-        position: relative;
-        padding: 54px;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 249, 255, 0.92)),
-          var(--surface-strong);
-        border: 1px solid rgba(15, 120, 255, 0.08);
-        clip-path: polygon(0 0, 95% 0, 100% 12%, 100% 100%, 5% 100%, 0 88%);
-        box-shadow: var(--shadow);
-      }
-
-      .shape {
-        position: absolute;
-        border-radius: 999px;
-        filter: blur(10px);
-        opacity: 0.35;
-        pointer-events: none;
-      }
-
-      .shape.one {
-        width: 320px;
-        height: 320px;
-        background: radial-gradient(circle, rgba(15, 120, 255, 0.16), transparent 70%);
-        top: -90px;
-        inset-inline-start: -70px;
-      }
-
-      .shape.two {
-        width: 260px;
-        height: 260px;
-        background: radial-gradient(circle, rgba(64, 156, 255, 0.14), transparent 70%);
-        bottom: -80px;
-        inset-inline-end: -40px;
-      }
-
-      .site-header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        padding-top: 12px;
-      }
-
-      .nav-shell {
-        width: var(--container);
-        margin-inline: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        padding: 16px 24px;
-        background: rgba(255, 255, 255, 0.72);
-        border: 1px solid rgba(15, 120, 255, 0.1);
-        border-radius: 24px;
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        box-shadow: 0 18px 40px rgba(25, 78, 163, 0.12);
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .brand-mark {
-        width: 64px;
-        height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px;
-        overflow: hidden;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.98);
-        border: 1px solid rgba(15, 120, 255, 0.1);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
-      }
-
-      .brand-mark img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      .brand-text strong,
-      .brand-text span {
-        display: block;
-      }
-
-      .brand-text strong {
-        font-size: 1.1rem;
-        font-weight: 800;
-      }
-
-      .brand-text span {
-        color: var(--muted);
-        font-size: 0.85rem;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-
-      .nav-links a {
-        padding: 10px 14px;
-        border-radius: 999px;
-        color: var(--muted);
-        transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease;
-      }
-
-      .nav-links a:hover {
-        color: var(--white);
-        background: rgba(15, 120, 255, 0.1);
-        transform: translateY(-1px);
-      }
-
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        padding: 148px 0 110px;
-        overflow: clip;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(180deg, rgba(247, 251, 255, 0.84), rgba(240, 247, 255, 0.9)),
-          radial-gradient(circle at 18% 18%, rgba(15, 120, 255, 0.12), transparent 24%),
-          radial-gradient(circle at 82% 12%, rgba(84, 97, 255, 0.1), transparent 26%);
-        background-size: 200% 200%;
-        animation: gradientShift 18s ease infinite;
-        z-index: -3;
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        opacity: 0.16;
-        background-image:
-          linear-gradient(rgba(16, 40, 77, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(16, 40, 77, 0.03) 1px, transparent 1px);
-        background-size: 28px 28px, 100% 100%;
-        mix-blend-mode: normal;
-        z-index: -2;
-      }
-
-      .hero-backdrop {
-        position: absolute;
-        inset: -8% -8% auto;
-        height: 120%;
-        transform: translate3d(0, 0, 0);
-        z-index: -1;
-        will-change: transform;
-      }
-
-      .hero-grid,
-      .hero-orb,
-      .hero-ring {
-        position: absolute;
-        pointer-events: none;
-      }
-
-      .hero-grid {
-        inset: 16% 6% auto auto;
-        width: 320px;
-        height: 320px;
-        border: 1px solid rgba(15, 120, 255, 0.08);
-        background-image:
-          linear-gradient(rgba(15, 120, 255, 0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(15, 120, 255, 0.06) 1px, transparent 1px);
-        background-size: 28px 28px;
-        transform: rotate(18deg);
-        opacity: 0.2;
-      }
-
-      .hero-orb {
-        width: 420px;
-        height: 420px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(15, 120, 255, 0.14), transparent 68%);
-        inset-inline-start: -40px;
-        top: 12%;
-        filter: blur(8px);
-      }
-
-      .hero-ring {
-        width: 520px;
-        height: 520px;
-        border-radius: 50%;
-        border: 1px solid rgba(15, 120, 255, 0.08);
-        inset-inline-end: -120px;
-        bottom: 6%;
-        box-shadow:
-          0 0 0 35px rgba(15, 120, 255, 0.03),
-          0 0 0 70px rgba(109, 172, 255, 0.03);
-      }
-
-      .hero-layout {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 32px;
-        align-items: center;
-        position: relative;
-        min-height: 560px;
-        padding: 44px 48px;
-      }
-
-      .hero-layout::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 249, 255, 0.94)),
-          var(--surface-strong);
-        border: 1px solid rgba(15, 120, 255, 0.08);
-        clip-path: polygon(0 34%, 4% 34%, 8% 18%, 72% 18%, 76% 0, 100% 0, 100% 88%, 96% 88%, 92% 100%, 0 100%);
-        border-radius: 32px;
-        box-shadow: 0 32px 64px rgba(25, 78, 163, 0.14);
-        z-index: -1;
-      }
-
-      .hero-copy {
-        max-width: 720px;
-        padding-top: 42px;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 18px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(15, 120, 255, 0.12);
-        color: var(--primary);
-        font-size: 0.95rem;
-        margin-bottom: 22px;
-      }
-
-      .hero-title {
-        font-size: clamp(2.7rem, 6vw, 5.35rem);
-        line-height: 1.12;
-        margin: 0;
-        min-height: 2.4em;
-        font-weight: 800;
-        max-width: 11ch;
-        text-shadow: none;
-      }
-
-      .typewriter {
-        display: inline-block;
-        border-inline-start: 3px solid rgba(15, 120, 255, 0.8);
-        padding-inline-start: 16px;
-        white-space: normal;
-        animation: caretBlink 0.8s steps(1) infinite;
-      }
-
-      .hero-text {
-        margin: 24px 0 34px;
-        max-width: 640px;
-        color: var(--muted);
-        font-size: 1.1rem;
-        line-height: 2;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        min-height: 56px;
-        padding: 0 28px;
-        border-radius: 16px;
-        border: 1px solid transparent;
-        font-weight: 700;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-2px) scale(1.02);
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, #1387ff 0%, #46a3ff 100%);
-        color: #ffffff;
-        box-shadow: 0 18px 34px rgba(15, 120, 255, 0.18);
-      }
-
-      .btn-primary:hover {
-        box-shadow: 0 24px 42px rgba(15, 120, 255, 0.22);
-      }
-
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.82);
-        color: var(--white);
-        border-color: rgba(15, 120, 255, 0.12);
-        backdrop-filter: blur(14px);
-      }
-
-      .hero-panel {
-        position: relative;
-      }
-
-      .hero-media {
-        margin-bottom: 24px;
-        border-radius: 24px;
-        overflow: hidden;
-        border: 1px solid rgba(15, 120, 255, 0.08);
-        box-shadow: 0 18px 36px rgba(25, 78, 163, 0.14);
-      }
-
-      .hero-media img {
-        width: 100%;
-        height: 290px;
-        object-fit: cover;
-      }
-
-      .glass-card {
-        position: relative;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 255, 0.92)),
-          var(--surface);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius-lg);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .glass-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        padding: 1px;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(15, 120, 255, 0.16), transparent 60%);
-        -webkit-mask:
-          linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        pointer-events: none;
-        opacity: 0.7;
-      }
-
-      .glass-card::after {
-        content: "";
-        position: absolute;
-        inset: auto -20% -60% auto;
-        width: 200px;
-        height: 200px;
-        background: radial-gradient(circle, rgba(15, 120, 255, 0.08), transparent 70%);
-        pointer-events: none;
-      }
-
-      .tilt-card {
-        transform-style: preserve-3d;
-        transition: transform 0.18s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        will-change: transform;
-      }
-
-      .tilt-card:hover {
-        border-color: rgba(15, 120, 255, 0.18);
-        box-shadow:
-          0 24px 60px rgba(25, 78, 163, 0.16),
-          0 0 0 1px rgba(15, 120, 255, 0.06),
-          0 0 24px rgba(15, 120, 255, 0.08);
-      }
-
-      .hero-stats {
-        padding: 32px;
-        clip-path: none;
-      }
-
-      .hero-stats-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        margin-bottom: 28px;
-      }
-
-      .hero-stats-title {
-        margin: 0;
-        font-size: 1.4rem;
-        font-weight: 800;
-      }
-
-      .hero-stats-subtitle {
-        margin: 8px 0 0;
-        color: var(--muted);
-        line-height: 1.8;
-        font-size: 0.98rem;
-      }
-
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 14px;
-        border-radius: 14px;
-        background: rgba(15, 120, 255, 0.08);
-        color: var(--primary);
-        border: 1px solid rgba(15, 120, 255, 0.16);
-        white-space: nowrap;
-      }
-
-      .hero-mini-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .mini-card {
-        padding: 18px 18px 16px;
-        border-radius: 18px;
-        background: rgba(15, 120, 255, 0.04);
-        border: 1px solid rgba(15, 120, 255, 0.08);
-      }
-
-      .mini-card strong {
-        display: block;
-        font-size: 1.65rem;
-        font-weight: 800;
-        margin-bottom: 6px;
-      }
-
-      .mini-card span {
-        color: var(--muted);
-        line-height: 1.6;
-        font-size: 0.95rem;
-      }
-
-      .about-card {
-        max-width: 860px;
-        margin: 0 auto;
-        padding: 44px 42px;
-        text-align: center;
-        clip-path: none;
-      }
-
-      .about-card p {
-        font-size: 1.12rem;
-        line-height: 2.15;
-        color: var(--muted);
-        margin: 0;
-      }
-
-      .services-grid,
-      .reviews-grid,
-      .contact-grid,
-      .partners-grid {
-        display: grid;
-        gap: 22px;
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin-top: 38px;
-      }
-
-      .service-card {
-        padding: 30px;
-        min-height: 240px;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .service-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        margin-bottom: 18px;
-      }
-
-      .service-index {
-        min-width: 60px;
-        height: 60px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 18px;
-        background: linear-gradient(135deg, rgba(15, 120, 255, 0.1), rgba(255, 255, 255, 0.72));
-        border: 1px solid rgba(15, 120, 255, 0.16);
-        color: var(--primary);
-        font-weight: 800;
-        font-size: 1rem;
-        letter-spacing: 0.08em;
-      }
-
-      .service-tag {
-        color: #5c82b3;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-      }
-
-      .service-rule {
-        width: 82px;
-        height: 3px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--primary), rgba(15, 120, 255, 0.04));
-        margin-bottom: 18px;
-      }
-
-      .service-card h3 {
-        font-size: 1.38rem;
-        margin: 0 0 12px;
-        font-weight: 800;
-      }
-
-      .service-card p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.95;
-      }
-
-      .logo-strip-wrap {
-        position: relative;
-        overflow: hidden;
-        margin-top: 28px;
-        border-radius: 30px;
-        border: 1px solid rgba(15, 120, 255, 0.08);
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 248, 255, 0.94)),
-          rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(18px);
-      }
-
-      .logo-strip-wrap::before,
-      .logo-strip-wrap::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 90px;
-        z-index: 2;
-        pointer-events: none;
-      }
-
-      .logo-strip-wrap::before {
-        inset-inline-start: 0;
-        background: linear-gradient(90deg, rgba(247, 251, 255, 0.98), transparent);
-      }
-
-      .logo-strip-wrap::after {
-        inset-inline-end: 0;
-        background: linear-gradient(-90deg, rgba(247, 251, 255, 0.98), transparent);
-      }
-
-      .logo-track {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        width: max-content;
-        direction: ltr;
-        padding: 22px;
-        animation: marquee 20s linear infinite;
-      }
-
-      .logo-track:hover {
-        animation-play-state: paused;
-      }
-
-      .logo-chip {
-        min-width: 220px;
-        padding: 20px 26px;
-        border-radius: 20px;
-        text-align: center;
-        color: var(--white);
-        letter-spacing: 0.03em;
-        font-size: 1.1rem;
-        font-weight: 700;
-        background: rgba(15, 120, 255, 0.04);
-        border: 1px solid rgba(15, 120, 255, 0.08);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
-      }
-
-      .universities-showcase {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 22px;
-        margin-top: 38px;
-      }
-
-      .university-showcase-card {
-        padding: 14px;
-      }
-
-      .university-photo {
-        border-radius: 22px;
-        overflow: hidden;
-        margin-bottom: 18px;
-        border: 1px solid rgba(15, 120, 255, 0.08);
-        background: rgba(15, 120, 255, 0.04);
-      }
-
-      .university-photo img {
-        width: 100%;
-        height: 260px;
-        object-fit: cover;
-      }
-
-      .university-photo.logo-stage {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 28px;
-        background: rgba(255, 255, 255, 0.96);
-      }
-
-      .university-photo.logo-stage img {
-        width: 100%;
-        height: 204px;
-        object-fit: contain;
-      }
-
-      .university-showcase-copy {
-        padding: 0 10px 12px;
-      }
-
-      .university-showcase-copy h3 {
-        margin: 0 0 10px;
-        font-size: 1.32rem;
-        font-weight: 800;
-      }
-
-      .university-showcase-copy p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.9;
-      }
-
-      .partners-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin-top: 38px;
-      }
-
-      .partner-card {
-        min-height: 170px;
-        display: grid;
-        place-items: center;
-        padding: 28px;
-        text-align: center;
-      }
-
-      .partner-card strong {
-        font-size: 1.45rem;
-        font-weight: 800;
-      }
-
-      .partner-card span {
-        display: block;
-        margin-top: 10px;
-        color: var(--muted);
-      }
-
-      .reviews-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin-top: 38px;
-      }
-
-      .review-card {
-        padding: 28px;
-      }
-
-      .stars {
-        color: #ffd166;
-        font-size: 1.05rem;
-        margin-bottom: 16px;
-        letter-spacing: 0.12em;
-      }
-
-      .review-card p {
-        margin: 0 0 18px;
-        line-height: 2;
-        color: var(--muted);
-      }
-
-      .reviewer {
-        color: var(--white);
-        font-weight: 700;
-      }
-
-      .cta-banner {
-        padding: 42px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 247, 255, 0.96)),
-          rgba(255, 255, 255, 0.92);
-        border-color: rgba(15, 120, 255, 0.16);
-        box-shadow: 0 28px 56px rgba(25, 78, 163, 0.14);
-        clip-path: none;
-      }
-
-      .cta-copy {
-        flex: 1;
-      }
-
-      .cta-visual {
-        flex: 0 0 280px;
-        border-radius: 24px;
-        overflow: hidden;
-        border: 1px solid rgba(15, 120, 255, 0.1);
-        box-shadow: 0 18px 32px rgba(25, 78, 163, 0.14);
-      }
-
-      .cta-visual img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-      }
-
-      .cta-banner h2 {
-        margin: 0 0 12px;
-        font-size: clamp(1.9rem, 4vw, 3rem);
-        color: var(--white);
-      }
-
-      .cta-banner p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.9;
-      }
-
-      .cta-banner .btn-primary {
-        background: linear-gradient(135deg, #1387ff 0%, #46a3ff 100%);
-        color: #ffffff;
-        box-shadow: 0 18px 32px rgba(15, 120, 255, 0.18);
-      }
-
-      .contact-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        margin-top: 38px;
-        max-width: 900px;
-        margin-inline: auto;
-      }
-
-      .contact-card {
-        padding: 28px;
-        min-height: 210px;
-        text-align: center;
-      }
-
-      .contact-label {
-        color: var(--accent);
-        font-size: 0.95rem;
-        margin-bottom: 16px;
-      }
-
-      .contact-card h3 {
-        font-size: 1.3rem;
-        margin: 0 0 12px;
-        font-weight: 800;
-      }
-
-      .contact-value {
-        direction: ltr;
-        unicode-bidi: isolate;
-        display: inline-block;
-        font-variant-numeric: tabular-nums;
-        overflow-wrap: anywhere;
-      }
-
-      .contact-note {
-        margin: 0 0 16px;
-        color: var(--muted);
-        line-height: 1.85;
-      }
-
-      .contact-card p,
-      .contact-card a {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.9;
-        word-break: break-word;
-      }
-
-      .contact-card a:hover {
-        color: var(--primary);
-      }
-
-      .logo-rail {
-        padding: 0 0 40px;
-      }
-
-      .logo-rail-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .logo-rail-card {
-        min-height: 94px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 18px;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 255, 0.94)),
-          #ffffff;
-      }
-
-      .logo-rail-card img {
-        width: 100%;
-        max-width: 180px;
-        max-height: 54px;
-        object-fit: contain;
-      }
-
-      .site-footer {
-        padding: 34px 20px 42px;
-        text-align: center;
-        color: rgba(95, 116, 148, 0.92);
-        border-top: 1px solid rgba(15, 120, 255, 0.08);
-      }
-
-      .floating-whatsapp {
-        position: fixed;
-        left: 20px;
-        bottom: 20px;
-        width: 68px;
-        height: 68px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        z-index: 60;
-        color: #ffffff;
-        background: linear-gradient(135deg, #25cf6b 0%, #1fb45c 100%);
-        box-shadow:
-          0 18px 32px rgba(37, 207, 107, 0.22),
-          0 0 0 0 rgba(37, 207, 107, 0.36);
-        animation: pulse 2.2s infinite;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-      }
-
-      .floating-whatsapp:hover {
-        transform: scale(1.08);
-        box-shadow:
-          0 22px 36px rgba(37, 207, 107, 0.28),
-          0 0 34px rgba(37, 207, 107, 0.22);
-      }
-
-      .floating-whatsapp svg {
-        width: 30px;
-        height: 30px;
-        fill: currentColor;
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translate3d(0, 48px, 0);
-        transition:
-          opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-          transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      .reveal.is-visible {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-      }
-
-      .delay-1 {
-        transition-delay: 0.08s;
-      }
-
-      .delay-2 {
-        transition-delay: 0.16s;
-      }
-
-      .delay-3 {
-        transition-delay: 0.24s;
-      }
-
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      @keyframes caretBlink {
-        0%,
-        49% {
-          border-color: rgba(15, 120, 255, 0.85);
-        }
-        50%,
-        100% {
-          border-color: transparent;
-        }
-      }
-
-      @keyframes pulse {
-        0% {
-          box-shadow:
-            0 18px 32px rgba(37, 207, 107, 0.22),
-            0 0 0 0 rgba(37, 207, 107, 0.3);
-        }
-        70% {
-          box-shadow:
-            0 18px 32px rgba(37, 207, 107, 0.22),
-            0 0 0 18px rgba(37, 207, 107, 0);
-        }
-        100% {
-          box-shadow:
-            0 18px 32px rgba(37, 207, 107, 0.22),
-            0 0 0 0 rgba(37, 207, 107, 0);
-        }
-      }
-
-      @keyframes marquee {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
-        }
-
-        .reveal {
-          opacity: 1;
-          transform: none;
-        }
-      }
-
-      @media (max-width: 1100px) {
-        .hero-layout,
-        .services-grid,
-        .reviews-grid,
-        .partners-grid,
-        .contact-grid,
-        .universities-showcase,
-        .logo-rail-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .hero-layout {
-          align-items: stretch;
-          min-height: 0;
-          padding: 34px;
-        }
-
-        .cta-banner {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .cta-visual {
-          width: 100%;
-          flex-basis: auto;
-        }
-      }
-
-      @media (max-width: 820px) {
-        .site-header {
-          top: 10px;
-        }
-
-        .nav-shell {
-          padding: 14px 16px;
-          border-radius: 20px;
-          flex-direction: column;
-          align-items: stretch;
-        }
-
-        .brand,
-        .nav-links {
-          justify-content: center;
-        }
-
-        .hero {
-          min-height: auto;
-          padding: 132px 0 84px;
-        }
-
-        .hero-copy,
-        .section-copy {
-          text-align: center;
-        }
-
-        .hero-copy {
-          padding-top: 0;
-        }
-
-        .hero-actions {
-          justify-content: center;
-        }
-
-        .hero-layout,
-        .services-grid,
-        .reviews-grid,
-        .partners-grid,
-        .contact-grid,
-        .universities-showcase,
-        .logo-rail-grid,
-        .hero-mini-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-title {
-          max-width: none;
-          min-height: 0;
-        }
-
-        .hero-stats-top,
-        .service-head {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .section {
-          padding: 88px 0;
-        }
-
-        .hero-layout {
-          gap: 24px;
-          padding: 28px;
-        }
-
-        .hero-layout::before,
-        .about-card,
-        .cta-banner,
-        .hero-stats,
-        #services .container,
-        #universities .container,
-        #partners .container,
-        #reviews .container,
-        #contact .container {
-          clip-path: none;
-          border-radius: 28px;
-        }
-
-        .about-card,
-        .cta-banner,
-        .hero-stats {
-          padding: 28px;
-        }
-
-        #services .container,
-        #universities .container,
-        #partners .container,
-        #reviews .container,
-        #contact .container {
-          padding: 34px;
-        }
-
-        .service-card,
-        .partner-card,
-        .review-card,
-        .contact-card {
-          min-height: auto;
-        }
-
-        .hero-media img,
-        .university-photo img,
-        .cta-visual img {
-          height: 220px;
-        }
-
-        .logo-chip {
-          min-width: 170px;
-          padding: 18px 20px;
-        }
-      }
-
-      @media (max-width: 560px) {
-        :root {
-          --container: min(100% - 24px, 100%);
-        }
-
-        .site-header {
-          position: static;
-          padding-top: 12px;
-        }
-
-        .nav-shell {
-          gap: 14px;
-          padding: 14px;
-        }
-
-        .brand {
-          justify-content: flex-start;
-        }
-
-        .brand-mark {
-          width: 54px;
-          height: 54px;
-          padding: 6px;
-        }
-
-        .brand-text strong {
-          font-size: 0.98rem;
-        }
-
-        .brand-text span {
-          font-size: 0.76rem;
-        }
-
-        .nav-links {
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          overflow-x: auto;
-          padding-bottom: 6px;
-          margin-inline: -2px;
-          scrollbar-width: none;
-        }
-
-        .nav-links::-webkit-scrollbar {
-          display: none;
-        }
-
-        .nav-links a {
-          flex: 0 0 auto;
-          white-space: nowrap;
-          padding: 9px 13px;
-          font-size: 0.92rem;
-        }
-
-        .hero {
-          padding: 40px 0 68px;
-        }
-
-        .hero-actions,
-        .btn {
-          width: 100%;
-        }
-
-        .btn {
-          min-height: 54px;
-        }
-
-        .hero-title {
-          font-size: clamp(2.25rem, 11vw, 3.7rem);
-        }
-
-        .hero-text,
-        .section-copy,
-        .about-card p,
-        .review-card p,
-        .contact-note {
-          font-size: 0.98rem;
-          line-height: 1.9;
-        }
-
-        .hero-stats-title,
-        .contact-card h3 {
-          font-size: 1.16rem;
-          line-height: 1.45;
-        }
-
-        .hero-layout {
-          gap: 18px;
-          padding: 20px;
-        }
-
-        .section {
-          padding: 72px 0;
-        }
-
-        .section-title {
-          font-size: clamp(1.65rem, 8vw, 2.4rem);
-        }
-
-        .eyebrow,
-        .section-kicker {
-          font-size: 0.84rem;
-          padding: 8px 14px;
-        }
-
-        .about-card,
-        .cta-banner,
-        .hero-stats,
-        .service-card,
-        .review-card,
-        .contact-card,
-        .partner-card,
-        .logo-rail-card {
-          padding: 22px;
-        }
-
-        #services .container,
-        #universities .container,
-        #partners .container,
-        #reviews .container,
-        #contact .container {
-          padding: 24px;
-          border-radius: 24px;
-        }
-
-        .service-index {
-          min-width: 52px;
-          height: 52px;
-          font-size: 0.92rem;
-        }
-
-        .service-card h3,
-        .university-showcase-copy h3 {
-          font-size: 1.2rem;
-        }
-
-        .service-tag {
-          font-size: 0.72rem;
-          letter-spacing: 0.12em;
-        }
-
-        .hero-media,
-        .university-photo,
-        .cta-visual {
-          border-radius: 20px;
-        }
-
-        .hero-media img,
-        .university-photo img,
-        .cta-visual img {
-          height: 180px;
-        }
-
-        .university-photo.logo-stage img {
-          height: 140px;
-        }
-
-        .logo-strip-wrap {
-          border-radius: 24px;
-        }
-
-        .logo-track {
-          gap: 12px;
-          padding: 16px;
-        }
-
-        .logo-chip {
-          min-width: 140px;
-          font-size: 0.95rem;
-          padding: 16px 18px;
-        }
-
-        .logo-rail-card img {
-          max-width: 140px;
-          max-height: 42px;
-        }
-
-        .cta-banner {
-          gap: 18px;
-        }
-
-        .hero-grid,
-        .hero-ring {
-          display: none;
-        }
-
-        .floating-whatsapp {
-          width: 62px;
-          height: 62px;
-          left: 16px;
-          bottom: 16px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="nav-shell">
-        <a class="brand" href="#home" aria-label="العودة إلى بداية الصفحة">
-          <div class="brand-mark">
-            <img src="LOGO.jpg" alt="شعار مكتب ماجان للتدريب والتعليم" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>استمارة تحديد البرنامج المناسب | ماجان</title>
+  <meta name="description" content="استمارة ماجان لتحديد البرنامج المناسب" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f3efe2;
+      --card:#ffffff;
+      --line:#dedede;
+      --text:#152338;
+      --muted:#6b7280;
+      --navy:#0b2345;
+      --navy2:#173a67;
+      --gold:#c49a2c;
+      --required:#d93025;
+      --blue:#0b57d0;
+      --shadow:0 10px 28px rgba(0,0,0,.07);
+      --radius:14px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:'Cairo',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.9;
+      padding:18px 10px 50px;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    .wrap{
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border-radius:20px 20px 0 0;
+      background:
+        linear-gradient(135deg, rgba(9,31,63,.96), rgba(23,58,103,.93)),
+        linear-gradient(135deg, #0b2345, #173a67);
+      box-shadow:var(--shadow);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(196,154,44,.18), transparent 20%),
+        radial-gradient(circle at 86% 18%, rgba(255,255,255,.06), transparent 18%);
+      pointer-events:none;
+    }
+
+    .skyline{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:110px;
+      opacity:.35;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      padding:24px 20px 30px;
+      text-align:center;
+      color:#fff;
+    }
+
+    .logos{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .logo-box{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      padding:10px 14px;
+      min-width:110px;
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(8px);
+    }
+
+    .logo-box img{
+      max-height:52px;
+      width:auto;
+      object-fit:contain;
+    }
+
+    .hero small{
+      display:block;
+      color:#efd189;
+      font-size:14px;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .hero h1{
+      font-size:clamp(2rem, 6vw, 3.6rem);
+      font-weight:900;
+      line-height:1.3;
+      margin-bottom:10px;
+    }
+
+    .hero p{
+      max-width:620px;
+      margin:0 auto;
+      font-size:1rem;
+      color:#e6edf8;
+    }
+
+    .intro-card{
+      background:var(--card);
+      border-radius:0 0 18px 18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      margin-bottom:16px;
+      border:1px solid #e9e9e9;
+      border-top:none;
+    }
+
+    .gold-strip{
+      height:8px;
+      background:linear-gradient(90deg,var(--gold),#d8b04a);
+    }
+
+    .intro-inner{
+      padding:22px 20px 18px;
+      text-align:right;
+    }
+
+    .intro-inner h2{
+      color:var(--navy);
+      font-size:clamp(1.6rem, 5vw, 2.5rem);
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .intro-inner p{
+      color:#4b5563;
+      font-size:1rem;
+    }
+
+    .q{
+      background:var(--card);
+      border:1px solid #e8e8e8;
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:14px;
+      box-shadow:var(--shadow);
+    }
+
+    .q.required{
+      border-color:#efc1bb;
+    }
+
+    .label{
+      display:block;
+      font-size:18px;
+      font-weight:800;
+      margin-bottom:8px;
+      color:#111827;
+    }
+
+    .star{
+      color:var(--required);
+      margin-right:6px;
+    }
+
+    .help{
+      color:#6b7280;
+      font-size:14px;
+      margin-bottom:12px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fff;
+      padding:13px 14px;
+      font-family:'Cairo',sans-serif;
+      font-size:16px;
+      color:#111827;
+      outline:none;
+      transition:.2s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(196,154,44,.12);
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .phone-wrap{
+      position:relative;
+    }
+
+    .phone-flag{
+      position:absolute;
+      left:12px;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      direction:ltr;
+      font-size:15px;
+      font-weight:700;
+      color:#111827;
+      background:#fff;
+      padding-right:4px;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .phone-flag::after{
+      content:"";
+      width:1px;
+      height:22px;
+      background:#d8d8d8;
+      display:block;
+      margin-right:2px;
+    }
+
+    .phone-wrap input{
+      padding-left:112px;
+      text-align:left;
+      direction:ltr;
+    }
+
+    .submit-row{
+      display:flex;
+      justify-content:flex-start;
+      margin-top:18px;
+    }
+
+    button{
+      border:none;
+      background:var(--blue);
+      color:#fff;
+      border-radius:10px;
+      padding:13px 30px;
+      font-family:'Cairo',sans-serif;
+      font-size:17px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+      box-shadow:0 8px 18px rgba(11,87,208,.18);
+    }
+
+    button:hover{
+      background:#0948ad;
+    }
+
+    .footer-note{
+      text-align:center;
+      color:#7b8190;
+      font-size:13px;
+      margin-top:12px;
+    }
+
+    @media (max-width:640px){
+      body{
+        padding:10px 8px 40px;
+      }
+
+      .hero-inner,
+      .intro-inner,
+      .q{
+        padding:16px;
+      }
+
+      .logos{
+        justify-content:center;
+      }
+
+      .logo-box{
+        min-width:96px;
+        min-height:64px;
+      }
+
+      .logo-box img{
+        max-height:42px;
+      }
+
+      .label{
+        font-size:17px;
+      }
+
+      .submit-row button{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <section class="hero">
+      <svg class="skyline" viewBox="0 0 1600 220" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 220 L0 180 L55 180 L55 140 L80 140 L80 180 L120 180 L120 110 L150 110 L150 180 L210 180 L210 135 L235 135 L235 180 L290 180 L290 90 L330 90 L330 180 L380 180 L380 125 L410 125 L410 180 L470 180 L470 70 L485 70 L485 40 L495 40 L495 70 L510 70 L510 180 L570 180 L570 135 L600 135 L600 180 L660 180 L660 105 L698 105 L698 180 L760 180 L760 132 L792 132 L792 180 L850 180 L850 88 L888 88 L888 180 L950 180 L950 128 L982 128 L982 180 L1046 180 L1046 100 L1080 100 L1080 180 L1144 180 L1144 126 L1172 126 L1172 180 L1240 180 L1240 92 L1278 92 L1278 180 L1344 180 L1344 132 L1378 132 L1378 180 L1450 180 L1450 148 L1478 148 L1478 180 L1545 180 L1545 138 L1578 138 L1578 180 L1600 180 L1600 220 Z" fill="rgba(255,255,255,.24)"/>
+        <path d="M0 220 L0 196 L70 196 L70 164 L92 164 L92 196 L158 196 L158 150 L190 150 L190 196 L270 196 L270 168 L295 168 L295 196 L370 196 L370 150 L400 150 L400 196 L492 196 L492 170 L516 170 L516 196 L610 196 L610 154 L640 154 L640 196 L735 196 L735 172 L756 172 L756 196 L848 196 L848 158 L876 158 L876 196 L980 196 L980 168 L1005 168 L1005 196 L1108 196 L1108 156 L1136 156 L1136 196 L1238 196 L1238 170 L1260 170 L1260 196 L1368 196 L1368 160 L1398 160 L1398 196 L1502 196 L1502 168 L1528 168 L1528 196 L1600 196 L1600 220 Z" fill="rgba(255,255,255,.12)"/>
+      </svg>
+
+      <div class="hero-inner">
+        <div class="logos">
+          <div class="logo-box">
+            <img src="LOGO.jpg" alt="Majan Logo">
           </div>
-          <div class="brand-text">
-            <strong>مكتب ماجان للتدريب والتعليم</strong>
-            <span>Majan Training &amp; Education</span>
-          </div>
-        </a>
-        <nav class="nav-links" aria-label="التنقل الرئيسي">
-          <a href="#about">من نحن</a>
-          <a href="#services">خدماتنا</a>
-          <a href="#universities">الجامعات</a>
-          <a href="#partners">شركاؤنا</a>
-          <a href="#reviews">الآراء</a>
-          <a href="#contact">تواصل معنا</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero section" id="home">
-        <div class="hero-backdrop" aria-hidden="true">
-          <div class="hero-grid"></div>
-          <div class="hero-orb"></div>
-          <div class="hero-ring"></div>
-        </div>
-        <div class="container hero-layout">
-          <div class="hero-copy reveal is-visible">
-            <span class="eyebrow">بوابتك إلى الجامعات البريطانية ومعاهد اللغة</span>
-            <h1 class="hero-title">
-              <span
-                class="typewriter"
-                id="typewriter"
-                data-text="ابدأ رحلتك التعليمية بثقة مع ماجان"
-              ></span>
-            </h1>
-            <p class="hero-text">
-              نرافقك من أول استشارة حتى الوصول إلى المملكة المتحدة، بخطة واضحة،
-              ترشيحات دقيقة، ودعم شخصي يساعدك على اختيار الجامعة أو معهد اللغة
-              المناسب بثقة وسرعة.
-            </p>
-            <div class="hero-actions">
-              <a
-                class="btn btn-primary"
-                href="https://wa.me/447774198870"
-                target="_blank"
-                rel="noreferrer"
-              >
-                تواصل عبر واتساب
-              </a>
-              <a class="btn btn-secondary" href="#services">استكشف خدماتنا</a>
-            </div>
-          </div>
-
-          <div class="hero-panel reveal delay-1 is-visible">
-            <article class="glass-card tilt-card hero-stats">
-              <div class="hero-media">
-                <img
-                  src="hero-consultation.png"
-                  alt="جلسة استشارية تعليمية بين مستشار وطالب"
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-              <div class="hero-stats-top">
-                <div>
-                  <h2 class="hero-stats-title">إرشاد تعليمي بخبرة عملية</h2>
-                  <p class="hero-stats-subtitle">
-                    مسار متكامل للتقديم، اللغة، السكن، وما قبل السفر ضمن تجربة
-                    رقمية عصرية وسلسة.
-                  </p>
-                </div>
-                <span class="badge">UK Focused</span>
-              </div>
-              <div class="hero-mini-grid">
-                <div class="mini-card">
-                  <strong>+6</strong>
-                  <span>خدمات تغطي رحلة الطالب من البداية حتى الوصول</span>
-                </div>
-                <div class="mini-card">
-                  <strong>1:1</strong>
-                  <span>متابعة شخصية لاختيار المسار الأكاديمي الأنسب</span>
-                </div>
-                <div class="mini-card">
-                  <strong>UK</strong>
-                  <span>جامعات ومعاهد لغة معروفة داخل المملكة المتحدة</span>
-                </div>
-                <div class="mini-card">
-                  <strong>Direct</strong>
-                  <span>قناة تواصل مباشرة عبر واتساب للرد السريع</span>
-                </div>
-              </div>
-            </article>
+          <div class="logo-box">
+            <img src="saudi2030.png" alt="Saudi Vision 2030">
           </div>
         </div>
-      </section>
 
-      <section class="section reveal" id="about">
-        <div class="shape one" aria-hidden="true"></div>
-        <div class="shape two" aria-hidden="true"></div>
-        <div class="container">
-          <div class="about-card glass-card tilt-card">
-            <span class="section-kicker">من نحن</span>
-            <h2 class="section-title">نحو مستقبل أكاديمي أوضح وأكثر احترافية</h2>
-            <p>
-              مكتب ماجان للتدريب والتعليم هو جهة استشارية تعليمية متخصصة في
-              مساعدة الطلاب على التقديم إلى الجامعات البريطانية ومعاهد اللغة،
-              مع تركيز على الوضوح، السرعة، والاهتمام بالتفاصيل. نعمل معك لفهم
-              أهدافك، ثم نبني مسارًا مناسبًا يشمل القبول، اختيار البرامج،
-              ترتيبات السكن، والاستعداد الكامل قبل السفر.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="services">
-        <div class="container">
-          <span class="section-kicker">خدماتنا</span>
-          <h2 class="section-title">حلول متكاملة لكل خطوة في رحلتك</h2>
-          <p class="section-copy">
-            تجربة مصممة لتقليل التعقيد، وتسريع القرارات، وتقديم دعم عملي في كل
-            مرحلة.
-          </p>
-          <div class="services-grid">
-            <article class="glass-card tilt-card service-card reveal delay-1">
-              <div class="service-head">
-                <span class="service-index">01</span>
-                <span class="service-tag">Admissions</span>
-              </div>
-              <div class="service-rule"></div>
-              <h3>القبول الجامعي</h3>
-              <p>مساعدة في اختيار الجامعات والبرامج وتجهيز ملفات التقديم باحتراف.</p>
-            </article>
-            <article class="glass-card tilt-card service-card reveal delay-2">
-              <div class="service-head">
-                <span class="service-index">02</span>
-                <span class="service-tag">Language</span>
-              </div>
-              <div class="service-rule"></div>
-              <h3>برامج اللغة</h3>
-              <p>اقتراح معاهد مناسبة لمستواك وأهدافك مع متابعة إجراءات التسجيل.</p>
-            </article>
-            <article class="glass-card tilt-card service-card reveal delay-3">
-              <div class="service-head">
-                <span class="service-index">03</span>
-                <span class="service-tag">Advisory</span>
-              </div>
-              <div class="service-rule"></div>
-              <h3>الاستشارات الأكاديمية</h3>
-              <p>توجيه دقيق لاختيار المسار الأكاديمي وفق خطتك الدراسية والمهنية.</p>
-            </article>
-            <article class="glass-card tilt-card service-card reveal delay-1">
-              <div class="service-head">
-                <span class="service-index">04</span>
-                <span class="service-tag">Housing</span>
-              </div>
-              <div class="service-rule"></div>
-              <h3>مساعدة في السكن</h3>
-              <p>دعم في البحث عن خيارات سكن مناسبة ومريحة وقريبة من جهة الدراسة.</p>
-            </article>
-            <article class="glass-card tilt-card service-card reveal delay-2">
-              <div class="service-head">
-                <span class="service-index">05</span>
-                <span class="service-tag">Travel Prep</span>
-              </div>
-              <div class="service-rule"></div>
-              <h3>التجهيز قبل السفر</h3>
-              <p>قائمة واضحة لما قبل الوصول تشمل المستندات والترتيبات الأساسية.</p>
-            </article>
-            <article class="glass-card tilt-card service-card reveal delay-3">
-              <div class="service-head">
-                <span class="service-index">06</span>
-                <span class="service-tag">Support</span>
-              </div>
-              <div class="service-rule"></div>
-              <h3>متابعة مستمرة</h3>
-              <p>تواصل مباشر وإجابات سريعة حتى بعد بدء الرحلة الدراسية في بريطانيا.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="universities">
-        <div class="container">
-          <span class="section-kicker">الجامعات</span>
-          <h2 class="section-title">وجهات أكاديمية عالمية ضمن خياراتك</h2>
-          <p class="section-copy">
-            نماذج من الجامعات البريطانية التي يسأل عنها الطلاب باستمرار.
-          </p>
-          <div class="universities-showcase">
-            <article class="glass-card tilt-card university-showcase-card reveal delay-1">
-              <div class="university-photo">
-                <img
-                  src="uk-campus-modern.png"
-                  alt="مبنى جامعي حديث في المملكة المتحدة"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="university-showcase-copy">
-                <h3>بيئة جامعية حديثة</h3>
-                <p>
-                  صورة بصرية تعكس الطابع الأكاديمي الحديث والبيئة الجامعية التي
-                  يبحث عنها كثير من الطلاب الدوليين.
-                </p>
-              </div>
-            </article>
-            <article class="glass-card tilt-card university-showcase-card reveal delay-2">
-              <div class="university-photo logo-stage">
-                <img
-                  src="University%20of%20Manchester.png"
-                  alt="University of Manchester"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="university-showcase-copy">
-                <h3>University of Manchester</h3>
-                <p>
-                  مثال على الجامعات البريطانية التي يهتم بها الطلاب عند البحث عن
-                  خيارات أكاديمية قوية ومعترف بها.
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="logo-strip-wrap">
-            <div class="logo-track" aria-label="شريط الجامعات">
-              <div class="logo-chip">UCL</div>
-              <div class="logo-chip">Imperial</div>
-              <div class="logo-chip">LSE</div>
-              <div class="logo-chip">Oxford</div>
-              <div class="logo-chip">Warwick</div>
-              <div class="logo-chip">King's College</div>
-              <div class="logo-chip">UCL</div>
-              <div class="logo-chip">Imperial</div>
-              <div class="logo-chip">LSE</div>
-              <div class="logo-chip">Oxford</div>
-              <div class="logo-chip">Warwick</div>
-              <div class="logo-chip">King's College</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="partners">
-        <div class="container">
-          <span class="section-kicker">شركاؤنا</span>
-          <h2 class="section-title">شبكة تعليمية موثوقة تدعم خياراتك</h2>
-          <p class="section-copy">
-            مؤسسات ومعاهد لغة تمثل جزءًا من البيئة التعليمية التي نعمل ضمنها.
-          </p>
-          <div class="partners-grid">
-            <article class="glass-card tilt-card partner-card reveal delay-1">
-              <div>
-                <strong>Anglo Continental</strong>
-                <span>معهد لغة معروف ببرامجه المكثفة والتأسيسية</span>
-              </div>
-            </article>
-            <article class="glass-card tilt-card partner-card reveal delay-2">
-              <div>
-                <strong>Cardiff Academy</strong>
-                <span>خيارات تعليمية مرنة للطلاب الدوليين</span>
-              </div>
-            </article>
-            <article class="glass-card tilt-card partner-card reveal delay-3">
-              <div>
-                <strong>Essential English Centre</strong>
-                <span>برامج لغة موجهة للاندماج الأكاديمي السريع</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="reviews">
-        <div class="container">
-          <span class="section-kicker">آراء</span>
-          <h2 class="section-title">تجارب تعكس وضوح الخدمة وسرعة المتابعة</h2>
-          <p class="section-copy">
-            انطباعات من طلاب استفادوا من الاستشارة والتنسيق خطوة بخطوة.
-          </p>
-          <div class="reviews-grid">
-            <article class="glass-card tilt-card review-card reveal delay-1">
-              <div class="stars">★★★★★</div>
-              <p>
-                ساعدوني في ترتيب ملفي الدراسي واختيار الجامعة الأنسب بسرعة
-                واهتمام كبير. كل خطوة كانت واضحة ومطمئنة.
-              </p>
-              <div class="reviewer">سارة | طالبة بكالوريوس</div>
-            </article>
-            <article class="glass-card tilt-card review-card reveal delay-2">
-              <div class="stars">★★★★★</div>
-              <p>
-                أفضل شيء كان المتابعة المستمرة عبر واتساب. كنت أحصل على ردود
-                عملية ومباشرة بدون تعقيد أو تأخير.
-              </p>
-              <div class="reviewer">أحمد | طالب لغة</div>
-            </article>
-            <article class="glass-card tilt-card review-card reveal delay-3">
-              <div class="stars">★★★★★</div>
-              <p>
-                من الاستشارة الأولى إلى ترتيبات السكن وما قبل السفر، التجربة
-                كانت منظمة جدًا وتعطيني ثقة في كل قرار.
-              </p>
-              <div class="reviewer">ريم | طالبة ماجستير</div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="cta">
-        <div class="container">
-          <div class="glass-card cta-banner tilt-card">
-            <div class="cta-copy">
-              <h2>جاهز تبدأ خطوتك القادمة؟</h2>
-              <p>
-                تواصل معنا الآن عبر واتساب واحصل على توجيه سريع يساعدك على
-                اختيار الجامعة أو معهد اللغة المناسب.
-              </p>
-            </div>
-            <div class="cta-visual">
-              <img
-                src="travel-documents.png"
-                alt="مستندات وتجهيزات مرتبطة بالتخطيط للسفر والدراسة"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <a
-              class="btn btn-primary"
-              href="https://wa.me/447774198870"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ابدأ المحادثة الآن
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="contact">
-        <div class="container">
-          <span class="section-kicker">تواصل معنا</span>
-          <h2 class="section-title">قنوات مباشرة وسريعة للوصول إلينا</h2>
-          <p class="section-copy">
-            اختر الوسيلة الأنسب لك وسنكون جاهزين لمساعدتك.
-          </p>
-          <div class="contact-grid">
-            <article class="glass-card tilt-card contact-card reveal delay-1">
-              <div class="contact-label">واتساب</div>
-              <h3><span class="contact-value">+44 7774 198870</span></h3>
-              <p class="contact-note">للاستفسارات العامة ومتابعة الطلبات الدراسية.</p>
-              <p dir="ltr">
-                <a
-                  class="contact-value"
-                  href="https://wa.me/447774198870"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  https://wa.me/447774198870
-                </a>
-              </p>
-            </article>
-            <article class="glass-card tilt-card contact-card reveal delay-2">
-              <div class="contact-label">البريد الإلكتروني</div>
-              <h3><span class="contact-value">partnerships@majanedu.com</span></h3>
-              <p class="contact-note">مخصص للتعاون والشراكات والاتفاقيات المؤسسية.</p>
-              <p dir="ltr">
-                <a class="contact-value" href="mailto:partnerships@majanedu.com">
-                  partnerships@majanedu.com
-                </a>
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <section class="logo-rail reveal" aria-label="شريط الشعارات">
-      <div class="container">
-        <div class="logo-rail-grid">
-          <div class="glass-card logo-rail-card tilt-card reveal delay-1">
-            <img
-              src="Saudi2030%20%281%29.png"
-              alt="شعار رؤية السعودية 2030"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="glass-card logo-rail-card tilt-card reveal delay-2">
-            <img
-              src="MOE_of_KSA.png"
-              alt="شعار وزارة التعليم السعودية"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="glass-card logo-rail-card tilt-card reveal delay-1">
-            <img
-              src="Department_for_Education.svg%20%281%29.png"
-              alt="Department for Education"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="glass-card logo-rail-card tilt-card reveal delay-2">
-            <img
-              src="IELTS_logo.svg.png"
-              alt="IELTS"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
+        <small>Majan Training &amp; Education</small>
+        <h1>استمارة تحديد البرنامج المناسب</h1>
+        <p>صممنا هذه الصفحة بطريقة أوضح وأفضل لتسهيل تسجيل الطالب واختيار البرنامج المناسب بشكل احترافي.</p>
       </div>
     </section>
 
-    <footer class="site-footer">
-      © 2026 مكتب ماجان للتدريب والتعليم - جميع الحقوق محفوظة
-    </footer>
+    <div class="intro-card">
+      <div class="gold-strip"></div>
+      <div class="intro-inner">
+        <h2>فضلاً أكمل البيانات المطلوبة</h2>
+        <p>
+          فضلاً أكمل البيانات المطلوبة لتحديد البرنامج المناسب لك.<br>
+          سنتواصل معك بعد استلام الطلب مباشرة.
+        </p>
+      </div>
+    </div>
 
-    <a
-      class="floating-whatsapp"
-      href="https://wa.me/447774198870"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="تواصل عبر واتساب"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M19.05 4.95A9.94 9.94 0 0 0 12 2C6.49 2 2 6.49 2 12c0 1.76.46 3.48 1.34 5L2 22l5.17-1.32A9.96 9.96 0 0 0 12 22c5.51 0 10-4.49 10-10 0-2.67-1.04-5.18-2.95-7.05Zm-7.04 15.37a8.22 8.22 0 0 1-4.19-1.14l-.3-.18-3.06.78.82-2.98-.2-.31A8.21 8.21 0 0 1 3.8 12c0-4.52 3.68-8.2 8.2-8.2 2.19 0 4.25.85 5.8 2.4A8.14 8.14 0 0 1 20.2 12c0 4.52-3.67 8.2-8.19 8.2Zm4.5-6.15c-.25-.12-1.49-.74-1.73-.82-.23-.08-.4-.12-.57.12-.16.25-.65.82-.8.98-.15.17-.3.18-.55.06-.25-.13-1.07-.39-2.03-1.25-.75-.67-1.25-1.49-1.4-1.75-.15-.25-.01-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.57-1.37-.78-1.88-.2-.48-.41-.41-.57-.42h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05 0 1.21.88 2.37 1 2.53.12.16 1.72 2.62 4.16 3.67.58.25 1.03.4 1.39.52.59.19 1.12.16 1.54.1.47-.07 1.49-.61 1.7-1.2.21-.6.21-1.11.15-1.21-.05-.09-.22-.15-.47-.27Z"
-        />
-      </svg>
-    </a>
+    <form>
+      <div class="q required">
+        <label class="label">الاسم الكامل <span class="star">*</span></label>
+        <input type="text" required>
+      </div>
 
-    <script>
-      const typewriterEl = document.getElementById("typewriter");
-      const fullText = typewriterEl.dataset.text;
-      let typeIndex = 0;
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
+      <div class="q required">
+        <label class="label">رقم الهاتف (واتساب) <span class="star">*</span></label>
+        <div class="phone-wrap">
+          <span class="phone-flag">🇸🇦 +966</span>
+          <input type="tel" placeholder="5XXXXXXXX" required>
+        </div>
+      </div>
 
-      function typeHeadline() {
-        if (typeIndex <= fullText.length) {
-          typewriterEl.textContent = fullText.slice(0, typeIndex);
-          typeIndex += 1;
-          setTimeout(typeHeadline, 85);
-        }
-      }
+      <div class="q">
+        <label class="label">البريد الإلكتروني (اختياري)</label>
+        <div class="help">اكتب بريدك الإلكتروني إذا رغبت بالتواصل عبر الإيميل.</div>
+        <input type="email">
+      </div>
 
-      if (prefersReducedMotion) {
-        typewriterEl.textContent = fullText;
-      } else {
-        typeHeadline();
-      }
+      <div class="q required">
+        <label class="label">⭐ العمر <span class="star">*</span></label>
+        <div class="help">اختر فئتك العمرية</div>
+        <select required>
+          <option value="">Choose</option>
+          <option>14 سنة</option>
+          <option>15 سنة</option>
+          <option>16 سنة</option>
+          <option>17 سنة</option>
+          <option>18 سنة وما فوق</option>
+        </select>
+      </div>
 
-      const revealItems = document.querySelectorAll(".reveal");
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.15,
-          rootMargin: "0px 0px -10% 0px",
-        }
-      );
+      <div class="q">
+        <label class="label">البرنامج المهتم به</label>
+        <select>
+          <option value="">Choose</option>
+          <option>البرامج الصيفية</option>
+          <option>القبول الجامعي</option>
+          <option>لغة إنجليزية / IELTS تحضير</option>
+          <option>طيران (ICAO)</option>
+        </select>
+      </div>
 
-      revealItems.forEach((item) => {
-        if (!item.classList.contains("is-visible")) {
-          revealObserver.observe(item);
-        }
-      });
+      <div class="q">
+        <label class="label">موعد السفر المتوقع</label>
+        <input type="date">
+      </div>
 
-      const tiltCards = document.querySelectorAll(".tilt-card");
-      if (!prefersReducedMotion) {
-        tiltCards.forEach((card) => {
-          card.addEventListener("mousemove", (event) => {
-            const rect = card.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            const rotateY = ((x / rect.width) - 0.5) * -10;
-            const rotateX = ((y / rect.height) - 0.5) * 10;
-            card.style.transform =
-              "perspective(1000px) rotateX(" +
-              rotateX +
-              "deg) rotateY(" +
-              rotateY +
-              "deg) translateY(-6px)";
-          });
+      <div class="q">
+        <label class="label">مدة الدراسة المطلوبة</label>
+        <select>
+          <option value="">Choose</option>
+          <option>أسبوعين</option>
+          <option>شهر</option>
+          <option>شهرين</option>
+          <option>3 أشهر</option>
+        </select>
+      </div>
 
-          card.addEventListener("mouseleave", () => {
-            card.style.transform = "";
-          });
-        });
-      }
+      <div class="q">
+        <label class="label">مدة أخرى (أكتب المدة)</label>
+        <input type="text">
+      </div>
 
-      const heroBackdrop = document.querySelector(".hero-backdrop");
-      let currentParallax = 0;
-      let targetParallax = 0;
+      <div class="q required">
+        <label class="label">المدينة المرغوبة للدراسة <span class="star">*</span></label>
+        <select required>
+          <option value="">Choose</option>
+          <option>لندن</option>
+          <option>مانشستر</option>
+          <option>بورنموث</option>
+          <option>ليفربول</option>
+          <option>إدنبرة</option>
+          <option>أكسفورد</option>
+          <option>برايتون</option>
+        </select>
+      </div>
 
-      function updateParallaxTarget() {
-        targetParallax = window.scrollY * 0.16;
-      }
+      <div class="q">
+        <label class="label">مدينة أخرى (اكتب اسمها)</label>
+        <input type="text">
+      </div>
 
-      function animateParallax() {
-        currentParallax += (targetParallax - currentParallax) * 0.08;
-        heroBackdrop.style.transform = "translate3d(0, " + currentParallax + "px, 0)";
-        requestAnimationFrame(animateParallax);
-      }
+      <div class="q">
+        <label class="label">هل لديك أي ملاحظات أو احتياجات خاصة؟</label>
+        <div class="help">(اختياري)</div>
+        <textarea></textarea>
+      </div>
 
-      if (!prefersReducedMotion) {
-        updateParallaxTarget();
-        animateParallax();
-        window.addEventListener("scroll", updateParallaxTarget, { passive: true });
-      }
-    </script>
-  </body>
+      <div class="submit-row">
+        <button type="submit">إرسال</button>
+      </div>
+    </form>
+
+    <div class="footer-note">صفحة التسجيل - مكتب ماجان للتدريب والتعليم</div>
+  </div>
+</body>
 </html>
