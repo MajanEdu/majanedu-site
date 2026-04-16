@@ -1,654 +1,252 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>استمارة تحديد البرنامج المناسب | ماجان</title>
-  <meta name="description" content="استمارة ماجان لتحديد البرنامج المناسب" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#f2eee3;
-      --card:#ffffff;
-      --field:#ffffff;
-      --line:#d9d9d9;
-      --text:#172436;
-      --muted:#6b7280;
-      --navy:#0b2345;
-      --navy-2:#14365f;
-      --gold:#c49a2c;
-      --gold-2:#d8b04a;
-      --required:#d93025;
-      --shadow:0 12px 30px rgba(0,0,0,.08);
-      --radius:14px;
-      --blue:#0b57d0;
-    }
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:'Cairo',sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.85;
-      padding:24px 12px 60px;
-      overflow-x:hidden;
-    }
-
-    img{
-      display:block;
-      max-width:100%;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .wrap{
-      max-width:790px;
-      margin:0 auto;
-    }
-
-    /* animations */
-    .fade-down{
-      opacity:0;
-      transform:translateY(-24px);
-      animation:fadeDown .9s ease forwards;
-    }
-
-    .fade-up{
-      opacity:0;
-      transform:translateY(28px);
-      animation:fadeUp .9s ease forwards;
-    }
-
-    .bounce-up{
-      opacity:0;
-      transform:translateY(34px) scale(.94);
-      animation:bounceUp 1s cubic-bezier(.22,1.2,.36,1) forwards;
-    }
-
-    .delay-1{ animation-delay:.12s; }
-    .delay-2{ animation-delay:.24s; }
-    .delay-3{ animation-delay:.36s; }
-    .delay-4{ animation-delay:.48s; }
-    .delay-5{ animation-delay:.6s; }
-
-    @keyframes fadeDown{
-      to{opacity:1;transform:translateY(0);}
-    }
-
-    @keyframes fadeUp{
-      to{opacity:1;transform:translateY(0);}
-    }
-
-    @keyframes bounceUp{
-      0%{opacity:0;transform:translateY(34px) scale(.94);}
-      60%{opacity:1;transform:translateY(-6px) scale(1.01);}
-      100%{opacity:1;transform:translateY(0) scale(1);}
-    }
-
-    @keyframes floatY{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
-    }
-
-    @keyframes shimmer{
-      0%{transform:translateX(-140%) skewX(-20deg);}
-      100%{transform:translateX(220%) skewX(-20deg);}
-    }
-
-    /* hero */
-    .hero{
-      position:relative;
-      overflow:hidden;
-      border-radius:20px 20px 0 0;
-      background:
-        linear-gradient(135deg, rgba(9,31,63,.96), rgba(20,54,95,.93)),
-        linear-gradient(135deg, #0b2345, #14365f);
-      box-shadow:var(--shadow);
-      min-height:370px;
-      isolation:isolate;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(216,176,74,.22), transparent 22%),
-        radial-gradient(circle at 85% 16%, rgba(255,255,255,.08), transparent 18%),
-        radial-gradient(circle at 78% 86%, rgba(216,176,74,.12), transparent 22%);
-      pointer-events:none;
-      z-index:0;
-    }
-
-    /* skyline */
-    .skyline{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:135px;
-      z-index:0;
-      opacity:.9;
-    }
-
-    .hero-inner{
-      position:relative;
-      z-index:2;
-      padding:26px 24px 34px;
-    }
-
-    .top-logos{
-      display:grid;
-      grid-template-columns:120px 1fr 120px;
-      align-items:center;
-      gap:14px;
-      margin-bottom:22px;
-    }
-
-    .logo-box{
-      min-height:82px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px;
-      border-radius:16px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      backdrop-filter:blur(8px);
-      box-shadow:0 10px 24px rgba(0,0,0,.12);
-    }
-
-    .logo-box img{
-      max-height:54px;
-      width:auto;
-      object-fit:contain;
-    }
-
-    .main-logo{
-      animation:floatY 4s ease-in-out infinite;
-    }
-
-    .vision-logo{
-      animation:floatY 4.6s ease-in-out infinite;
-    }
-
-    .hero-center{
-      text-align:center;
-      color:#fff;
-    }
-
-    .hero-kicker{
-      color:#f0d188;
-      font-size:14px;
-      font-weight:800;
-      margin-bottom:8px;
-      letter-spacing:.3px;
-    }
-
-    .hero-center h1{
-      font-size:clamp(1.9rem,4vw,3rem);
-      font-weight:900;
-      line-height:1.35;
-      margin-bottom:10px;
-      text-shadow:0 2px 10px rgba(0,0,0,.18);
-    }
-
-    .hero-center p{
-      font-size:1rem;
-      color:#e7edf8;
-      max-width:620px;
-      margin:0 auto 16px;
-    }
-
-    .landmarks{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:10px;
-    }
-
-    .chip{
-      background:rgba(255,255,255,.09);
-      border:1px solid rgba(255,255,255,.13);
-      color:#fff;
-      border-radius:999px;
-      padding:8px 12px;
-      font-size:13px;
-      font-weight:700;
-      backdrop-filter:blur(4px);
-      box-shadow:0 8px 16px rgba(0,0,0,.1);
-    }
-
-    .floating-note{
-      position:absolute;
-      left:28px;
-      bottom:92px;
-      z-index:2;
-      background:rgba(255,255,255,.09);
-      border:1px solid rgba(255,255,255,.14);
-      color:#fff;
-      border-radius:14px;
-      padding:10px 14px;
-      font-size:13px;
-      font-weight:700;
-      backdrop-filter:blur(8px);
-      box-shadow:0 10px 22px rgba(0,0,0,.14);
-      animation:floatY 4.2s ease-in-out infinite;
-    }
-
-    /* intro card */
-    .top-card{
-      background:var(--card);
-      border:1px solid #e7e7e7;
-      border-top:none;
-      border-radius:0 0 18px 18px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      margin-bottom:18px;
-    }
-
-    .gold-strip{
-      height:8px;
-      background:linear-gradient(90deg,var(--gold),var(--gold-2));
-      position:relative;
-      overflow:hidden;
-    }
-
-    .gold-strip::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      width:26%;
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
-      animation:shimmer 3.6s linear infinite;
-    }
-
-    .top-inner{
-      padding:22px 22px 18px;
-    }
-
-    .title{
-      font-size:28px;
-      font-weight:900;
-      color:var(--navy);
-      margin-bottom:8px;
-    }
-
-    .desc{
-      font-size:16px;
-      color:#374151;
-      margin-bottom:12px;
-    }
-
-    .email-line{
-      direction:ltr;
-      text-align:left;
-      font-size:15px;
-      color:#374151;
-      margin-bottom:2px;
-    }
-
-    .switch{
-      direction:ltr;
-      text-align:left;
-      font-size:14px;
-      color:#0b57d0;
-      margin-bottom:8px;
-    }
-
-    .muted{
-      color:var(--muted);
-      font-size:14px;
-      margin-bottom:10px;
-    }
-
-    .req-note{
-      color:var(--required);
-      font-size:14px;
-    }
-
-    /* form questions */
-    .q{
-      background:var(--card);
-      border:1px solid #e8e8e8;
-      border-radius:14px;
-      padding:20px;
-      margin-bottom:14px;
-      box-shadow:var(--shadow);
-      transition:.25s ease;
-    }
-
-    .q:hover{
-      transform:translateY(-1px);
-      box-shadow:0 14px 32px rgba(0,0,0,.09);
-    }
-
-    .q.required{
-      border-color:#efc1bb;
-    }
-
-    .label{
-      display:block;
-      font-size:19px;
-      font-weight:800;
-      margin-bottom:8px;
-      color:#111827;
-    }
-
-    .star{
-      color:var(--required);
-      margin-right:6px;
-    }
-
-    .help{
-      color:#4b5563;
-      font-size:14px;
-      margin-bottom:12px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="date"],
-    select,
-    textarea{
-      width:100%;
-      font-family:'Cairo',sans-serif;
-      font-size:16px;
-      color:#111827;
-      background:var(--field);
-      border:1px solid var(--line);
-      border-radius:9px;
-      padding:13px 14px;
-      outline:none;
-      transition:.2s ease;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus{
-      border-color:var(--gold);
-      box-shadow:0 0 0 3px rgba(196,154,44,.12);
-    }
-
-    textarea{
-      min-height:120px;
-      resize:vertical;
-    }
-
-    .phone-wrap{
-      position:relative;
-    }
-
-    .phone-wrap .flag{
-      position:absolute;
-      left:12px;
-      top:50%;
-      transform:translateY(-50%);
-      display:flex;
-      align-items:center;
-      gap:8px;
-      direction:ltr;
-      font-size:15px;
-      font-weight:700;
-      color:#111827;
-      background:#fff;
-      padding-right:4px;
-      pointer-events:none;
-      z-index:2;
-    }
-
-    .phone-wrap .flag::after{
-      content:"";
-      width:1px;
-      height:22px;
-      background:#d8d8d8;
-      display:block;
-      margin-right:2px;
-    }
-
-    .phone-wrap input{
-      padding-left:112px;
-      direction:ltr;
-      text-align:left;
-    }
-
-    .submit-row{
-      display:flex;
-      justify-content:flex-start;
-      margin-top:18px;
-    }
-
-    button{
-      background:var(--blue);
-      color:#fff;
-      border:none;
-      border-radius:9px;
-      padding:13px 32px;
-      font-family:'Cairo',sans-serif;
-      font-size:17px;
-      font-weight:800;
-      cursor:pointer;
-      transition:.2s ease;
-      box-shadow:0 8px 18px rgba(11,87,208,.18);
-    }
-
-    button:hover{
-      background:#0948ad;
-      transform:translateY(-1px);
-    }
-
-    .footer-note{
-      text-align:center;
-      color:#7a7f8b;
-      font-size:13px;
-      margin-top:14px;
-    }
-
-    @media (max-width:640px){
-      .hero-inner,
-      .top-inner,
-      .q{
-        padding:18px;
-      }
-
-      .top-logos{
-        grid-template-columns:1fr;
-        justify-items:center;
-      }
-
-      .floating-note{
-        position:static;
-        margin:18px auto 0;
-        display:inline-block;
-      }
-
-      .title{
-        font-size:24px;
-      }
-
-      .label{
-        font-size:17px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>استمارة التسجيل | ماجان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family:'Cairo',sans-serif;
+  background:#f3efe2;
+  margin:0;
+  padding:15px;
+}
+
+.container{
+  max-width:700px;
+  margin:auto;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#0b2345,#173a67);
+  border-radius:18px 18px 0 0;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+
+.logos{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:15px;
+}
+
+.logos img{
+  height:55px;
+  background:rgba(255,255,255,0.1);
+  padding:8px;
+  border-radius:10px;
+}
+
+.hero h1{
+  font-size:28px;
+  margin:0;
+  font-weight:800;
+}
+
+/* INTRO */
+.intro{
+  background:white;
+  padding:20px;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  margin-bottom:15px;
+}
+
+.intro h2{
+  margin:0 0 8px;
+  color:#0b2345;
+}
+
+/* FORM */
+.box{
+  background:white;
+  padding:18px;
+  border-radius:12px;
+  margin-bottom:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+label{
+  font-weight:700;
+  display:block;
+  margin-bottom:8px;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-family:'Cairo';
+  font-size:15px;
+}
+
+textarea{
+  min-height:100px;
+}
+
+/* PHONE */
+.phone{
+  position:relative;
+}
+
+.phone span{
+  position:absolute;
+  left:10px;
+  top:50%;
+  transform:translateY(-50%);
+  font-weight:700;
+}
+
+.phone input{
+  padding-left:90px;
+  direction:ltr;
+}
+
+/* BUTTON */
+button{
+  background:#0b57d0;
+  color:white;
+  border:none;
+  padding:12px;
+  width:100%;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#0948ad;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{
+    font-size:22px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="wrap">
+<div class="container">
 
-    <section class="hero">
-      <svg class="skyline" viewBox="0 0 1600 220" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 220 L0 175 L55 175 L55 140 L74 140 L74 175 L110 175 L110 128 L135 128 L135 175 L170 175 L170 95 L205 95 L205 175 L240 175 L240 148 L262 148 L262 175 L315 175 L315 120 L344 120 L344 175 L388 175 L388 82 L425 82 L425 175 L470 175 L470 110 L505 110 L505 175 L560 175 L560 136 L584 136 L584 175 L640 175 L640 78 L672 78 L672 175 L706 175 L706 118 L734 118 L734 175 L780 175 L780 40 L794 40 L794 16 L802 16 L802 40 L816 40 L816 175 L860 175 L860 128 L888 128 L888 175 L938 175 L938 102 L972 102 L972 175 L1025 175 L1025 142 L1048 142 L1048 175 L1098 175 L1098 90 L1134 90 L1134 175 L1188 175 L1188 132 L1216 132 L1216 175 L1266 175 L1266 84 L1304 84 L1304 175 L1360 175 L1360 118 L1392 118 L1392 175 L1448 175 L1448 150 L1476 150 L1476 175 L1530 175 L1530 138 L1560 138 L1560 175 L1600 175 L1600 220 Z"
-              fill="rgba(255,255,255,.12)"/>
-        <path d="M0 220 L0 190 L70 190 L70 160 L85 160 L85 190 L145 190 L145 150 L172 150 L172 190 L230 190 L230 176 L252 176 L252 190 L326 190 L326 148 L350 148 L350 190 L430 190 L430 162 L455 162 L455 190 L530 190 L530 150 L560 150 L560 190 L650 190 L650 168 L674 168 L674 190 L760 190 L760 142 L785 142 L785 190 L845 190 L845 170 L867 170 L867 190 L950 190 L950 156 L980 156 L980 190 L1064 190 L1064 146 L1094 146 L1094 190 L1180 190 L1180 168 L1202 168 L1202 190 L1284 190 L1284 150 L1312 150 L1312 190 L1398 190 L1398 170 L1418 170 L1418 190 L1508 190 L1508 158 L1536 158 L1536 190 L1600 190 L1600 220 Z"
-              fill="rgba(255,255,255,.08)"/>
-      </svg>
-
-      <div class="hero-inner">
-        <div class="top-logos">
-          <div class="logo-box main-logo fade-down delay-1">
-            <img src="LOGO.jpg" alt="Majan Logo">
-          </div>
-
-          <div class="hero-center">
-            <div class="hero-kicker fade-down delay-1">Majan Training & Education</div>
-            <h1 class="fade-down delay-2">استمارة تحديد البرنامج المناسب</h1>
-            <p class="fade-up delay-3">
-              صممنا هذه الصفحة بطريقة أوضح وأجمل لتسهيل تسجيل الطالب واختيار البرنامج المناسب،
-              مع طابع احترافي يعكس هوية ماجان.
-            </p>
-
-            <div class="landmarks fade-up delay-4">
-              <span class="chip">🇬🇧 لندن</span>
-              <span class="chip">🕰️ بيغ بن</span>
-              <span class="chip">🎡 لندن آي</span>
-              <span class="chip">🏛️ أكسفورد</span>
-              <span class="chip">🌆 مانشستر</span>
-              <span class="chip">🌊 بورنموث</span>
-            </div>
-          </div>
-
-          <div class="logo-box vision-logo fade-down delay-1">
-            <img src="saudi2030.png" alt="Saudi Vision 2030">
-          </div>
-        </div>
-
-        <div class="floating-note bounce-up delay-5">واجهة أسرع وأكثر وضوحاً للطالب وولي الأمر</div>
-      </div>
-    </section>
-
-    <div class="top-card fade-up delay-2">
-      <div class="gold-strip"></div>
-      <div class="top-inner">
-        <h2 class="title">فضلاً أكمل البيانات المطلوبة</h2>
-        <p class="desc">
-          فضلاً أكمل البيانات المطلوبة لتحديد البرنامج المناسب لك.<br>
-          سنتواصل معك بعد استلام الطلب مباشرة.
-        </p>
-
-        <div class="email-line">madboy221133@gmail.com</div>
-        <div class="switch">Switch accounts</div>
-        <div class="muted">Not shared</div>
-        <div class="req-note">* Indicates required question</div>
-      </div>
-    </div>
-
-    <form class="fade-up delay-3">
-      <div class="q required">
-        <label class="label">الاسم الكامل <span class="star">*</span></label>
-        <input type="text" required>
-      </div>
-
-      <div class="q required">
-        <label class="label">رقم الهاتف (واتساب) <span class="star">*</span></label>
-        <div class="phone-wrap">
-          <span class="flag">🇸🇦 +966</span>
-          <input type="tel" required placeholder="5XXXXXXXX">
-        </div>
-      </div>
-
-      <div class="q">
-        <label class="label">البريد الإلكتروني (اختياري)</label>
-        <div class="help">اكتب بريدك الإلكتروني إذا رغبت بالتواصل عبر الإيميل.</div>
-        <input type="email">
-      </div>
-
-      <div class="q required">
-        <label class="label">⭐ العمر <span class="star">*</span></label>
-        <div class="help">اختر فئتك العمرية:</div>
-        <select required>
-          <option value="">Choose</option>
-          <option>14 سنة</option>
-          <option>15 سنة</option>
-          <option>16 سنة</option>
-          <option>17 سنة</option>
-          <option>18 سنة وما فوق</option>
-        </select>
-      </div>
-
-      <div class="q">
-        <label class="label">البرنامج المهتم به</label>
-        <select>
-          <option value="">Choose</option>
-          <option>البرامج الصيفية</option>
-          <option>القبول الجامعي</option>
-          <option>لغة إنجليزية / IELTS تحضير</option>
-          <option>طيران (ICAO)</option>
-        </select>
-      </div>
-
-      <div class="q">
-        <label class="label">موعد السفر المتوقع</label>
-        <input type="date">
-      </div>
-
-      <div class="q">
-        <label class="label">مدة الدراسة المطلوبة</label>
-        <select>
-          <option value="">Choose</option>
-          <option>أسبوعين</option>
-          <option>شهر</option>
-          <option>شهرين</option>
-          <option>3 أشهر</option>
-        </select>
-      </div>
-
-      <div class="q">
-        <label class="label">مدة أخرى (أكتب المدة)</label>
-        <input type="text">
-      </div>
-
-      <div class="q required">
-        <label class="label">المدينة المرغوبة للدراسة <span class="star">*</span></label>
-        <select required>
-          <option value="">Choose</option>
-          <option>لندن</option>
-          <option>مانشستر</option>
-          <option>بورنموث</option>
-          <option>ليفربول</option>
-          <option>إدنبرة</option>
-          <option>أكسفورد</option>
-          <option>برايتون</option>
-        </select>
-      </div>
-
-      <div class="q">
-        <label class="label">مدينة أخرى (اكتب اسمها)</label>
-        <input type="text">
-      </div>
-
-      <div class="q">
-        <label class="label">هل لديك أي ملاحظات أو احتياجات خاصة؟</label>
-        <div class="help">(اختياري)</div>
-        <textarea></textarea>
-      </div>
-
-      <div class="submit-row">
-        <button type="submit">إرسال</button>
-      </div>
-    </form>
-
-    <div class="footer-note fade-up delay-4">
-      تم تصميم هذه الصفحة بأسلوب أقرب إلى الصفحة المرجعية مع تحسين الهوية البصرية والحركة.
-    </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="logos">
+    <img src="LOGO.jpg">
+    <img src="saudi2030.png">
   </div>
+  <h1>استمارة تحديد البرنامج المناسب</h1>
+</div>
+
+<!-- INTRO -->
+<div class="intro">
+  <h2>فضلاً أكمل البيانات المطلوبة</h2>
+  <p>سنتواصل معك بعد استلام الطلب مباشرة.</p>
+</div>
+
+<form>
+
+<div class="box">
+  <label>الاسم الكامل *</label>
+  <input type="text" required>
+</div>
+
+<div class="box">
+  <label>رقم الهاتف (واتساب) *</label>
+  <div class="phone">
+    <span>🇸🇦 +966</span>
+    <input type="tel" required>
+  </div>
+</div>
+
+<div class="box">
+  <label>البريد الإلكتروني (اختياري)</label>
+  <input type="email">
+</div>
+
+<div class="box">
+  <label>⭐ العمر *</label>
+  <select required>
+    <option>اختر</option>
+    <option>14 سنة</option>
+    <option>15 سنة</option>
+    <option>16 سنة</option>
+    <option>17 سنة</option>
+    <option>18 سنة وما فوق</option>
+  </select>
+</div>
+
+<div class="box">
+  <label>البرنامج المهتم به</label>
+  <select>
+    <option>اختر</option>
+    <option>البرامج الصيفية</option>
+    <option>القبول الجامعي</option>
+    <option>IELTS / لغة إنجليزية</option>
+    <option>طيران (ICAO)</option>
+  </select>
+</div>
+
+<div class="box">
+  <label>موعد السفر المتوقع</label>
+  <input type="date">
+</div>
+
+<div class="box">
+  <label>مدة الدراسة المطلوبة</label>
+  <select>
+    <option>اختر</option>
+    <option>أسبوعين</option>
+    <option>شهر</option>
+    <option>شهرين</option>
+    <option>3 أشهر</option>
+  </select>
+</div>
+
+<div class="box">
+  <label>مدة أخرى</label>
+  <input type="text">
+</div>
+
+<div class="box">
+  <label>المدينة المطلوبة *</label>
+  <select required>
+    <option>اختر</option>
+    <option>لندن</option>
+    <option>مانشستر</option>
+    <option>بورنموث</option>
+    <option>ليفربول</option>
+    <option>إدنبرة</option>
+    <option>أكسفورد</option>
+    <option>برايتون</option>
+  </select>
+</div>
+
+<div class="box">
+  <label>مدينة أخرى</label>
+  <input type="text">
+</div>
+
+<div class="box">
+  <label>ملاحظات (اختياري)</label>
+  <textarea></textarea>
+</div>
+
+<button type="submit">إرسال</button>
+
+</form>
+
+</div>
 
 </body>
 </html>
