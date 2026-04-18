@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -11,24 +12,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#f3f5f8;
+      --navy:#102846;
+      --navy-soft:#1d4570;
+      --ink:#1b2a3c;
+      --muted:#67778a;
+      --gold:#b8943f;
+      --gold-soft:#e7d8af;
+      --line:rgba(16,40,70,.09);
       --surface:#ffffff;
       --surface-soft:#f8fafc;
-      --section-a:linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
-      --section-b:linear-gradient(180deg, #fcfdff 0%, #f3f8fe 100%);
-      --section-c:linear-gradient(180deg, #fffdf9 0%, #faf5eb 100%);
-      --navy:#102846;
-      --navy-soft:#1b426d;
-      --ink:#1a2839;
-      --muted:#647488;
-      --gold:#b8943f;
-      --gold-dark:#876624;
-      --line:rgba(16,40,70,.10);
-      --shadow:0 22px 48px rgba(16,40,70,.10);
-      --radius-xl:28px;
-      --radius-lg:18px;
-      --radius-md:12px;
-      --max:980px;
+      --surface-warm:#fffdf8;
+      --shadow:0 18px 40px rgba(16,40,70,.10);
+      --radius-xl:30px;
+      --radius-lg:22px;
+      --radius-md:14px;
+      --shell:min(1180px, calc(100vw - 32px));
+      --ease:cubic-bezier(.22,1,.36,1);
     }
 
     *{
@@ -46,10 +45,15 @@
       font-family:"Tajawal",sans-serif;
       color:var(--ink);
       background:
-        radial-gradient(circle at top right, rgba(184,148,63,.12), transparent 22%),
-        radial-gradient(circle at top left, rgba(16,40,70,.08), transparent 24%),
+        radial-gradient(circle at top right, rgba(184,148,63,.10), transparent 24%),
+        radial-gradient(circle at top left, rgba(16,40,70,.08), transparent 22%),
         linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
-      padding:20px 16px 36px;
+      padding:20px 16px 40px;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
     img{
@@ -66,103 +70,74 @@
 
     button{
       border:0;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
+      cursor:pointer;
     }
 
     .page-shell{
-      max-width:var(--max);
+      width:var(--shell);
       margin:0 auto;
     }
 
     .page-header{
-      display:grid;
-      gap:16px;
-      margin-bottom:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:22px;
     }
 
     .back-link{
-      width:max-content;
-      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(16,40,70,.08);
+      box-shadow:0 8px 18px rgba(16,40,70,.06);
+      color:var(--navy-soft);
       font-size:.92rem;
       font-weight:800;
-      color:var(--navy-soft);
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.82);
-      border:1px solid rgba(16,40,70,.08);
-      box-shadow:0 8px 20px rgba(16,40,70,.05);
+      transition:transform .24s var(--ease), box-shadow .24s var(--ease);
     }
 
-    .logo-row{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
+    .back-link:hover{
+      transform:translateY(-1px);
+      box-shadow:0 12px 24px rgba(16,40,70,.08);
     }
 
     .logo-main{
       width:auto;
       height:auto;
-      max-width:min(240px, 72vw);
-      max-height:78px;
+      max-width:min(220px, 44vw);
+      max-height:76px;
       object-fit:contain;
-      background:transparent;
-      border:0;
-      border-radius:0;
-      padding:0;
-      box-shadow:none;
     }
 
-    .page-main{
-      display:grid;
-      gap:18px;
-    }
-
-    .hero-block{
+    .hero-panel{
       position:relative;
       overflow:hidden;
-      min-height:300px;
-      padding:52px 24px 44px;
+      min-height:330px;
+      padding:34px;
       display:grid;
-      align-content:center;
-      background:
-        linear-gradient(180deg, rgba(8,23,42,.48), rgba(8,23,42,.70)),
-        url("../assets/london-hero-premium.png") center/cover no-repeat;
-      border:1px solid rgba(255,255,255,.22);
+      align-items:end;
       border-radius:var(--radius-xl);
-      box-shadow:0 22px 42px rgba(16,40,70,.14);
-      text-align:center;
+      background:
+        linear-gradient(115deg, rgba(8,23,42,.82) 12%, rgba(8,23,42,.56) 52%, rgba(8,23,42,.32) 100%),
+        url("../assets/london-hero-premium.png") center/cover no-repeat;
+      box-shadow:0 22px 48px rgba(16,40,70,.16);
+      margin-bottom:22px;
     }
 
-    .hero-block::after{
+    .hero-panel::after{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at top left, rgba(184,148,63,.30), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,.08), transparent 24%);
+        radial-gradient(circle at top left, rgba(184,148,63,.26), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,.08), transparent 26%);
       pointer-events:none;
-    }
-
-    .hero-label{
-      position:relative;
-      z-index:1;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:8px 16px;
-      margin-bottom:14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.22);
-      color:#fff5d7;
-      font-size:.88rem;
-      font-weight:800;
     }
 
     .vision-badge{
@@ -170,75 +145,139 @@
       top:18px;
       left:18px;
       z-index:1;
-      padding:0;
-      background:transparent;
-      border:0;
-      box-shadow:none;
-      backdrop-filter:none;
     }
 
     .vision-badge img{
       width:auto;
       height:auto;
-      max-width:min(160px, 34vw);
-      max-height:44px;
-      filter:drop-shadow(0 10px 22px rgba(0,0,0,.22));
+      max-width:min(150px, 30vw);
+      max-height:42px;
+      filter:drop-shadow(0 8px 18px rgba(0,0,0,.24));
     }
 
-    .hero-block h1{
+    .hero-layout{
       position:relative;
       z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0, 1.1fr) minmax(280px, .9fr);
+      gap:22px;
+      align-items:end;
+    }
+
+    .hero-copy{
+      position:relative;
+      max-width:640px;
+      color:#fff;
+    }
+
+    .hero-eyebrow{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:38px;
+      padding:0 14px;
+      margin-bottom:14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff3cf;
+      font-size:.86rem;
+      font-weight:800;
+    }
+
+    .hero-copy h1{
       font-family:"Cormorant Garamond",serif;
-      font-size:clamp(2.4rem, 5vw, 3.4rem);
-      line-height:1.05;
+      font-size:clamp(2.6rem, 5vw, 4rem);
+      line-height:1.02;
       margin-bottom:10px;
-      color:#ffffff;
-      text-shadow:0 10px 20px rgba(0,0,0,.28);
+      text-shadow:0 8px 18px rgba(0,0,0,.24);
     }
 
-    .hero-block p{
-      position:relative;
-      z-index:1;
-      max-width:700px;
-      margin:0 auto;
+    .hero-copy p{
+      max-width:600px;
       color:rgba(255,255,255,.92);
-      line-height:1.9;
+      line-height:1.95;
       font-size:1rem;
-      text-shadow:0 4px 14px rgba(0,0,0,.24);
+      text-shadow:0 4px 12px rgba(0,0,0,.22);
+    }
+
+    .hero-aside{
+      justify-self:end;
+      width:min(100%, 340px);
+      padding:20px;
+      border-radius:24px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(14px);
+      box-shadow:0 18px 30px rgba(4,13,26,.12);
+      color:#fff;
+    }
+
+    .hero-aside strong{
+      display:block;
+      margin-bottom:12px;
+      font-size:1.05rem;
+      font-weight:900;
+    }
+
+    .hero-points{
+      display:grid;
+      gap:10px;
+      list-style:none;
+    }
+
+    .hero-points li{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:10px;
+      align-items:start;
+      color:rgba(255,255,255,.9);
+      line-height:1.85;
+      font-size:.94rem;
+    }
+
+    .hero-points li::before{
+      content:"";
+      width:9px;
+      height:9px;
+      margin-top:10px;
+      border-radius:50%;
+      background:linear-gradient(135deg, #efe0b8, #b8943f);
+      box-shadow:0 0 0 6px rgba(184,148,63,.14);
     }
 
     .form-card{
-      background:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.94);
       border:1px solid rgba(16,40,70,.08);
       border-radius:var(--radius-xl);
       padding:28px;
       box-shadow:var(--shadow);
-      backdrop-filter:blur(12px);
+      backdrop-filter:blur(10px);
     }
 
     .section-heading{
-      text-align:center;
-      margin-bottom:18px;
+      text-align:right;
+      margin-bottom:20px;
     }
 
     .section-heading h2{
-      font-size:1.55rem;
-      font-weight:800;
-      margin-bottom:6px;
       color:var(--navy);
+      font-size:1.7rem;
+      font-weight:900;
+      margin-bottom:6px;
     }
 
     .section-heading p{
       color:var(--muted);
-      line-height:1.8;
-      font-size:.94rem;
+      line-height:1.9;
+      font-size:.97rem;
     }
 
     .submit-feedback{
       display:none;
       margin-bottom:18px;
       padding:14px 16px;
-      border-radius:12px;
+      border-radius:14px;
       text-align:center;
       font-size:.94rem;
       line-height:1.8;
@@ -260,47 +299,115 @@
       color:#8a2b2b;
     }
 
-    .registration-form{
+    .success-overlay{
+      position:fixed;
+      inset:0;
       display:grid;
-      gap:20px;
+      place-items:center;
+      padding:20px;
+      background:rgba(9,20,35,.34);
+      backdrop-filter:blur(6px);
+      z-index:90;
     }
 
-    .form-section{
+    .success-overlay[hidden]{
+      display:none;
+    }
+
+    .success-card{
+      width:min(100%, 460px);
+      padding:28px 24px 24px;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,252,246,1));
+      border:1px solid rgba(16,40,70,.08);
+      box-shadow:0 24px 50px rgba(16,40,70,.18);
+      text-align:center;
+    }
+
+    .success-icon{
+      width:74px;
+      height:74px;
+      margin:0 auto 16px;
+      display:grid;
+      place-items:center;
+      border-radius:24px;
+      background:linear-gradient(135deg, rgba(231,216,175,.8), rgba(184,148,63,.18));
+      color:var(--gold);
+      box-shadow:0 14px 24px rgba(184,148,63,.16);
+    }
+
+    .success-icon svg{
+      width:34px;
+      height:34px;
+      stroke:currentColor;
+      stroke-width:2.2;
+      fill:none;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .success-card h3{
+      color:var(--navy);
+      font-size:1.6rem;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+
+    .success-card p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:18px;
+    }
+
+    .success-card button{
+      min-width:150px;
+      min-height:46px;
+      border-radius:999px;
+      background:linear-gradient(135deg, #102846, #1d4b78);
+      color:#fff;
+      font-weight:900;
+      box-shadow:0 12px 22px rgba(16,40,70,.16);
+    }
+
+    .registration-form{
+      display:grid;
+      gap:18px;
+    }
+
+    .form-layout{
+      display:grid;
+      grid-template-columns:minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap:18px;
+      align-items:start;
+    }
+
+    .form-column{
+      display:grid;
+      gap:18px;
+    }
+
+    .section-card{
       display:grid;
       gap:14px;
       padding:22px;
-      border:1px solid rgba(16,40,70,.07);
-      border-radius:20px;
-      box-shadow:0 12px 28px rgba(16,40,70,.05);
-      transition:transform .24s ease, box-shadow .24s ease;
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+      background:var(--surface);
+      box-shadow:0 10px 24px rgba(16,40,70,.05);
     }
 
-    .form-section:first-of-type{
-      padding:22px;
-      border-top:1px solid rgba(16,40,70,.07);
+    .section-card.soft{
+      background:linear-gradient(180deg, var(--surface-soft) 0%, #ffffff 100%);
     }
 
-    .form-section:nth-of-type(1){
-      background:var(--section-a);
+    .section-card.warm{
+      background:linear-gradient(180deg, var(--surface-warm) 0%, #ffffff 100%);
     }
 
-    .form-section:nth-of-type(2){
-      background:var(--section-b);
-    }
-
-    .form-section:nth-of-type(3){
-      background:var(--section-c);
-    }
-
-    .form-section:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 32px rgba(16,40,70,.07);
-    }
-
-    .form-section h3{
-      font-size:.98rem;
-      font-weight:800;
-      color:var(--gold-dark);
+    .section-card h3{
+      color:var(--gold);
+      font-size:1rem;
+      font-weight:900;
     }
 
     .field-grid{
@@ -314,12 +421,12 @@
 
     .field{
       display:grid;
-      gap:6px;
+      gap:7px;
     }
 
     .field label{
-      color:#4f5f74;
-      font-size:.85rem;
+      color:#4f6075;
+      font-size:.86rem;
       font-weight:800;
     }
 
@@ -327,19 +434,19 @@
     .field select,
     .field textarea{
       width:100%;
-      padding:14px 14px;
       border:1px solid rgba(16,40,70,.12);
-      border-radius:10px;
-      background:rgba(255,255,255,.92);
+      border-radius:12px;
+      background:#fff;
       color:var(--ink);
+      padding:14px 14px;
       outline:none;
       appearance:none;
-      transition:border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+      transition:border-color .22s ease, box-shadow .22s ease, transform .22s ease;
     }
 
     .field input::placeholder,
     .field textarea::placeholder{
-      color:#7a8698;
+      color:#7c8998;
     }
 
     .field select{
@@ -359,11 +466,11 @@
     .field textarea:focus{
       border-color:rgba(16,40,70,.24);
       box-shadow:0 0 0 4px rgba(16,40,70,.08);
-      background:#ffffff;
+      transform:translateY(-1px);
     }
 
     .field textarea{
-      min-height:120px;
+      min-height:150px;
       resize:vertical;
     }
 
@@ -401,38 +508,56 @@
       padding-left:134px;
     }
 
-    .form-actions{
-      display:grid;
-      gap:12px;
+    .submit-card{
+      gap:16px;
     }
 
-    .form-actions p{
-      text-align:center;
+    .submit-note{
       color:var(--muted);
-      line-height:1.8;
-      font-size:.92rem;
+      line-height:1.9;
+      font-size:.95rem;
     }
 
     .submit-button{
       width:100%;
-      padding:14px 18px;
-      border-radius:10px;
+      min-height:54px;
+      border-radius:14px;
       background:linear-gradient(135deg, #102846, #1d4b78);
-      color:#ffffff;
+      color:#fff;
       font-size:1rem;
       font-weight:900;
-      cursor:pointer;
-      box-shadow:0 14px 28px rgba(16,40,70,.20);
-      transition:transform .24s ease, box-shadow .24s ease;
+      box-shadow:0 16px 28px rgba(16,40,70,.18);
+      transition:transform .24s var(--ease), box-shadow .24s var(--ease);
     }
 
     .submit-button:hover{
       transform:translateY(-2px);
-      box-shadow:0 18px 34px rgba(16,40,70,.24);
+      box-shadow:0 20px 34px rgba(16,40,70,.22);
+    }
+
+    .submit-button:disabled{
+      opacity:.7;
+      cursor:not-allowed;
+      transform:none;
     }
 
     .hidden-honey{
       display:none !important;
+    }
+
+    @media (max-width:940px){
+      .hero-layout{
+        grid-template-columns:1fr;
+      }
+
+      .hero-aside{
+        justify-self:stretch;
+        width:100%;
+      }
+
+      .form-layout{
+        grid-template-columns:1fr;
+      }
     }
 
     @media (max-width:720px){
@@ -440,19 +565,19 @@
         padding:16px 12px 28px;
       }
 
+      .page-header{
+        flex-direction:column-reverse;
+        align-items:flex-start;
+      }
+
       .logo-main{
         max-width:min(210px, 70vw);
         max-height:64px;
       }
 
-      .hero-block,
-      .form-card{
-        padding:20px;
-      }
-
-      .hero-block{
+      .hero-panel{
         min-height:240px;
-        padding:32px 20px;
+        padding:28px 20px;
       }
 
       .vision-badge{
@@ -465,11 +590,19 @@
         max-height:34px;
       }
 
+      .form-card{
+        padding:20px;
+      }
+
+      .section-card{
+        padding:18px;
+      }
+
       .field-grid.two{
         grid-template-columns:1fr;
       }
 
-      .hero-block h1{
+      .hero-copy h1{
         font-size:2.2rem;
       }
     }
@@ -479,29 +612,35 @@
   <div class="page-shell">
     <header class="page-header">
       <a class="back-link" href="/">العودة إلى الرئيسية</a>
-
-      <div class="logo-row">
-        <img class="logo-main" src="../LOGO.jpg" alt="شعار ماجان" />
-      </div>
+      <img class="logo-main" src="../LOGO.jpg" alt="شعار ماجان" />
     </header>
 
-    <main class="page-main">
-      <section class="hero-block" aria-labelledby="page-title">
+    <main>
+      <section class="hero-panel" aria-labelledby="page-title">
         <div class="vision-badge">
           <img src="../Saudi2030.png" alt="رؤية السعودية 2030" />
         </div>
-        <span class="hero-label">نموذج التسجيل</span>
-        <h1 id="page-title">التسجيل في المخيم الصيفي</h1>
-        <p>
-          يرجى تعبئة البيانات التالية بدقة، وسيقوم فريق ماجان بمراجعة الطلب
-          والتواصل معك بشأن البرنامج الأنسب والخطوة التالية.
-        </p>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <span class="hero-eyebrow">برنامج ماجان الصيفي</span>
+            <h1 id="page-title">نموذج التسجيل</h1>
+            <p>يرجى تعبئة البيانات التالية بدقة، وسيتم التواصل معكم بعد مراجعة الطلب.</p>
+          </div>
+          <aside class="hero-aside" aria-label="مزايا التقديم">
+            <strong>تقديم مرتب وواضح</strong>
+            <ul class="hero-points">
+              <li>خطوات مختصرة وسهلة لإرسال الطلب.</li>
+              <li>اختيار البرنامج والمدينة في نموذج واحد.</li>
+              <li>مراجعة الطلب ثم التواصل معكم من فريق ماجان.</li>
+            </ul>
+          </aside>
+        </div>
       </section>
 
       <section class="form-card" aria-labelledby="form-title">
         <div class="section-heading">
           <h2 id="form-title">بيانات التقديم</h2>
-          <p>سيتم إرسال الطلب مباشرة إلى بريد <strong>partnerships@majanedu.com</strong> عبر خدمة نماذج متوافقة مع GitHub Pages.</p>
+          <p>يرجى إدخال البيانات الأساسية الخاصة بالطالب ووسيلة التواصل المناسبة.</p>
         </div>
 
         <div class="submit-feedback" id="submit-feedback" role="alert" aria-live="polite"></div>
@@ -519,126 +658,146 @@
           <input type="hidden" name="phone_full" id="phone_full" value="" />
           <input type="text" name="_honey" class="hidden-honey" tabindex="-1" autocomplete="off" />
 
-          <section class="form-section">
-            <h3>البيانات الأساسية</h3>
+          <div class="form-layout">
+            <div class="form-column">
+              <section class="section-card">
+                <h3>البيانات الأساسية</h3>
 
-            <div class="field-grid">
-              <div class="field">
-                <label for="full_name">الاسم الكامل</label>
-                <input id="full_name" type="text" name="full_name" placeholder="الاسم الكامل" autocomplete="name" required />
-              </div>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="full_name">الاسم الكامل</label>
+                    <input id="full_name" type="text" name="full_name" placeholder="الاسم الكامل" autocomplete="name" required />
+                  </div>
+                </div>
+
+                <div class="field-grid two">
+                  <div class="field phone-field">
+                    <label for="phone">رقم الجوال</label>
+                    <span class="phone-prefix">
+                      <img src="../assets/flags/sa.svg" alt="" aria-hidden="true" />
+                      <span>+966</span>
+                    </span>
+                    <input id="phone" type="tel" name="phone" placeholder="5XXXXXXXX" autocomplete="tel" inputmode="numeric" maxlength="12" pattern="5[0-9]{8}" title="يرجى إدخال رقم سعودي يبدأ بـ 5 ويتكون من 9 أرقام" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input id="email" type="email" name="email" placeholder="name@example.com" autocomplete="email" />
+                  </div>
+                </div>
+
+                <div class="field-grid two">
+                  <div class="field">
+                    <label for="age_group">العمر</label>
+                    <select id="age_group" name="age_group" required>
+                      <option value="">اختر العمر</option>
+                      <option>14 سنة</option>
+                      <option>15 سنة</option>
+                      <option>16 سنة</option>
+                      <option>17 سنة</option>
+                      <option>18 سنة وما فوق</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="program">البرنامج المهتم به</label>
+                    <select id="program" name="program">
+                      <option value="">اختر البرنامج</option>
+                      <option>البرامج الصيفية</option>
+                      <option>القبول الجامعي</option>
+                      <option>IELTS / لغة إنجليزية</option>
+                      <option>طيران (ICAO)</option>
+                    </select>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section-card warm">
+                <h3>المدينة والملاحظات</h3>
+
+                <div class="field-grid two">
+                  <div class="field">
+                    <label for="preferred_city">المدينة المرغوبة للدراسة</label>
+                    <select id="preferred_city" name="preferred_city" required>
+                      <option value="">اختر المدينة</option>
+                      <option>لندن</option>
+                      <option>مانشستر</option>
+                      <option>بورنموث</option>
+                      <option>ليفربول</option>
+                      <option>إدنبرة</option>
+                      <option>أكسفورد</option>
+                      <option>برايتون</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="other_city">مدينة أخرى</label>
+                    <input id="other_city" type="text" name="other_city" placeholder="اكتب مدينة أخرى إذا كانت غير موجودة" />
+                  </div>
+                </div>
+
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="notes">ملاحظات إضافية</label>
+                    <textarea id="notes" name="notes" placeholder="أي تفاصيل إضافية تساعدنا على فهم طلبك بشكل أفضل"></textarea>
+                  </div>
+                </div>
+              </section>
             </div>
 
-            <div class="field-grid two">
-              <div class="field phone-field">
-                <label for="phone">رقم الجوال</label>
-                <span class="phone-prefix">
-                  <img src="../assets/flags/sa.svg" alt="" aria-hidden="true" />
-                  <span>+966</span>
-                </span>
-                <input id="phone" type="tel" name="phone" placeholder="5XXXXXXXX" autocomplete="tel" inputmode="numeric" maxlength="12" pattern="5[0-9]{8}" title="يرجى إدخال رقم سعودي يبدأ بـ 5 ويتكون من 9 أرقام" required />
-              </div>
+            <div class="form-column">
+              <section class="section-card soft">
+                <h3>تفاصيل البرنامج</h3>
 
-              <div class="field">
-                <label for="email">البريد الإلكتروني</label>
-                <input id="email" type="email" name="email" placeholder="name@example.com" autocomplete="email" />
-              </div>
+                <div class="field-grid two">
+                  <div class="field">
+                    <label for="travel_date">موعد السفر المتوقع</label>
+                    <input id="travel_date" type="date" name="travel_date" />
+                  </div>
+
+                  <div class="field">
+                    <label for="study_duration">مدة الدراسة المطلوبة</label>
+                    <select id="study_duration" name="study_duration">
+                      <option value="">اختر المدة</option>
+                      <option>أسبوعين</option>
+                      <option>شهر</option>
+                      <option>شهرين</option>
+                      <option>3 أشهر</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="other_duration">مدة أخرى</label>
+                    <input id="other_duration" type="text" name="other_duration" placeholder="إذا كانت لديك مدة مختلفة، اكتبها هنا" />
+                  </div>
+                </div>
+              </section>
+
+              <section class="section-card submit-card">
+                <h3>إرسال الطلب</h3>
+                <p class="submit-note">بعد إرسال النموذج سيتم استلام الطلب ومراجعته ثم التواصل معكم في أقرب وقت.</p>
+                <button class="submit-button" type="submit">إرسال الطلب</button>
+              </section>
             </div>
-
-            <div class="field-grid two">
-              <div class="field">
-                <label for="age_group">العمر</label>
-                <select id="age_group" name="age_group" required>
-                  <option value="">اختر العمر</option>
-                  <option>14 سنة</option>
-                  <option>15 سنة</option>
-                  <option>16 سنة</option>
-                  <option>17 سنة</option>
-                  <option>18 سنة وما فوق</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="program">البرنامج المهتم به</label>
-                <select id="program" name="program">
-                  <option value="">اختر البرنامج</option>
-                  <option>البرامج الصيفية</option>
-                  <option>القبول الجامعي</option>
-                  <option>IELTS / لغة إنجليزية</option>
-                  <option>طيران (ICAO)</option>
-                </select>
-              </div>
-            </div>
-          </section>
-
-          <section class="form-section">
-            <h3>تفاصيل البرنامج</h3>
-
-            <div class="field-grid two">
-              <div class="field">
-                <label for="travel_date">موعد السفر المتوقع</label>
-                <input id="travel_date" type="date" name="travel_date" />
-              </div>
-
-              <div class="field">
-                <label for="study_duration">مدة الدراسة المطلوبة</label>
-                <select id="study_duration" name="study_duration">
-                  <option value="">اختر المدة</option>
-                  <option>أسبوعين</option>
-                  <option>شهر</option>
-                  <option>شهرين</option>
-                  <option>3 أشهر</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field-grid">
-              <div class="field">
-                <label for="other_duration">مدة أخرى</label>
-                <input id="other_duration" type="text" name="other_duration" placeholder="إذا كانت لديك مدة مختلفة، اكتبها هنا" />
-              </div>
-            </div>
-          </section>
-
-          <section class="form-section">
-            <h3>المدينة والملاحظات</h3>
-
-            <div class="field-grid two">
-              <div class="field">
-                <label for="preferred_city">المدينة المرغوبة للدراسة</label>
-                <select id="preferred_city" name="preferred_city" required>
-                  <option value="">اختر المدينة</option>
-                  <option>لندن</option>
-                  <option>مانشستر</option>
-                  <option>بورنموث</option>
-                  <option>ليفربول</option>
-                  <option>إدنبرة</option>
-                  <option>أكسفورد</option>
-                  <option>برايتون</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="other_city">مدينة أخرى</label>
-                <input id="other_city" type="text" name="other_city" placeholder="اكتب مدينة أخرى إذا كانت غير موجودة" />
-              </div>
-            </div>
-
-            <div class="field-grid">
-              <div class="field">
-                <label for="notes">ملاحظات إضافية</label>
-                <textarea id="notes" name="notes" placeholder="أي تفاصيل إضافية تساعدنا على فهم طلبك بشكل أفضل"></textarea>
-              </div>
-            </div>
-          </section>
-
-          <div class="form-actions">
-            <p>بالضغط على "إرسال الطلب" سيتم إرسال البيانات إلى البريد الرسمي: partnerships@majanedu.com</p>
-            <button class="submit-button" type="submit">إرسال الطلب</button>
           </div>
         </form>
       </section>
     </main>
+  </div>
+
+  <div class="success-overlay" id="success-overlay" hidden>
+    <div class="success-card" role="dialog" aria-modal="true" aria-labelledby="success-title">
+      <div class="success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="m5 12 5 5L19 8"></path>
+        </svg>
+      </div>
+      <h3 id="success-title">شكرًا لكم</h3>
+      <p>تم إرسال طلب التسجيل بنجاح، وسيقوم فريق ماجان بمراجعة البيانات والتواصل معكم قريبًا.</p>
+      <button type="button" id="success-close">إغلاق</button>
+    </div>
   </div>
 
   <script>
@@ -647,6 +806,8 @@
     const phoneInput = document.getElementById("phone");
     const phoneFullInput = document.getElementById("phone_full");
     const formNextInput = document.getElementById("form-next");
+    const successOverlay = document.getElementById("success-overlay");
+    const successClose = document.getElementById("success-close");
 
     const normalizeSaudiPhone = (value) => {
       let digits = (value || "").replace(/\D/g, "");
@@ -680,9 +841,20 @@
     }
 
     const params = new URLSearchParams(window.location.search);
+    const closeSuccessOverlay = () => {
+      if (!successOverlay) return;
+      successOverlay.hidden = true;
+      const url = new URL(window.location.href);
+      url.searchParams.delete("sent");
+      window.history.replaceState({}, "", url.toString());
+    };
+
     if (params.get("sent") === "1" && submitFeedback) {
       submitFeedback.className = "submit-feedback is-visible is-success";
-      submitFeedback.textContent = "تم إرسال الطلب بنجاح. ستصلك رسالة تأكيد وسيتم التواصل معك من فريق ماجان.";
+      submitFeedback.textContent = "تم إرسال الطلب بنجاح. سيتم التواصل معكم بعد مراجعة البيانات.";
+      if (successOverlay) {
+        successOverlay.hidden = false;
+      }
     }
 
     if (registrationForm) {
@@ -694,6 +866,24 @@
         }
       });
     }
+
+    if (successClose) {
+      successClose.addEventListener("click", closeSuccessOverlay);
+    }
+
+    if (successOverlay) {
+      successOverlay.addEventListener("click", (event) => {
+        if (event.target === successOverlay) {
+          closeSuccessOverlay();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && successOverlay && !successOverlay.hidden) {
+        closeSuccessOverlay();
+      }
+    });
 
     syncSaudiPhone();
   </script>
