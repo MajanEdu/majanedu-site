@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نموذج التسجيل | ماجان</title>
+  <meta name="description" content="نموذج التسجيل في برنامج المخيم الصيفي من ماجان." />
+  <meta name="theme-color" content="#102846" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/form.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <a class="back-link" href="/">العودة إلى الرئيسية</a>
+
+      <div class="logo-row">
+        <img class="logo-main" src="../assets/majan-logo-transparent.png" alt="شعار ماجان" />
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="hero-block" aria-labelledby="page-title">
+        <div class="vision-badge">
+          <img src="../Saudi2030.png" alt="رؤية السعودية 2030" />
+        </div>
+        <span class="hero-label">نموذج التسجيل</span>
+        <h1 id="page-title">التسجيل في المخيم الصيفي</h1>
+        <p>
+          يرجى تعبئة البيانات التالية بدقة، وسيقوم فريق ماجان بمراجعة الطلب
+          والتواصل معك بشأن البرنامج الأنسب والخطوة التالية.
+        </p>
+      </section>
+
+      <section class="form-card" aria-labelledby="form-title">
+        <div class="section-heading">
+          <h2 id="form-title">بيانات التقديم</h2>
+          <p>يتم استلام الطلب ومراجعته ثم التواصل معك من فريق ماجان.</p>
+        </div>
+
+        <div class="submit-feedback" id="submit-feedback" role="alert" aria-live="polite"></div>
+
+        <form name="majan-survey" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="majan-survey" />
+          <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <section class="form-section">
+            <h3>البيانات الأساسية</h3>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="full_name">الاسم الكامل</label>
+                <input id="full_name" type="text" name="full_name" placeholder="الاسم الكامل" autocomplete="name" required />
+              </div>
+            </div>
+
+            <div class="field-grid two">
+              <div class="field phone-field">
+                <label for="phone">رقم الجوال</label>
+                <span class="phone-prefix">
+                  <img src="../assets/flags/sa.svg" alt="" aria-hidden="true" />
+                  <span>+966</span>
+                </span>
+                <input id="phone" type="tel" name="phone" placeholder="5XXXXXXXX" autocomplete="tel" inputmode="numeric" maxlength="12" pattern="5[0-9]{8}" title="يرجى إدخال رقم سعودي يبدأ بـ 5 ويتكون من 9 أرقام" required />
+                <input type="hidden" name="phone_full" id="phone_full" />
+              </div>
+
+              <div class="field">
+                <label for="email">البريد الإلكتروني</label>
+                <input id="email" type="email" name="email" placeholder="name@example.com" autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="field-grid two">
+              <div class="field">
+                <label for="age_group">العمر</label>
+                <select id="age_group" name="age_group" required>
+                  <option value="">اختر العمر</option>
+                  <option>14 سنة</option>
+                  <option>15 سنة</option>
+                  <option>16 سنة</option>
+                  <option>17 سنة</option>
+                  <option>18 سنة وما فوق</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="program">البرنامج المهتم به</label>
+                <select id="program" name="program">
+                  <option value="">اختر البرنامج</option>
+                  <option>البرامج الصيفية</option>
+                  <option>القبول الجامعي</option>
+                  <option>IELTS / لغة إنجليزية</option>
+                  <option>طيران (ICAO)</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h3>تفاصيل البرنامج</h3>
+
+            <div class="field-grid two">
+              <div class="field">
+                <label for="travel_date">موعد السفر المتوقع</label>
+                <input id="travel_date" type="date" name="travel_date" />
+              </div>
+
+              <div class="field">
+                <label for="study_duration">مدة الدراسة المطلوبة</label>
+                <select id="study_duration" name="study_duration">
+                  <option value="">اختر المدة</option>
+                  <option>أسبوعين</option>
+                  <option>شهر</option>
+                  <option>شهرين</option>
+                  <option>3 أشهر</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="other_duration">مدة أخرى</label>
+                <input id="other_duration" type="text" name="other_duration" placeholder="إذا كانت لديك مدة مختلفة، اكتبها هنا" />
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h3>المدينة والملاحظات</h3>
+
+            <div class="field-grid two">
+              <div class="field">
+                <label for="preferred_city">المدينة المرغوبة للدراسة</label>
+                <select id="preferred_city" name="preferred_city" required>
+                  <option value="">اختر المدينة</option>
+                  <option>لندن</option>
+                  <option>مانشستر</option>
+                  <option>بورنموث</option>
+                  <option>ليفربول</option>
+                  <option>إدنبرة</option>
+                  <option>أكسفورد</option>
+                  <option>برايتون</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="other_city">مدينة أخرى</label>
+                <input id="other_city" type="text" name="other_city" placeholder="اكتب مدينة أخرى إذا كانت غير موجودة" />
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="notes">ملاحظات إضافية</label>
+                <textarea id="notes" name="notes" placeholder="أي تفاصيل إضافية تساعدنا على فهم طلبك بشكل أفضل"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <p>بإرسال هذا النموذج سيتم التواصل معك عبر وسيلة التواصل المناسبة بعد مراجعة الطلب.</p>
+            <button class="submit-button" type="submit">إرسال الطلب</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <div class="submit-modal" id="submit-modal" hidden>
+    <div class="submit-modal-card" role="dialog" aria-modal="true" aria-labelledby="submit-modal-title">
+      <div class="submit-check" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="m5 12 5 5L19 8"></path>
+        </svg>
+      </div>
+      <h3 id="submit-modal-title">تم إرسال الطلب بنجاح</h3>
+      <p>شكرًا لك، تم استلام بياناتك بنجاح وسيتم التواصل معك قريبًا من فريق ماجان.</p>
+      <button type="button" id="submit-modal-close">إغلاق</button>
+    </div>
+  </div>
+
+  <script src="../assets/site.js"></script>
+</body>
+</html>
