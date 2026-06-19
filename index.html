@@ -1,114 +1,430 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مكتب ماجان للتدريب والتعليم</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary SEO -->
+<title>ماجان للتدريب والتعليم | دراسة اللغة الإنجليزية في بريطانيا</title>
+<meta content="ماجان للتدريب والتعليم تساعد الطلاب من السعودية والخليج على التسجيل في دورات اللغة الإنجليزية والتحضير لاختبار IELTS في بريطانيا، مع خيارات سكن ومتابعة باللغة العربية." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#071b3a" name="theme-color"/>
+<link href="https://majanedu.com/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="ar_SA" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="ماجان للتدريب والتعليم" property="og:title"/>
+<meta content="دراسة اللغة الإنجليزية وIELTS في بريطانيا بخيارات واضحة ومتابعة باللغة العربية." property="og:description"/>
+<meta content="https://majanedu.com/" property="og:url"/>
+<meta content="Majan Education" property="og:site_name"/>
+<meta content="https://majanedu.com/assets/city-manchester.webp" property="og:image"/>
+<!-- Premium Arabic font, free and suitable for GitHub Pages -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    /* =========================================================
+       MAJAN EDUCATION — SINGLE-FILE CORPORATE LANDING PAGE
+       Edit brand colours, spacing and widths from this section.
+    ========================================================== */
+    :root {
+      --navy-1000: #041126;
+      --navy-950: #071b3a;
+      --navy-900: #0a244b;
+      --navy-800: #103566;
+      --blue-700: #155bd7;
+      --blue-600: #1f6fff;
+      --blue-500: #3784ff;
+      --cyan-400: #48c7e8;
+      --sky-100: #eaf4ff;
+      --sky-50: #f5faff;
+      --ink: #101b2c;
+      --muted: #637086;
+      --line: #dfe7f1;
+      --white: #ffffff;
+      --success: #1fb96a;
+      --whatsapp: #20c866;
+      --danger: #d64d4d;
+      --shadow-xs: 0 8px 24px rgba(7, 27, 58, 0.06);
+      --shadow-sm: 0 18px 48px rgba(7, 27, 58, 0.10);
+      --shadow-lg: 0 34px 90px rgba(7, 27, 58, 0.18);
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 34px;
+      --container: min(1180px, calc(100% - 32px));
+      --header-height: 78px;
+      --transition: 220ms ease;
+    }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 16px);
     }
 
     body {
-      font-family: 'Tajawal', sans-serif;
-      background: #f8f9fb;
-      color: #111827;
+      font-family: "Alexandria", Tahoma, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--white);
       line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    a {
-      text-decoration: none;
+    body.nav-open {
+      overflow: hidden;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
     }
 
     .container {
-      width: 90%;
-      max-width: 1250px;
-      margin: auto;
+      width: var(--container);
+      margin-inline: auto;
     }
 
-    /* NAVBAR */
-    header {
-      background: #ffffff;
-      box-shadow: 0 2px 18px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 999;
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 9999;
+      padding: 10px 14px;
+      color: var(--white);
+      background: var(--navy-950);
+      border-radius: 10px;
+      transform: translateY(-150%);
+      transition: transform var(--transition);
     }
 
-    .navbar {
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .section {
+      position: relative;
+      padding: 88px 0;
+    }
+
+    .section--soft {
+      background:
+        linear-gradient(180deg, rgba(234, 244, 255, 0.72), rgba(245, 250, 255, 0.35));
+    }
+
+    .section--navy {
+      color: var(--white);
+      background:
+        radial-gradient(circle at 8% 18%, rgba(55, 132, 255, 0.20), transparent 32%),
+        radial-gradient(circle at 88% 78%, rgba(72, 199, 232, 0.13), transparent 30%),
+        linear-gradient(135deg, var(--navy-1000), var(--navy-800));
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading--center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 11px;
+      color: var(--blue-700);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 3px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--blue-700), var(--cyan-400));
+    }
+
+    .section-heading h2 {
+      color: var(--navy-950);
+      font-size: clamp(1.9rem, 5vw, 3.2rem);
+      line-height: 1.28;
+      letter-spacing: -0.035em;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(0.96rem, 2vw, 1.08rem);
+    }
+
+    .section-heading--center p {
+      margin-inline: auto;
+    }
+
+    .section--navy .eyebrow {
+      color: var(--cyan-400);
+    }
+
+    .section--navy .section-heading h2,
+    .section--navy .section-heading p {
+      color: var(--white);
+    }
+
+    .section--navy .section-heading p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .btn {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      font-weight: 800;
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        color var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn:focus-visible,
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(55, 132, 255, 0.35);
+      outline-offset: 3px;
+    }
+
+    .btn--primary {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+      box-shadow: 0 16px 36px rgba(21, 91, 215, 0.26);
+    }
+
+    .btn--primary:hover {
+      box-shadow: 0 20px 44px rgba(21, 91, 215, 0.34);
+    }
+
+    .btn--dark {
+      color: var(--white);
+      background: var(--navy-950);
+      box-shadow: 0 14px 32px rgba(7, 27, 58, 0.22);
+    }
+
+    .btn--light {
+      color: var(--navy-950);
+      background: var(--white);
+      box-shadow: 0 16px 34px rgba(7, 27, 58, 0.14);
+    }
+
+    .btn--ghost {
+      color: var(--navy-950);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .btn--ghost:hover {
+      border-color: rgba(21, 91, 215, 0.40);
+      background: var(--sky-50);
+    }
+
+    .btn--whatsapp {
+      color: var(--white);
+      background: var(--whatsapp);
+      box-shadow: 0 16px 34px rgba(32, 200, 102, 0.24);
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      color: var(--blue-700);
+      border: 1px solid rgba(21, 91, 215, 0.13);
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--sky-100), var(--white));
+      box-shadow: var(--shadow-xs);
+    }
+
+    .icon-box .icon {
+      width: 25px;
+      height: 25px;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================== */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: var(--header-height);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(4, 17, 38, 0.72);
+      backdrop-filter: blur(18px);
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .site-header.scrolled {
+      background: rgba(4, 17, 38, 0.95);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-wrap {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 0;
-      gap: 20px;
+      gap: 18px;
     }
 
-    .logo-wrap {
-      display: flex;
+    .brand {
+      display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
-    .logo-wrap img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
+    .brand-symbol {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      filter: drop-shadow(0 8px 20px rgba(31, 111, 255, 0.25));
     }
 
-    .logo-text h1 {
-      font-size: 1.45rem;
-      color: #0f2747;
-      margin-bottom: 2px;
-      font-weight: 900;
+    .brand-copy {
+      line-height: 1.26;
     }
 
-    .logo-text p {
-      color: #b9912f;
-      font-size: 0.95rem;
-      font-weight: 700;
+    .brand-copy strong {
+      display: block;
+      color: var(--white);
+      font-size: 1.02rem;
+      letter-spacing: -0.01em;
     }
 
-    nav ul {
-      list-style: none;
+    .brand-copy span {
+      display: block;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.68rem;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      position: fixed;
+      inset: var(--header-height) 0 0;
       display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 4px;
+      padding: 22px 18px;
+      background: var(--navy-1000);
+      transform: translateX(105%);
+      transition: transform 300ms ease;
+      overflow-y: auto;
     }
 
-    nav ul li a {
-      color: #0f2747;
+    .nav-links.open {
+      transform: translateX(0);
+    }
+
+    .nav-links a {
+      padding: 12px 13px;
+      color: rgba(255, 255, 255, 0.82);
+      border-radius: 11px;
+      font-size: 0.92rem;
       font-weight: 700;
-      transition: 0.3s;
     }
 
-    nav ul li a:hover {
-      color: #c8a03a;
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+      background: rgba(55, 132, 255, 0.14);
     }
 
-    /* HERO */
+    .header-cta {
+      display: none;
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .menu-toggle .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================== */
     .hero {
-      background: linear-gradient(rgba(10, 28, 52, 0.78), rgba(10, 28, 52, 0.82)),
-                  url('LOGO.jpg') center/contain no-repeat,
-                  linear-gradient(135deg, #0f2747, #102f59);
-      min-height: 92vh;
-      display: flex;
+      min-height: 800px;
+      display: grid;
       align-items: center;
-      text-align: center;
-      color: white;
-      position: relative;
+      padding: 126px 0 72px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(55, 132, 255, 0.28), transparent 33%),
+        radial-gradient(circle at 78% 68%, rgba(72, 199, 232, 0.14), transparent 30%),
+        linear-gradient(135deg, var(--navy-1000) 0%, var(--navy-950) 42%, #0d3569 100%);
       overflow: hidden;
     }
 
@@ -116,499 +432,1966 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top left, rgba(200,160,58,0.18), transparent 35%),
-                  radial-gradient(circle at bottom right, rgba(255,255,255,0.06), transparent 30%);
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
     }
 
-    .hero-content {
+    .hero-grid {
       position: relative;
-      z-index: 2;
-      width: 100%;
-      padding: 40px 0;
-    }
-
-    .hero-logo {
-      width: 135px;
-      margin: 0 auto 24px;
-      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.22));
-      background: rgba(255,255,255,0.06);
-      padding: 14px;
-      border-radius: 24px;
-      backdrop-filter: blur(5px);
-    }
-
-    .hero h2 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      margin-bottom: 16px;
-      font-weight: 900;
-      line-height: 1.4;
-    }
-
-    .hero p {
-      max-width: 900px;
-      margin: auto;
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      color: #f3f4f6;
-      margin-bottom: 34px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
-      border-radius: 14px;
-      font-weight: 800;
-      transition: 0.3s ease;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background: #c8a03a;
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(200,160,58,0.25);
-    }
-
-    .btn-primary:hover {
-      background: #b18a2e;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
-      backdrop-filter: blur(5px);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
-    }
-
-    /* GENERAL SECTION */
-    section {
-      padding: 90px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 18px;
-      color: #0f2747;
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      font-weight: 900;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 850px;
-      margin: 0 auto 55px;
-      color: #6b7280;
-      font-size: 1.08rem;
-    }
-
-    /* ABOUT */
-    .about-box {
-      background: #ffffff;
-      border-radius: 26px;
-      padding: 50px;
-      box-shadow: 0 15px 45px rgba(15,39,71,0.07);
-      text-align: center;
-      max-width: 1050px;
-      margin: auto;
-    }
-
-    .about-box p {
-      font-size: 1.14rem;
-      color: #374151;
-      line-height: 2.1;
-    }
-
-    /* SERVICES */
-    .services-grid {
+      z-index: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .service-card {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 32px 28px;
-      box-shadow: 0 14px 40px rgba(15,39,71,0.06);
-      transition: 0.3s ease;
-      border: 1px solid #eef2f7;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 18px 48px rgba(15,39,71,0.12);
-    }
-
-    .service-card .icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-
-    .service-card h3 {
-      color: #0f2747;
-      margin-bottom: 12px;
-      font-size: 1.25rem;
-      font-weight: 800;
-    }
-
-    .service-card p {
-      color: #6b7280;
-      font-size: 1rem;
-      line-height: 1.9;
-    }
-
-    /* LOGO SECTION */
-    .logo-section {
-      background: #ffffff;
-    }
-
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 24px;
+      gap: 48px;
       align-items: center;
     }
 
-    .logo-card {
-      background: #fff;
-      border-radius: 22px;
-      padding: 28px;
-      min-height: 145px;
-      display: flex;
+    .hero-badge {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 28px rgba(15,39,71,0.05);
-      border: 1px solid #eef2f7;
-      transition: 0.3s ease;
+      gap: 9px;
+      padding: 7px 12px;
+      color: #dff7ff;
+      border: 1px solid rgba(72, 199, 232, 0.28);
+      border-radius: 999px;
+      background: rgba(72, 199, 232, 0.10);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
-    .logo-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 38px rgba(15,39,71,0.1);
+    .hero-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan-400);
+      box-shadow: 0 0 0 5px rgba(72, 199, 232, 0.10);
     }
 
-    .logo-card img {
-      max-height: 72px;
-      width: auto;
-      object-fit: contain;
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(2.45rem, 8vw, 5rem);
+      line-height: 1.12;
+      letter-spacing: -0.05em;
+      margin-bottom: 20px;
     }
 
-    /* CTA */
-    .cta {
-      background: linear-gradient(135deg, #0f2747, #14365f);
-      color: white;
-      text-align: center;
-      border-radius: 30px;
-      padding: 70px 30px;
-      box-shadow: 0 18px 48px rgba(15,39,71,0.15);
+    .hero h1 span {
+      display: block;
+      color: #8fdcff;
     }
 
-    .cta h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      margin-bottom: 16px;
-      font-weight: 900;
+    .hero-lead {
+      max-width: 670px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: clamp(1rem, 2.5vw, 1.16rem);
+      margin-bottom: 28px;
     }
 
-    .cta p {
-      max-width: 800px;
-      margin: auto;
-      color: #e5e7eb;
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
       margin-bottom: 30px;
-      font-size: 1.08rem;
     }
 
-    /* CONTACT */
-    .contact-grid {
+    .trust-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .trust-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .trust-chip svg {
+      width: 20px;
+      height: 20px;
+      color: #8fdcff;
+      flex: 0 0 20px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 480px;
+    }
+
+    .visual-card {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 26px;
+      background: var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .visual-card img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .visual-card--main {
+      inset: 18px 0 48px 46px;
+    }
+
+    .visual-card--small {
+      width: 46%;
+      height: 42%;
+      left: 0;
+      bottom: 0;
+      border: 7px solid var(--navy-950);
+    }
+
+    .visual-card--main::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 36%;
+      background: linear-gradient(to top, rgba(4,17,38,.58), transparent);
+    }
+
+    .visual-label {
+      position: absolute;
+      z-index: 3;
+      right: 22px;
+      bottom: 22px;
+      max-width: 250px;
+      padding: 13px 15px;
+      color: var(--navy-950);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .visual-label small {
+      display: block;
+      color: var(--blue-700);
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .visual-label strong {
+      display: block;
+      line-height: 1.55;
+      font-size: 0.9rem;
+    }
+
+    .floating-note {
+      position: absolute;
+      z-index: 4;
+      top: 0;
+      left: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      color: var(--navy-950);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .floating-note .icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+    }
+
+    .floating-note small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.66rem;
+    }
+
+    .floating-note strong {
+      display: block;
+      font-size: 0.79rem;
+    }
+
+    /* =========================================================
+       TRUST STRIP
+    ========================================================== */
+    .trust-strip {
+      position: relative;
+      z-index: 3;
+      margin-top: -28px;
+    }
+
+    .trust-strip-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      border: 1px solid rgba(7, 27, 58, 0.08);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(14px);
+    }
+
+    .trust-stat {
+      min-height: 104px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .trust-stat:nth-child(odd) {
+      border-left: 1px solid var(--line);
+    }
+
+    .trust-stat:nth-last-child(-n+2) {
+      border-bottom: 0;
+    }
+
+    .trust-stat strong {
+      display: block;
+      color: var(--navy-950);
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .trust-stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================================
+       DESTINATIONS
+    ========================================================== */
+    .destination-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .destination-card {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      border-radius: 26px;
+      box-shadow: var(--shadow-sm);
+      isolation: isolate;
+    }
+
+    .destination-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(4, 17, 38, 0.92) 4%, rgba(4, 17, 38, 0.10) 70%);
+    }
+
+    .destination-card img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 700ms ease;
+    }
+
+    .destination-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .destination-content {
+      position: absolute;
+      inset: auto 0 0;
+      z-index: 2;
+      padding: 26px;
+      color: var(--white);
+    }
+
+    .destination-code {
+      display: inline-block;
+      color: #a9e9ff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+
+    .destination-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .destination-content p {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.9rem;
+    }
+
+    /* =========================================================
+       PROGRAMMES
+    ========================================================== */
+    .programme-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .programme-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: var(--shadow-xs);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .programme-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(21, 91, 215, 0.25);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .programme-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--blue-700), var(--cyan-400));
+    }
+
+    .programme-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .programme-tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      color: var(--blue-700);
+      border-radius: 999px;
+      background: var(--sky-100);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .programme-card h3 {
+      color: var(--navy-950);
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      line-height: 1.4;
+      margin-bottom: 9px;
+    }
+
+    .programme-card > p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      color: #46546a;
+      font-size: 0.9rem;
+    }
+
+    .check-list svg {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      color: var(--success);
+      margin-top: 3px;
+    }
+
+    .programme-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .city-pill {
+      padding: 6px 10px;
+      color: var(--navy-900);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--sky-50);
+      font-size: 0.73rem;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       EXPERIENCE / INCLUDED
+    ========================================================== */
+    .experience-grid {
+      display: grid;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .experience-image {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .experience-image img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .experience-panel {
+      position: absolute;
+      inset: auto 18px 18px;
+      padding: 18px;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 18px;
+      background: rgba(4, 17, 38, 0.84);
+      backdrop-filter: blur(14px);
+    }
+
+    .experience-panel strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .experience-panel p {
+      color: rgba(255,255,255,.72);
+      font-size: 0.82rem;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--white);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .feature-row .icon-box {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      border-radius: 14px;
+    }
+
+    .feature-row h3 {
+      color: var(--navy-950);
+      font-size: 0.98rem;
+      margin-bottom: 3px;
+    }
+
+    .feature-row p {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    /* =========================================================
+       ACCOMMODATION
+    ========================================================== */
+    .accommodation-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .accommodation-card {
+      position: relative;
+      min-height: 440px;
+      overflow: hidden;
+      border-radius: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .accommodation-card img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .accommodation-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4,17,38,.95), rgba(4,17,38,.08) 65%);
+    }
+
+    .accommodation-content {
+      position: absolute;
+      z-index: 2;
+      inset: auto 0 0;
+      padding: 26px;
+      color: var(--white);
+    }
+
+    .accommodation-content .icon-box {
+      margin-bottom: 14px;
+      color: var(--white);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.11);
+      backdrop-filter: blur(10px);
+      box-shadow: none;
+    }
+
+    .accommodation-content h3 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .accommodation-content p {
+      color: rgba(255,255,255,.74);
+      font-size: 0.88rem;
+    }
+
+    .availability-note {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 18px;
+      padding: 15px 16px;
+      color: #40516b;
+      border: 1px solid #cfe0f2;
+      border-radius: 16px;
+      background: #f4f9ff;
+      font-size: 0.83rem;
+    }
+
+    .availability-note .icon {
+      color: var(--blue-700);
+      flex: 0 0 21px;
+      margin-top: 2px;
+    }
+
+    /* =========================================================
+       PROCESS
+    ========================================================== */
+    .process-grid {
+      display: grid;
+      gap: 16px;
+      counter-reset: process;
+    }
+
+    .process-step {
+      position: relative;
+      min-height: 190px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(8px);
+    }
+
+    .process-step::before {
+      counter-increment: process;
+      content: "0" counter(process);
+      display: block;
+      color: var(--cyan-400);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      margin-bottom: 28px;
+    }
+
+    .process-step h3 {
+      font-size: 1.05rem;
+      margin-bottom: 7px;
+    }
+
+    .process-step p {
+      color: rgba(255,255,255,.65);
+      font-size: 0.83rem;
+    }
+
+    /* =========================================================
+       WHY MAJAN
+    ========================================================== */
+    .why-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .why-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      background: var(--white);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .why-card h3 {
+      color: var(--navy-950);
+      font-size: 1rem;
+      margin: 15px 0 6px;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    /* =========================================================
+       INSTITUTIONS
+    ========================================================== */
+    .institutions-panel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .institution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .institution-item {
+      min-height: 104px;
+      display: grid;
+      place-items: center;
+      padding: 15px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--sky-50);
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .institution-item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(21,91,215,.28);
+    }
+
+    .institution-item strong {
+      color: var(--navy-950);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .institution-note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* =========================================================
+       FAQ
+    ========================================================== */
+    .faq-list {
+      max-width: 860px;
+      display: grid;
+      gap: 12px;
+      margin-inline: auto;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--white);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      padding: 18px 20px;
+      color: var(--navy-950);
+      text-align: right;
+      border: 0;
+      background: transparent;
+      font-weight: 800;
+    }
+
+    .faq-question svg {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      transition: transform var(--transition);
+    }
+
+    .faq-item.open .faq-question svg {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms ease;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 20px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================== */
+    .contact-layout {
+      display: grid;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .contact-copy h2 {
+      font-size: clamp(2rem, 6vw, 3.7rem);
+      line-height: 1.25;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .contact-copy > p {
+      max-width: 580px;
+      color: rgba(255,255,255,.70);
+      margin-bottom: 22px;
+    }
+
+    .detail-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .detail-chip {
+      padding: 7px 11px;
+      color: rgba(255,255,255,.86);
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .contact-cards {
+      display: grid;
+      gap: 11px;
     }
 
     .contact-card {
-      background: #ffffff;
-      border-radius: 22px;
-      padding: 30px;
-      box-shadow: 0 12px 32px rgba(15,39,71,0.06);
-      text-align: center;
-      border: 1px solid #eef2f7;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 15px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 17px;
+      background: rgba(255,255,255,.07);
+      transition: transform var(--transition), background var(--transition);
     }
 
-    .contact-card h3 {
-      color: #0f2747;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-      font-weight: 800;
+    .contact-card:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.10);
     }
 
-    .contact-card p,
-    .contact-card a {
-      color: #6b7280;
-      font-size: 1rem;
-      line-height: 1.9;
+    .contact-card .icon-box {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      color: var(--white);
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.09);
+      box-shadow: none;
+    }
+
+    .contact-card small {
+      display: block;
+      color: rgba(255,255,255,.53);
+      font-size: 0.67rem;
+      margin-bottom: 1px;
+    }
+
+    .contact-card strong {
+      display: block;
+      color: var(--white);
+      direction: ltr;
+      text-align: right;
+      font-size: 0.84rem;
       word-break: break-word;
     }
 
-    .contact-card a:hover {
-      color: #c8a03a;
+    /* =========================================================
+       FOOTER & DIALOGS
+    ========================================================== */
+    .footer {
+      padding: 40px 0 28px;
+      color: rgba(255,255,255,.66);
+      background: #020a17;
     }
 
-    /* FOOTER */
-    footer {
-      background: #0b1d35;
-      color: #d1d5db;
+    .footer-top {
+      display: grid;
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+
+    .footer-brand p {
+      max-width: 460px;
+      color: rgba(255,255,255,.55);
+      font-size: 0.82rem;
+      margin-top: 10px;
+    }
+
+    .footer-links h3 {
+      color: var(--white);
+      font-size: 0.9rem;
+      margin-bottom: 11px;
+    }
+
+    .footer-links ul {
+      display: grid;
+      gap: 7px;
+    }
+
+    .footer-links a,
+    .footer-link-button {
+      color: rgba(255,255,255,.62);
+      font-size: 0.78rem;
+    }
+
+    .footer-link-button {
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .footer-links a:hover,
+    .footer-link-button:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
       text-align: center;
-      padding: 28px 15px;
-      margin-top: 70px;
-      font-size: 0.98rem;
+      padding-top: 22px;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .navbar {
-        flex-direction: column;
-        text-align: center;
+    .social-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .social-link:hover {
+      color: var(--white);
+      background: rgba(55,132,255,.18);
+    }
+
+    .social-link .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    dialog {
+      width: min(700px, calc(100% - 28px));
+      max-height: 82vh;
+      margin: auto;
+      padding: 0;
+      color: var(--ink);
+      border: 0;
+      border-radius: 22px;
+      background: var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+
+    dialog::backdrop {
+      background: rgba(2, 10, 23, 0.72);
+      backdrop-filter: blur(5px);
+    }
+
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dialog-header h2 {
+      color: var(--navy-950);
+      font-size: 1.2rem;
+    }
+
+    .dialog-close {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: var(--navy-950);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--sky-50);
+    }
+
+    .dialog-body {
+      padding: 22px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      overflow-y: auto;
+    }
+
+    .dialog-body h3 {
+      color: var(--navy-950);
+      font-size: 0.96rem;
+      margin: 16px 0 5px;
+    }
+
+    .dialog-body h3:first-child {
+      margin-top: 0;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      z-index: 1200;
+      left: 16px;
+      bottom: 16px;
+      min-width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 17px;
+      color: var(--white);
+      border-radius: 999px;
+      background: var(--whatsapp);
+      box-shadow: 0 16px 38px rgba(32, 200, 102, 0.36);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 46px rgba(32, 200, 102, 0.42);
+    }
+
+    .floating-whatsapp span {
+      display: none;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .floating-whatsapp .icon {
+      width: 25px;
+      height: 25px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 650ms ease, transform 650ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================== */
+    @media (min-width: 680px) {
+      .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
       }
 
-      nav ul {
-        justify-content: center;
+      .destination-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .logo-wrap {
-        flex-direction: column;
+      .destination-card:first-child {
+        grid-column: 1 / -1;
       }
 
-      .about-box {
-        padding: 35px 24px;
+      .programme-grid,
+      .accommodation-grid,
+      .experience-grid,
+      .contact-layout {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .institution-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .contact-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-top {
+        grid-template-columns: 1.4fr 0.8fr 0.8fr;
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: right;
+      }
+
+      .floating-whatsapp span {
+        display: inline;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (min-width: 980px) {
+      .section {
+        padding: 112px 0;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .nav-links {
+        position: static;
+        inset: auto;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+        padding: 0;
+        background: transparent;
+        transform: none;
+        overflow: visible;
+      }
+
+      .nav-links a {
+        padding: 9px 8px;
+        font-size: 0.79rem;
+      }
+
+      .header-cta {
+        display: inline-flex;
+        min-height: 44px;
+        padding: 8px 15px;
+        border-radius: 12px;
+        font-size: 0.76rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.08fr 0.92fr;
+      }
+
+      .hero-visual {
+        min-height: 560px;
+      }
+
+      .trust-strip-inner {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .trust-stat,
+      .trust-stat:nth-child(odd) {
+        border-bottom: 0;
+        border-left: 1px solid var(--line);
+      }
+
+      .trust-stat:last-child {
+        border-left: 0;
+      }
+
+      .destination-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .destination-card:first-child {
+        grid-column: auto;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .institution-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand-copy span {
+        display: none;
+      }
+
       .hero {
-        min-height: 88vh;
+        min-height: auto;
       }
 
-      .hero-logo {
-        width: 110px;
+      .hero-visual {
+        min-height: 410px;
       }
 
-      .btn {
-        width: 100%;
-        max-width: 320px;
+      .visual-card--main {
+        inset: 14px 0 44px 26px;
       }
 
-      .service-card,
-      .contact-card,
-      .logo-card {
-        border-radius: 18px;
+      .visual-card--small {
+        width: 48%;
+        height: 38%;
+      }
+
+      .floating-note {
+        left: 8px;
+      }
+
+      .trust-strip-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-stat,
+      .trust-stat:nth-child(odd),
+      .trust-stat:nth-last-child(-n+2) {
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .trust-stat:last-child {
+        border-bottom: 0;
+      }
+
+      .institution-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-whatsapp {
+        width: 58px;
+        min-width: 58px;
+        padding: 0;
+      }
+
+      .floating-whatsapp span {
+        display: none;
       }
     }
-  </style>
-</head>
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  
+
+/* OFFICIAL MAJAN BRAND ASSETS */
+:root{--header-height:88px}
+.site-header{color:var(--navy-950);border-bottom:1px solid rgba(7,27,58,.09);background:rgba(255,255,255,.96);box-shadow:0 8px 30px rgba(7,27,58,.06);backdrop-filter:blur(18px)}
+.site-header.scrolled{background:rgba(255,255,255,.98);box-shadow:0 14px 38px rgba(7,27,58,.11)}
+.brand{min-width:112px}.brand-logo{width:112px;height:74px;object-fit:contain;object-position:center}
+.site-header .nav-links a{color:#34445b}.site-header .nav-links a:hover,.site-header .nav-links a.active{color:var(--blue-700);background:var(--sky-100)}
+.menu-toggle{color:var(--navy-950);border-color:var(--line);background:var(--sky-50)}
+.footer .brand{width:max-content;min-width:0;padding:8px 14px;border-radius:16px;background:var(--white);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.footer .brand-logo{width:122px;height:86px}
+.institution-subtitle{color:var(--navy-950);font-size:1rem;margin-bottom:14px}.institution-subtitle--secondary{margin-top:34px}
+.partner-logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.institution-logo-card{min-height:132px;padding:22px;background:var(--white)}
+.institution-logo-card img{width:auto;max-width:100%;max-height:72px;object-fit:contain}
+.government-logo-grid{display:grid;gap:14px}.government-logo-card{min-height:146px;display:grid;place-items:center;padding:24px;border:1px solid var(--line);border-radius:17px;background:#f9fbfe}
+.government-logo-card img{width:auto;max-width:100%;max-height:88px;object-fit:contain}.government-logo-card--tall img{max-height:124px}
+.government-disclaimer{display:flex;gap:9px;align-items:flex-start;padding:14px 15px;border:1px solid #d7e4f1;border-radius:14px;background:#f5f9fd;line-height:1.8}
+.government-disclaimer::before{content:'i';width:22px;height:22px;display:grid;place-items:center;flex:0 0 22px;color:var(--white);border-radius:50%;background:var(--blue-700);font-family:Arial,sans-serif;font-size:.72rem;font-weight:800;margin-top:2px}
+@media(max-width:979px){.nav-links{background:rgba(255,255,255,.99)}.nav-links a{color:var(--navy-950)!important}.nav-links a:hover,.nav-links a.active{color:var(--blue-700)!important;background:var(--sky-100)}}
+@media(min-width:680px){.partner-logo-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.government-logo-grid{grid-template-columns:1.5fr .7fr}}
+@media(max-width:520px){.brand-logo{width:88px;height:65px}.partner-logo-grid{grid-template-columns:1fr}}
+</style>
+<link href="assets/favicon.png" rel="icon" type="image/png"/></head>
 <body>
+<a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+<!-- =======================================================
+       HEADER
+  ======================================================== -->
+<header class="site-header" id="siteHeader">
+<div class="container nav-wrap">
+<a aria-label="ماجان للتدريب والتعليم" class="brand" href="#home"><img alt="شعار ماجان للتدريب والتعليم" class="brand-logo" height="110" src="assets/majan-logo.png" width="150"/></a>
+<nav aria-label="التنقل الرئيسي" class="nav-links" id="navLinks">
+<a href="#home">الرئيسية</a>
+<a href="#destinations">المدن</a>
+<a href="#programmes">الدورات</a>
+<a href="#accommodation">السكن</a>
+<a href="#journey">طريقة التسجيل</a>
+<a href="#institutions">المعاهد</a>
+<a href="#contact">تواصل معنا</a>
+</nav>
+<a class="btn btn--primary header-cta" href="https://wa.me/447920000005?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%20%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7." rel="noopener" target="_blank">
+        ابدأ عبر الواتساب
+      </a>
+<button aria-expanded="false" aria-label="فتح القائمة" class="menu-toggle" id="menuToggle" type="button">
+<svg aria-hidden="true" class="icon" viewbox="0 0 24 24">
+<path d="M4 7h16M4 12h16M4 17h16"></path>
+</svg>
+</button>
+</div>
+</header>
+<main id="main">
+<!-- =====================================================
+         HERO
+    ====================================================== -->
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div class="hero-copy reveal">
+<div class="hero-badge">خيارات تعليمية في بريطانيا للطلاب من السعودية والخليج</div>
+<h1>
+            تعلّم الإنجليزية
+            <span>وعِش التجربة البريطانية</span>
+</h1>
+<p class="hero-lead">
+            نساعدك على اختيار الدورة والمدينة والسكن المناسب، ونتابع معك خطوات التسجيل والاستعداد للسفر بلغة واضحة ودعم عربي مستمر.
+          </p>
+<div class="hero-actions">
+<a class="btn btn--primary" href="https://wa.me/447920000005?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%20%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7." rel="noopener" target="_blank">
+<svg aria-hidden="true" class="icon" viewbox="0 0 24 24">
+<path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"></path>
+<path d="M8.8 8.1c.3-.7.7-.7 1-.7h.4c.1 0 .3 0 .5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.3.4-.1.7.4.8 1 1.5 1.7 2 .8.6 1.5.8 1.8.9.3.1.5 0 .7-.2l.8-1c.2-.3.5-.3.8-.2l1.8.8c.3.1.5.2.5.4.1.2.1 1-.2 1.8-.3.8-1.8 1.5-2.5 1.6-.7.1-1.6.2-3.8-.7-3.2-1.3-5.2-4.5-5.4-4.8-.2-.3-1.3-1.8-1.3-3.4 0-1.5.8-2.3 1.2-2.7Z"></path>
+</svg>
+              ابدأ رحلتك الآن
+            </a>
+<a class="btn btn--light" href="#programmes">
+              استعرض الدورات
+              <svg aria-hidden="true" class="icon" viewbox="0 0 24 24">
+<path d="m9 18 6-6-6-6"></path>
+</svg>
+</a>
+</div>
+<div class="trust-row">
+<div class="trust-chip">
+<svg class="icon" viewbox="0 0 24 24"><path d="m9 12 2 2 4-5"></path><path d="M12 3 4.8 6v5.4c0 4.6 3 7.8 7.2 9.6 4.2-1.8 7.2-5 7.2-9.6V6L12 3Z"></path></svg>
+<span>خيارات موثوقة</span>
+</div>
+<div class="trust-chip">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 5h16v12H7l-3 3V5Z"></path><path d="M8 9h8M8 13h5"></path></svg>
+<span>دعم باللغة العربية</span>
+</div>
+<div class="trust-chip">
+<svg class="icon" viewbox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10.5V20h13v-9.5"></path><path d="M9 20v-6h6v6"></path></svg>
+<span>خيارات سكن متعددة</span>
+</div>
+<div class="trust-chip">
+<svg class="icon" viewbox="0 0 24 24"><path d="M6 3v3M18 3v3M4 8h16"></path><rect height="16" rx="2" width="16" x="4" y="5"></rect><path d="m8 14 2 2 5-5"></path></svg>
+<span>متابعة حتى الوصول</span>
+</div>
+</div>
+</div>
+<div aria-label="طلاب دوليون يدرسون في بريطانيا" class="hero-visual reveal">
+<div class="visual-card visual-card--main">
+<img alt="طلاب دوليون يدرسون ويتعاونون معاً" fetchpriority="high" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<div class="visual-label">
+<small>رحلة دراسية أوضح</small>
+<strong>من اختيار البرنامج إلى بدء الدراسة في بريطانيا</strong>
+</div>
+</div>
+<div class="visual-card visual-card--small">
+<img alt="طلاب داخل فصل تعليمي" loading="lazy" src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&amp;fit=crop&amp;w=700&amp;q=82"/>
+</div>
+<div class="floating-note">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v15.5"></path><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20v3H6.5A2.5 2.5 0 0 1 4 17.5"></path></svg>
+</span>
+<span>
+<small>برامج مرنة</small>
+<strong>الإنجليزية العامة وIELTS</strong>
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         TRUST STRIP
+    ====================================================== -->
+<div class="trust-strip">
+<div class="container">
+<div class="trust-strip-inner reveal">
+<div class="trust-stat">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10.5V20h13v-9.5"></path></svg>
+</span>
+<span>
+<strong>ثلاث مدن دراسية</strong>
+<span>مانشستر، ليفربول وبورنموث</span>
+</span>
+</div>
+<div class="trust-stat">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 5h16v12H7l-3 3V5Z"></path><path d="M8 9h8M8 13h5"></path></svg>
+</span>
+<span>
+<strong>تواصل عربي مباشر</strong>
+<span>شرح واضح قبل اتخاذ القرار</span>
+</span>
+</div>
+<div class="trust-stat">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M12 3v18M3 12h18"></path><circle cx="12" cy="12" r="9"></circle></svg>
+</span>
+<span>
+<strong>خيارات حسب الهدف</strong>
+<span>مدة، مدينة وسكن يناسب الطالب</span>
+</span>
+</div>
+<div class="trust-stat">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="m9 12 2 2 4-5"></path><circle cx="12" cy="12" r="9"></circle></svg>
+</span>
+<span>
+<strong>متابعة منظمة</strong>
+<span>من الاستفسار حتى الاستعداد للسفر</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- =====================================================
+         DESTINATIONS
+    ====================================================== -->
+<section class="section" id="destinations">
+<div class="container">
+<div class="section-heading reveal">
+<span class="eyebrow">اختر مدينتك</span>
+<h2>ثلاث وجهات، ولكل مدينة تجربتها</h2>
+<p>نساعدك على المقارنة بين المدينة، نمط الحياة، خيارات الدراسة والسكن قبل اتخاذ القرار.</p>
+</div>
+<div class="destination-grid">
+<article class="destination-card reveal">
+<img alt="إطلالة جوية على مدينة مانشستر" height="960" loading="lazy" src="assets/city-manchester.webp" width="1280"/>
+<div class="destination-content">
+<span class="destination-code">MANCHESTER</span>
+<h3>مانشستر</h3>
+<p>مدينة طلابية نابضة بالحياة وتجمع بين الدراسة والتجربة الحضرية الحديثة.</p>
+</div>
+</article>
+<article class="destination-card reveal">
+<img alt="شاطئ ورصيف مدينة بورنموث" height="960" loading="lazy" src="assets/city-bournemouth.webp" width="1280"/>
+<div class="destination-content">
+<span class="destination-code">BOURNEMOUTH</span>
+<h3>بورنموث</h3>
+<p>مدينة ساحلية هادئة ومحبوبة لدى طلاب اللغة الباحثين عن أجواء مريحة.</p>
+</div>
+</article>
+<article class="destination-card reveal">
+<img alt="واجهة ليفربول البحرية ومبنى رويال ليفر" height="960" loading="lazy" src="assets/city-liverpool.webp" width="1280"/>
+<div class="destination-content">
+<span class="destination-code">LIVERPOOL</span>
+<h3>ليفربول</h3>
+<p>مدينة ثقافية مناسبة للطلاب وتقدم تجربة دراسية واجتماعية متوازنة.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         PROGRAMMES
+    ====================================================== -->
+<section class="section section--soft" id="programmes">
+<div class="container">
+<div class="section-heading section-heading--center reveal">
+<span class="eyebrow">الدورات</span>
+<h2>دورات تناسب هدفك</h2>
+<p>اختر بين تطوير لغتك للاستخدام اليومي أو الاستعداد للحصول على درجة IELTS المطلوبة.</p>
+</div>
+<div class="programme-grid">
+<article class="programme-card reveal">
+<div class="programme-top">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v15.5"></path><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20v3H6.5A2.5 2.5 0 0 1 4 17.5"></path></svg>
+</span>
+<span class="programme-tag">GENERAL ENGLISH</span>
+</div>
+<h3>دورة اللغة الإنجليزية العامة</h3>
+<p>مناسبة لمن يرغب في تحسين مستواه العام والتحدث بثقة أكبر في الحياة اليومية أو الدراسة أو العمل.</p>
+<ul class="check-list">
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>المحادثة والاستماع</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>القراءة والكتابة</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>القواعد والنطق</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>زيادة الثقة في استخدام اللغة</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>تطوير المستوى بشكل تدريجي</span></li>
+</ul>
+<div class="programme-footer">
+<span class="city-pill">مانشستر</span>
+<span class="city-pill">ليفربول</span>
+<span class="city-pill">بورنموث</span>
+</div>
+</article>
+<article class="programme-card reveal">
+<div class="programme-top">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M9 7h6M9 11h6M9 15h3"></path><path d="m14 17 1.5 1.5L19 15"></path></svg>
+</span>
+<span class="programme-tag">IELTS PREPARATION</span>
+</div>
+<h3>دورة التحضير لاختبار IELTS</h3>
+<p>مناسبة لمن يحتاج إلى الحصول على درجة IELTS للقبول الجامعي أو العمل أو متطلبات أخرى.</p>
+<ul class="check-list">
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>فهم أقسام اختبار IELTS</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>استراتيجيات الإجابة وإدارة الوقت</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>التدريب على الكتابة الأكاديمية</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>تطوير مهارات التحدث للاختبار</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>حل نماذج واختبارات تجريبية</span></li>
+<li><svg class="icon" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>الاستعداد للوصول إلى الدرجة المطلوبة</span></li>
+</ul>
+<div class="programme-footer">
+<span class="city-pill">حسب مستوى الطالب</span>
+<span class="city-pill">حسب تاريخ البداية</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         WHAT THE EXPERIENCE CAN INCLUDE
+    ====================================================== -->
+<section class="section">
+<div class="container experience-grid">
+<div class="experience-image reveal">
+<img alt="طلاب يعملون معاً داخل بيئة تعليمية" loading="lazy" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<div class="experience-panel">
+<strong>أكثر من مجرد مقعد دراسي</strong>
+<p>اختيار جيد للدورة والسكن يساعد الطالب على الاستفادة من التجربة داخل المعهد وخارجه.</p>
+</div>
+</div>
+<div>
+<div class="section-heading reveal">
+<span class="eyebrow">تجربة متكاملة</span>
+<h2>ما الذي يمكن أن يشمله برنامجك؟</h2>
+<p>تختلف التفاصيل حسب المدينة والمعهد والمدة، ويتم توضيح كل بند قبل تأكيد الحجز.</p>
+</div>
+<div class="feature-list">
+<article class="feature-row reveal">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v15.5"></path><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20v3H6.5A2.5 2.5 0 0 1 4 17.5"></path></svg>
+</span>
+<span><h3>الدراسة وتحديد المستوى</h3><p>دورة مناسبة لمستوى الطالب مع اختبار تحديد مستوى قبل أو عند بدء الدراسة.</p></span>
+</article>
+<article class="feature-row reveal">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10.5V20h13v-9.5"></path><path d="M9 20v-6h6v6"></path></svg>
+</span>
+<span><h3>السكن والوجبات</h3><p>سكن مع عائلة مضيفة أو سكن طلابي، مع توضيح الوجبات المتضمنة إن وجدت.</p></span>
+</article>
+<article class="feature-row reveal">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 8h16M6 4h12l2 4v12H4V8l2-4Z"></path><path d="M9 12h6M9 16h4"></path></svg>
+</span>
+<span><h3>الأنشطة والشهادة</h3><p>أنشطة أو رحلات حسب جدول المعهد، وشهادة عند إكمال البرنامج وفق شروطه.</p></span>
+</article>
+<article class="feature-row reveal">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 5h16v12H7l-3 3V5Z"></path><path d="M8 9h8M8 13h5"></path></svg>
+</span>
+<span><h3>الدعم والإرشاد</h3><p>متابعة باللغة العربية في مراحل الاختيار والتسجيل والاستعداد للوصول.</p></span>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         ACCOMMODATION
+    ====================================================== -->
+<section class="section section--soft" id="accommodation">
+<div class="container">
+<div class="section-heading reveal">
+<span class="eyebrow">إقامتك في بريطانيا</span>
+<h2>اختر السكن الذي يناسب أسلوبك</h2>
+<p>السكن جزء أساسي من التجربة، لذلك نوضح لك طبيعة كل خيار قبل الحجز.</p>
+</div>
+<div class="accommodation-grid">
+<article class="accommodation-card reveal">
+<img alt="منزل بريطاني مناسب للسكن مع عائلة مضيفة" loading="lazy" src="https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/>
+<div class="accommodation-content">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10.5V20h13v-9.5"></path><path d="M9 20v-6h6v6"></path></svg>
+</span>
+<h3>السكن مع عائلة مضيفة</h3>
+<p>خيار مناسب لمن يرغب في ممارسة الإنجليزية خارج المعهد والعيش ضمن بيئة بريطانية يومية.</p>
+</div>
+</article>
+<article class="accommodation-card reveal">
+<img alt="غرفة داخل سكن طلابي حديث" loading="lazy" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/>
+<div class="accommodation-content">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"></path><path d="M9 7h2M14 7h2M9 11h2M14 11h2M9 15h2M14 15h2M2 21h20"></path></svg>
+</span>
+<h3>السكن الطلابي</h3>
+<p>مناسب لمن يفضل الاستقلالية والعيش بالقرب من طلاب آخرين ضمن أجواء اجتماعية.</p>
+</div>
+</article>
+</div>
+<div class="availability-note reveal">
+<svg class="icon" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 10v6M12 7h.01"></path></svg>
+<span>تعتمد خيارات السكن على عمر الطالب، المدينة، تاريخ البداية، مدة الإقامة، وسياسة وتوفر المعهد أو مزود السكن.</span>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         JOURNEY
+    ====================================================== -->
+<section class="section section--navy" id="journey">
+<div class="container">
+<div class="section-heading section-heading--center reveal">
+<span class="eyebrow">رحلة التسجيل</span>
+<h2>خطوات واضحة من البداية إلى السفر</h2>
+<p>نرتب الخطوات بوضوح حتى تعرف ما المطلوب وما الذي سيحدث بعد ذلك.</p>
+</div>
+<div class="process-grid">
+<article class="process-step reveal">
+<h3>نفهم احتياج الطالب</h3>
+<p>العمر، الهدف، المدينة، المدة، نوع السكن والميزانية المناسبة.</p>
+</article>
+<article class="process-step reveal">
+<h3>نقترح الخيارات</h3>
+<p>نرسل الخيارات المتاحة ونوضح محتوى البرنامج والتكلفة والشروط.</p>
+</article>
+<article class="process-step reveal">
+<h3>اختيار البرنامج</h3>
+<p>يختار الطالب الدورة والسكن المناسبين قبل بدء إجراءات الحجز.</p>
+</article>
+<article class="process-step reveal">
+<h3>إرسال البيانات</h3>
+<p>نجمع البيانات والمستندات المطلوبة بحسب متطلبات المعهد.</p>
+</article>
+<article class="process-step reveal">
+<h3>القبول والتأكيد</h3>
+<p>تتم متابعة القبول وتأكيد الحجز والدفع وفق الشروط الموضحة.</p>
+</article>
+<article class="process-step reveal">
+<h3>الاستعداد للوصول</h3>
+<p>نرسل معلومات السكن والوصول وبداية الدراسة والتعليمات المهمة.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         WHY MAJAN
+    ====================================================== -->
+<section class="section">
+<div class="container">
+<div class="section-heading section-heading--center reveal">
+<span class="eyebrow">لماذا ماجان؟</span>
+<h2>وضوح أكبر في قرار دراسي مهم</h2>
+<p>هدفنا أن يفهم الطالب خياراته وتكلفتها وما الذي سيحصل عليه قبل التأكيد.</p>
+</div>
+<div class="why-grid">
+<article class="why-card reveal">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M3 12h18M12 3v18"></path><circle cx="12" cy="12" r="9"></circle></svg>
+</span>
+<h3>خيارات تناسب الطالب</h3>
+<p>مقارنة الخيارات حسب العمر والهدف والمدينة والمدة والميزانية.</p>
+</article>
+<article class="why-card reveal">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 5h16v12H7l-3 3V5Z"></path><path d="M8 9h8M8 13h5"></path></svg>
+</span>
+<h3>شرح باللغة العربية</h3>
+<p>تواصل مباشر وواضح يساعد الطالب وولي الأمر على فهم التفاصيل.</p>
+</article>
+<article class="why-card reveal">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M5 4h14v16H5z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg>
+</span>
+<h3>تفاصيل قبل التأكيد</h3>
+<p>توضيح الخدمات والتكلفة والشروط والتوفر قبل إتمام الحجز.</p>
+</article>
+<article class="why-card reveal">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="m9 12 2 2 4-5"></path><path d="M12 3 4.8 6v5.4c0 4.6 3 7.8 7.2 9.6 4.2-1.8 7.2-5 7.2-9.6V6L12 3Z"></path></svg>
+</span>
+<h3>متابعة منظمة</h3>
+<p>متابعة مراحل الطلب والاستعداد للوصول وفق الخدمات المتفق عليها.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         INSTITUTIONS
+    ====================================================== -->
+<section class="section section--soft" id="institutions">
+<div class="container">
+<div class="section-heading reveal">
+<span class="eyebrow">المعاهد والجهات التعليمية</span>
+<h2>جهات تعليمية ضمن الخيارات المتاحة</h2>
+<p>تختلف الخيارات حسب المدينة والدورة وعمر الطالب وتاريخ البداية، ويتم تأكيد المعهد والبرنامج ضمن العرض المرسل للطالب.</p>
+</div>
+<div class="institutions-panel reveal"><h3 class="institution-subtitle">المعاهد ومزودو البرامج</h3><div class="institution-grid partner-logo-grid"><div class="institution-item institution-logo-card"><img alt="New College Group – NCG" loading="lazy" src="assets/logo-ncg.png"/></div><div class="institution-item institution-logo-card"><img alt="Anglo-Continental" loading="lazy" src="assets/logo-anglo-continental.png"/></div><div class="institution-item institution-logo-card"><img alt="Winsor Education" loading="lazy" src="assets/logo-winsor-education.png"/></div><div class="institution-item institution-logo-card"><img alt="The Essential English Centre Manchester" loading="lazy" src="assets/logo-essential-english-centre.png"/></div></div><h3 class="institution-subtitle institution-subtitle--secondary">جهات تعليمية حكومية ذات صلة</h3><div class="government-logo-grid"><div class="government-logo-card government-logo-card--wide"><img alt="UK Department for Education" loading="lazy" src="assets/logo-uk-department-for-education.png"/></div><div class="government-logo-card government-logo-card--tall"><img alt="وزارة التعليم في المملكة العربية السعودية" loading="lazy" src="assets/logo-saudi-ministry-of-education.png"/></div></div><p class="institution-note government-disclaimer">تُعرض شعارات الجهات الحكومية للتعريف بالجهات التعليمية المرجعية ذات الصلة فقط. ولا يعني ظهورها وجود شراكة تجارية أو اعتماد أو تأييد رسمي لماجان للتدريب والتعليم.</p></div>
+</div>
+</section>
+<!-- =====================================================
+         FAQ
+    ====================================================== -->
+<section class="section">
+<div class="container">
+<div class="section-heading section-heading--center reveal">
+<span class="eyebrow">الأسئلة الشائعة</span>
+<h2>إجابات سريعة قبل أن تبدأ</h2>
+</div>
+<div class="faq-list">
+<article class="faq-item reveal">
+<button aria-expanded="false" class="faq-question" type="button">
+<span>كيف أعرف الدورة المناسبة لي؟</span>
+<svg class="icon" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+</button>
+<div class="faq-answer">
+<p>نحدد هدفك ومستواك ومدة الدراسة المتاحة. الإنجليزية العامة مناسبة لتطوير اللغة بشكل شامل، بينما دورة IELTS موجهة للاستعداد للاختبار والحصول على درجة مطلوبة.</p>
+</div>
+</article>
+<article class="faq-item reveal">
+<button aria-expanded="false" class="faq-question" type="button">
+<span>هل السكن والوجبات متضمنة دائماً؟</span>
+<svg class="icon" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+</button>
+<div class="faq-answer">
+<p>لا. يعتمد ذلك على نوع الباقة والسكن والمعهد. نوضح في العرض ما إذا كان السكن والوجبات والأنشطة وأي خدمات أخرى متضمنة.</p>
+</div>
+</article>
+<article class="faq-item reveal">
+<button aria-expanded="false" class="faq-question" type="button">
+<span>هل الأسعار ثابتة لجميع الطلاب؟</span>
+<svg class="icon" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+</button>
+<div class="faq-answer">
+<p>تختلف الأسعار حسب المدينة، المعهد، عدد أسابيع الدراسة، نوع السكن، عمر الطالب، الموسم والخدمات الإضافية المطلوبة.</p>
+</div>
+</article>
+<article class="faq-item reveal">
+<button aria-expanded="false" class="faq-question" type="button">
+<span>ما البيانات المطلوبة للحصول على عرض؟</span>
+<svg class="icon" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+</button>
+<div class="faq-answer">
+<p>العمر، المدينة المطلوبة، مدة الدراسة، تاريخ البداية المتوقع، نوع السكن المفضل، والهدف من الدراسة.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         CONTACT
+    ====================================================== -->
+<section class="section section--navy" id="contact">
+<div class="container contact-layout">
+<div class="contact-copy reveal">
+<span class="eyebrow">ابدأ رحلتك</span>
+<h2>جاهز تدرس الإنجليزية في بريطانيا؟</h2>
+<p>أرسل لنا المعلومات الأساسية، وسنساعدك على معرفة الخيارات المناسبة والخطوة التالية.</p>
+<div class="detail-chips">
+<span class="detail-chip">عمر الطالب</span>
+<span class="detail-chip">المدينة المطلوبة</span>
+<span class="detail-chip">مدة الدراسة</span>
+<span class="detail-chip">تاريخ البداية</span>
+<span class="detail-chip">نوع السكن</span>
+</div>
+<a class="btn btn--whatsapp" href="https://wa.me/447920000005?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%20%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7." rel="noopener" target="_blank">
+<svg aria-hidden="true" class="icon" viewbox="0 0 24 24">
+<path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"></path>
+<path d="M8.8 8.1c.3-.7.7-.7 1-.7h.4c.1 0 .3 0 .5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.3.4-.1.7.4.8 1 1.5 1.7 2 .8.6 1.5.8 1.8.9.3.1.5 0 .7-.2l.8-1c.2-.3.5-.3.8-.2l1.8.8c.3.1.5.2.5.4.1.2.1 1-.2 1.8-.3.8-1.8 1.5-2.5 1.6-.7.1-1.6.2-3.8-.7-3.2-1.3-5.2-4.5-5.4-4.8-.2-.3-1.3-1.8-1.3-3.4 0-1.5.8-2.3 1.2-2.7Z"></path>
+</svg>
+            تواصل عبر الواتساب
+          </a>
+</div>
+<div class="contact-cards reveal">
+<a class="contact-card" href="https://wa.me/447920000005?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%20%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7." rel="noopener" target="_blank">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"></path></svg>
+</span>
+<span><small>واتساب</small><strong>+44 7920 000005</strong></span>
+</a>
+<a class="contact-card" href="tel:+9665555294399">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 3h4l2 5-3 2c1.5 3.3 3.7 5.5 7 7l2-3 5 2v4c0 1.1-.9 2-2 2C9.6 22 2 14.4 2 5c0-1.1.9-2 2-2Z"></path></svg>
+</span>
+<span><small>من داخل السعودية</small><strong>+966 555 529 4399</strong></span>
+</a>
+<a class="contact-card" href="tel:+447774198870">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><path d="M4 3h4l2 5-3 2c1.5 3.3 3.7 5.5 7 7l2-3 5 2v4c0 1.1-.9 2-2 2C9.6 22 2 14.4 2 5c0-1.1.9-2 2-2Z"></path></svg>
+</span>
+<span><small>من داخل بريطانيا</small><strong>+44 777 4198870</strong></span>
+</a>
+<a class="contact-card" href="mailto:info@majanedu.com">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m4 7 8 6 8-6"></path></svg>
+</span>
+<span><small>البريد الإلكتروني</small><strong>info@majanedu.com</strong></span>
+</a>
+<a class="contact-card" href="https://majanedu.com" rel="noopener" target="_blank">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"></path></svg>
+</span>
+<span><small>الموقع الإلكتروني</small><strong>majanedu.com</strong></span>
+</a>
+<div class="contact-card">
+<span class="icon-box">
+<svg class="icon" viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c.8-4.5 3.5-7 8-7s7.2 2.5 8 7"></path></svg>
+</span>
+<span><small>حسابات التواصل</small><strong>@majan_edu</strong></span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- =======================================================
+       FOOTER
+  ======================================================== -->
+<footer class="footer">
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand">
+<a class="brand" href="#home"><img alt="شعار ماجان للتدريب والتعليم" class="brand-logo" height="110" loading="lazy" src="assets/majan-logo.png" width="150"/></a>
+<p>دراسة اللغة الإنجليزية في بريطانيا بخيارات واضحة، سكن مناسب، ومتابعة باللغة العربية.</p>
+</div>
+<div class="footer-links">
+<h3>روابط سريعة</h3>
+<ul>
+<li><a href="#destinations">المدن</a></li>
+<li><a href="#programmes">الدورات</a></li>
+<li><a href="#accommodation">السكن</a></li>
+<li><a href="#journey">طريقة التسجيل</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h3>معلومات</h3>
+<ul>
+<li><button class="footer-link-button" data-dialog-open="privacyDialog" type="button">سياسة الخصوصية</button></li>
+<li><button class="footer-link-button" data-dialog-open="termsDialog" type="button">الشروط والتنبيهات</button></li>
+<li><a href="mailto:info@majanedu.com">info@majanedu.com</a></li>
+<li><a href="https://majanedu.com">majanedu.com</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<small>© <span id="currentYear"></span> Majan Education. جميع الحقوق محفوظة.</small>
+<div aria-label="حسابات التواصل الاجتماعي" class="social-links">
+<a aria-label="Instagram" class="social-link" href="https://www.instagram.com/majan_edu/" rel="noopener" target="_blank">
+<svg class="icon" viewbox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+</a>
+<a aria-label="TikTok" class="social-link" href="https://www.tiktok.com/@majan_edu" rel="noopener" target="_blank">
+<svg class="icon" viewbox="0 0 24 24"><path d="M14 4v10.5a4.5 4.5 0 1 1-4-4.47"></path><path d="M14 4c.5 3 2.3 4.7 5 5"></path></svg>
+</a>
+<a aria-label="X" class="social-link" href="https://x.com/majan_edu" rel="noopener" target="_blank">
+<svg class="icon" viewbox="0 0 24 24"><path d="m5 4 14 16M19 4 5 20"></path></svg>
+</a>
+<a aria-label="Snapchat" class="social-link" href="https://www.snapchat.com/add/majan_edu" rel="noopener" target="_blank">
+<svg class="icon" viewbox="0 0 24 24"><path d="M9 7a3 3 0 0 1 6 0v3c.7.8 1.4 1.2 2.5 1.5-.2 1.2-1 1.7-2.1 1.9.1 1.7 1.3 2.6 2.6 3-1 .9-2.2 1.1-3.3.8-.8 1.2-1.7 1.8-2.7 1.8s-1.9-.6-2.7-1.8c-1.1.3-2.3.1-3.3-.8 1.3-.4 2.5-1.3 2.6-3-1.1-.2-1.9-.7-2.1-1.9C7.6 11.2 8.3 10.8 9 10V7Z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp CTA -->
+<a aria-label="تواصل مع ماجان عبر الواتساب" class="floating-whatsapp" href="https://wa.me/447920000005?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%20%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7." rel="noopener" target="_blank">
+<svg aria-hidden="true" class="icon" viewbox="0 0 24 24">
+<path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"></path>
+<path d="M8.8 8.1c.3-.7.7-.7 1-.7h.4c.1 0 .3 0 .5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.3.4-.1.7.4.8 1 1.5 1.7 2 .8.6 1.5.8 1.8.9.3.1.5 0 .7-.2l.8-1c.2-.3.5-.3.8-.2l1.8.8c.3.1.5.2.5.4.1.2.1 1-.2 1.8-.3.8-1.8 1.5-2.5 1.6-.7.1-1.6.2-3.8-.7-3.2-1.3-5.2-4.5-5.4-4.8-.2-.3-1.3-1.8-1.3-3.4 0-1.5.8-2.3 1.2-2.7Z"></path>
+</svg>
+<span>تواصل عبر الواتساب</span>
+</a>
+<!-- =======================================================
+       PRIVACY DIALOG
+  ======================================================== -->
+<dialog id="privacyDialog">
+<div class="dialog-header">
+<h2>سياسة الخصوصية</h2>
+<button aria-label="إغلاق" class="dialog-close" data-dialog-close="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h3>البيانات التي ترسلها</h3>
+<p>عند التواصل معنا قد تزودنا ببيانات مثل الاسم، العمر، رقم التواصل، المدينة المطلوبة، مدة الدراسة والمعلومات اللازمة للحصول على عرض مناسب.</p>
+<h3>استخدام البيانات</h3>
+<p>تُستخدم البيانات للرد على الاستفسارات، إعداد الخيارات والأسعار، ومتابعة طلب التسجيل. قد تُشارك البيانات الضرورية مع المعهد أو مزود السكن بعد موافقتك ولغرض تنفيذ الخدمة.</p>
+<h3>التواصل والحذف</h3>
+<p>يمكنك طلب تحديث بياناتك أو حذفها عن طريق التواصل على info@majanedu.com. لا ترسل مستندات حساسة إلا عند طلبها من خلال قناة تواصل موثوقة.</p>
+</div>
+</dialog>
+<!-- =======================================================
+       TERMS DIALOG
+  ======================================================== -->
+<dialog id="termsDialog">
+<div class="dialog-header">
+<h2>الشروط والتنبيهات</h2>
+<button aria-label="إغلاق" class="dialog-close" data-dialog-close="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h3>التوفر والأسعار</h3>
+<p>جميع البرامج والسكن والخدمات تخضع للتوفر. الأسعار النهائية تُحدد في العرض المرسل للطالب وقد تختلف حسب التاريخ، الموسم، العمر، المدينة والمعهد.</p>
+<h3>التأشيرة والسفر</h3>
+<p>المساعدة في إجراءات التأشيرة لا تعني ضمان إصدارها. قرار التأشيرة يصدر من الجهة الحكومية المختصة، كما يتحمل المسافر مسؤولية صحة مستنداته والالتزام بمتطلبات السفر.</p>
+<h3>الخدمات المتضمنة</h3>
+<p>لا تُعد أي خدمة متضمنة ما لم تكن مذكورة بوضوح في العرض أو الفاتورة. يتم توضيح سياسة الدفع والإلغاء والاسترداد قبل تأكيد الحجز.</p>
+</div>
+</dialog>
+<script>
+    // Header and mobile navigation
+    const siteHeader = document.getElementById("siteHeader");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const navAnchors = [...document.querySelectorAll(".nav-links a")];
 
-  <!-- HEADER -->
-  <header>
-    <div class="container navbar">
-      <div class="logo-wrap">
-        <img src="LOGO.jpg" alt="Majan Logo">
-        <div class="logo-text">
-          <h1>مكتب ماجان للتدريب والتعليم</h1>
-          <p>Majan Training & Education</p>
-        </div>
-      </div>
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      document.body.classList.remove("nav-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.innerHTML = `
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>`;
+    }
 
-      <nav>
-        <ul>
-          <li><a href="#home">الرئيسية</a></li>
-          <li><a href="#about">من نحن</a></li>
-          <li><a href="#services">خدماتنا</a></li>
-          <li><a href="#universities">الجامعات</a></li>
-          <li><a href="#partners">شركاؤنا</a></li>
-          <li><a href="#contact">تواصل معنا</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      document.body.classList.toggle("nav-open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.innerHTML = open
+        ? `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>`
+        : `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>`;
+    });
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="container hero-content">
-      <img src="LOGO.jpg" alt="Majan Logo" class="hero-logo">
+    navAnchors.forEach((link) => link.addEventListener("click", closeMenu));
 
-      <h2>ابدأ رحلتك التعليمية بثقة مع ماجان</h2>
-      <p>
-        نساعدك في الوصول إلى أفضل الجامعات والمعاهد وبرامج اللغة في بريطانيا،
-        مع دعم كامل في التقديم، القبول، الاستشارات الأكاديمية، واختيار المسار الأنسب لك.
-      </p>
+    // Header background on scroll
+    function updateHeader() {
+      siteHeader.classList.toggle("scrolled", window.scrollY > 20);
+    }
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    updateHeader();
 
-      <div class="hero-buttons">
-        <a href="https://wa.me/447774198870" target="_blank" class="btn btn-primary">تواصل عبر الواتساب</a>
-        <a href="#services" class="btn btn-secondary">استكشف خدماتنا</a>
-      </div>
-    </div>
-  </section>
+    // Reveal animations
+    const revealItems = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">من نحن</h2>
-      <p class="section-subtitle">
-        مكتب ماجان للتدريب والتعليم هو جهة متخصصة في الإرشاد الأكاديمي والتقديم للجامعات والمعاهد
-        وبرامج اللغة في المملكة المتحدة.
-      </p>
+    revealItems.forEach((item) => revealObserver.observe(item));
 
-      <div class="about-box">
-        <p>
-          نؤمن أن كل طالب يستحق فرصة تعليمية مناسبة لطموحه ومستقبله.
-          لذلك نعمل على تقديم استشارات احترافية ومتابعة دقيقة للطلاب والطالبات الراغبين في الدراسة بالخارج،
-          مع التركيز على الجودة، الموثوقية، وسهولة الإجراءات.
-          <br><br>
-          نساعدك من أول خطوة حتى القبول النهائي، سواء كنت تبحث عن دراسة لغة إنجليزية،
-          بكالوريوس، ماجستير، دكتوراه، أو برامج تدريبية متخصصة.
-        </p>
-      </div>
-    </div>
-  </section>
+    // Active navigation link
+    const sections = [...document.querySelectorAll("main section[id]")];
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === `#${entry.target.id}`
+            );
+          });
+        }
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">خدماتنا</h2>
-      <p class="section-subtitle">
-        نقدم لك مجموعة متكاملة من الخدمات التعليمية والاستشارية لتسهيل رحلتك الدراسية.
-      </p>
+    sections.forEach((section) => sectionObserver.observe(section));
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="icon">🎓</div>
-          <h3>التقديم للجامعات</h3>
-          <p>مساعدتك في اختيار الجامعة المناسبة والتقديم على برامج البكالوريوس، الماجستير، والدكتوراه.</p>
-        </div>
+    // FAQ accordion
+    document.querySelectorAll(".faq-question").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        const answer = item.querySelector(".faq-answer");
+        const isOpen = item.classList.toggle("open");
 
-        <div class="service-card">
-          <div class="icon">📘</div>
-          <h3>برامج اللغة الإنجليزية</h3>
-          <p>التسجيل في أفضل معاهد اللغة في بريطانيا مع خيارات متعددة تناسب أهدافك وميزانيتك.</p>
-        </div>
+        button.setAttribute("aria-expanded", String(isOpen));
+        answer.style.maxHeight = isOpen ? `${answer.scrollHeight}px` : "0px";
+      });
+    });
 
-        <div class="service-card">
-          <div class="icon">📝</div>
-          <h3>الاستشارات الأكاديمية</h3>
-          <p>توجيه أكاديمي واضح يساعدك على اختيار التخصص والمسار الدراسي المناسب لمستقبلك.</p>
-        </div>
+    // Privacy and terms dialogs
+    document.querySelectorAll("[data-dialog-open]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const dialog = document.getElementById(button.dataset.dialogOpen);
+        if (dialog && typeof dialog.showModal === "function") {
+          dialog.showModal();
+        }
+      });
+    });
 
-        <div class="service-card">
-          <div class="icon">🏠</div>
-          <h3>السكن والاستقبال</h3>
-          <p>مساعدة في ترتيب السكن العائلي أو الطلابي وبعض الترتيبات الأساسية قبل السفر.</p>
-        </div>
+    document.querySelectorAll("[data-dialog-close]").forEach((button) => {
+      button.addEventListener("click", () => button.closest("dialog").close());
+    });
 
-        <div class="service-card">
-          <div class="icon">✈️</div>
-          <h3>التجهيز قبل السفر</h3>
-          <p>إرشاد كامل لما تحتاجه قبل السفر من تجهيزات، نصائح، وترتيبات أولية للدراسة في الخارج.</p>
-        </div>
+    document.querySelectorAll("dialog").forEach((dialog) => {
+      dialog.addEventListener("click", (event) => {
+        const rect = dialog.getBoundingClientRect();
+        const inside =
+          event.clientX >= rect.left &&
+          event.clientX <= rect.right &&
+          event.clientY >= rect.top &&
+          event.clientY <= rect.bottom;
+        if (!inside) dialog.close();
+      });
+    });
 
-        <div class="service-card">
-          <div class="icon">🤝</div>
-          <h3>متابعة مستمرة</h3>
-          <p>نرافقك خلال رحلتك التعليمية ونوفر لك الدعم والاستشارة عند الحاجة.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UNIVERSITIES -->
-  <section class="logo-section" id="universities">
-    <div class="container">
-      <h2 class="section-title">جامعات نساعدك في التقديم لها</h2>
-      <p class="section-subtitle">
-        نماذج من الجامعات البريطانية التي يهتم بها الكثير من طلابنا.
-      </p>
-
-      <div class="logo-grid">
-        <div class="logo-card"><img src="65646dbd542e223348a87c3f_UCL_logo.png" alt="UCL"></div>
-        <div class="logo-card"><img src="195-1957960_imperial-college-london-logo-vector.png.jpeg" alt="Imperial College London"></div>
-        <div class="logo-card"><img src="London_school_of_economics_logo_with_name.svg.png" alt="LSE"></div>
-        <div class="logo-card"><img src="oxford-university-logo.jpg" alt="Oxford University"></div>
-        <div class="logo-card"><img src="the-university-of-warwick-logo-2015.jpg" alt="University of Warwick"></div>
-        <div class="logo-card"><img src="20241011144033_file_KKCC.png" alt="King's College"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARTNERS -->
-  <section id="partners">
-    <div class="container">
-      <h2 class="section-title">شركاؤنا في معاهد اللغة</h2>
-      <p class="section-subtitle">
-        نتعامل مع معاهد موثوقة لتقديم برامج لغة إنجليزية عالية الجودة للطلاب.
-      </p>
-
-      <div class="logo-grid">
-        <div class="logo-card"><img src="Anglo-Continental-logo-RGB.png" alt="Anglo Continental"></div>
-        <div class="logo-card"><img src="cardiff-academy.png" alt="Cardiff Academy"></div>
-        <div class="logo-card"><img src="the-essential-english-centre-logo.png" alt="The Essential English Centre"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section>
-    <div class="container">
-      <div class="cta">
-        <h2>جاهز تبدأ رحلتك الدراسية؟</h2>
-        <p>
-          تواصل معنا الآن وسنساعدك في اختيار أفضل خيار دراسي لك خطوة بخطوة.
-        </p>
-        <a href="https://wa.me/447774198870" target="_blank" class="btn btn-primary">راسلنا مباشرة عبر الواتساب</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">تواصل معنا</h2>
-      <p class="section-subtitle">
-        يسعدنا الرد على استفساراتك ومساعدتك في أي وقت.
-      </p>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>واتساب</h3>
-          <a href="https://wa.me/447774198870" target="_blank">+44 7774 198870</a>
-        </div>
-
-        <div class="contact-card">
-          <h3>البريد الإلكتروني</h3>
-          <a href="mailto:partnerships@majanedu.com">partnerships@majanedu.com</a>
-        </div>
-
-        <div class="contact-card">
-          <h3>الموقع الإلكتروني</h3>
-          <a href="https://majanedu.com" target="_blank">www.majanedu.com</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 مكتب ماجان للتدريب والتعليم - جميع الحقوق محفوظة
-  </footer>
-
+    // Dynamic copyright year
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
